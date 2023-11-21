@@ -11,7 +11,7 @@ nav{
   font-size: 18px;
   font-family: 'Lato', sans-serif;
   font-family: 'Nunito Sans', sans-serif;
-  background-image: linear-gradient(to right, rgba(255, 0, 0, 0.808) , rgba(255, 255, 0, 0.74));
+  background-image: linear-gradient(to right, rgba(255, 0, 0, 0.808), rgba(255, 255, 0, 0.74));
 }
 
 .navbar-nav .material-symbols-outlined{
@@ -23,10 +23,24 @@ nav{
   letter-spacing: 5px;
   font-family: 'Roboto Serif', serif;
   font-weight: 900;
+  color: orange;
+}
+
+.navbar h6{
+  letter-spacing: 1px;
+  font-family: 'Roboto Serif', serif;
+  color: orange;
 }
 
 .navbar a{
   color: rgb(0, 0, 0);
+}
+
+
+.carousel-inner{
+  height: 500px;
+  width: 80%;
+  margin: auto;
 }
 
 p{
@@ -35,6 +49,7 @@ p{
 
 a{
   text-decoration: none;
+  color: white;
 }
 
 #event-card{
