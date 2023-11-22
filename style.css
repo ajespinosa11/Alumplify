@@ -1,0 +1,139 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#Home{
+  background-image:radial-gradient(rgb(15, 59, 15),black );
+}
+
+nav{
+  font-size: 18px;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
+  background-image: linear-gradient(to right, rgba(255, 0, 0, 0.808), rgba(255, 255, 0, 0.74));
+}
+
+.navbar-nav .material-symbols-outlined{
+  font-size: 60px;
+  margin-top: -17px;
+}
+
+.navbar h2{
+  letter-spacing: 5px;
+  font-family: 'Roboto Serif', serif;
+  font-weight: 900;
+  color: orange;
+}
+
+.navbar h6{
+  letter-spacing: 1px;
+  font-family: 'Roboto Serif', serif;
+  color: orange;
+}
+
+.navbar a{
+  color: rgb(0, 0, 0);
+}
+
+
+.carousel-inner{
+  height: 500px;
+  width: 80%;
+  margin: auto;
+}
+
+p{
+  font-family: 'Abhaya Libre', serif;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+#event-card{
+  color: black;
+  background-color: bisque;
+}
+
+.card-text{
+  font-size: 15px;
+}
+
+.list-group .material-symbols-outlined{
+  vertical-align: center;
+  padding-right: 8px;
+
+}
+
+#event-list{
+  font-size: 25px;
+  background-color: transparent;
+}
+
+.background-footer{
+  height: 35vh;
+  filter: blur(8px);
+  -webkit-filter: blur(4px);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background: linear-gradient(rgba(0, 0, 0, 0.384), rgba(0, 0, 0, 0.753)), url("resources/Navbar.jpg");
+}
+
+#footer-text{
+  position: absolute;
+  width: 95%;
+  margin-top: -15%;
+}
+
+#footerh3{
+  color:rgb(29, 214, 29); 
+  font-family: 'Roboto Serif', serif; 
+  letter-spacing: 5px;
+
+}
+
+.fa-user-circle{
+  font-size: 50px;
+}
+
+.fa-user-circle:hover{
+  text-decoration: none;
+}
+
+.fa-facebook-official{
+  padding: 20px;
+  font-size: 17px;
+  width: 55px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+  background: #3B5998;
+  color: white;
+}
+
+.fa-envelope{
+  padding: 20px;
+  font-size: 15px;
+  width: 55px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+  color: rgb(0, 0, 0);
+  background: yellow;
+}
+
+.fa-phone-square{
+  padding: 20px;
+  font-size: 15px;
+  width: 55px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+  color: rgb(0, 0, 0);
+  background: rgb(255, 0, 0);
+}
