@@ -7,6 +7,10 @@ const alumniResult = new Schema ({
         type: mongoose.Schema.Types.ObjectId,
         require: true
     },
+    Alumni_ID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Alumni'
+    },
     Is_Phase1: {
         require: true,
         type: Boolean

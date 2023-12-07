@@ -12,11 +12,6 @@ const alumni = new Schema ({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Coordinator'
     },
-    Result_ID: {
-        require: true,
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Result'
-    },
     FirstName: {
         require: true,
         type: String
@@ -42,10 +37,6 @@ const alumni = new Schema ({
         type: Date
     },
     Sex: {
-        require: true,
-        type: String
-    },
-    Course: {
         require: true,
         type: String
     },
