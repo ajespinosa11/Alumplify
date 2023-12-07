@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const routesAlum = require('./routes/alumniRoutes');
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -12,7 +13,16 @@ app.use((req, res, next) => {
     next();
 })
 
+//Routes
+app.use('/api/contents/', routesAlum);
 
-app.listen(process.env.PORT, () => {
-    console.log('Connected to DB & listening on port ', process.env.PORT);
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+    //listen request
+    app.listen(process.env.PORT, () => {
+        console.log("Connecting and listening to PORT: ", process.env.PORT)
+    });
+})
+.catch((error) => {
+    console.log(error);
 })
