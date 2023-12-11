@@ -1,5 +1,6 @@
 const alumniModel = require('../model/Alumni');
-
+const coordinatorModel = require('../model/Coordinator')
+const resultModel = require('../model/Result');
 
 const mongoose = require('mongoose') 
 
@@ -29,15 +30,37 @@ const getSingleAlumni = async (req,res) => {
 
 //Create Alumni
 const postAlumni = async (req, res) => {
-    const {FirstName, MiddleName, LastName, TUP_ID, Course,
-         DOB, Sex, Email, YearGrad} = req.body;
-    
+    //Alumni model
+    const {Coordinator_ID, FirstName, MiddleName, LastName, TUP_ID, Course,
+         DOB, Sex, Email, YearGrad} = req.body; 
+
+    //Rwesult model
+    const {Alumni_ID, Is_Phase1, DatePhase1, Is_Phase2, DatePhase2} = req.body
+    let coordId
     try {
-        const alumnni = await alumniModel.create({FirstName, MiddleName, LastName, 
-            TUP_ID, Course, DOB, Sex, Email, YearGrad})
-    }catch(error){
+
+            //Get Id value from the Coordinator model
+            const coordinator = await coordinatorModel.find({})
+                .then(getCoord => {
+                    if(getCoord.length > 0){
+                        coordId = getCoord[0]._id;
+                    }
+                }).catch(err =>{
+                    console.log(err);
+                });
+            const getId = await coordinatorModel.findOne({ _id: coordId})
+            //Create  data with foreign key (Coordinator_ID)
+            const alumni = await alumniModel.create({Coordinator_ID: getId._id, FirstName, MiddleName, LastName, 
+                TUP_ID, Course, DOB, Sex, Email, YearGrad})
+
+            const result = await resultModel.create({Alumni_ID: alumni._id, Is_Phase1: false, DatePhase1, 
+            Is_Phase2: false, DatePhase2})
+            
+            res.status(200).json(alumni)
+        }catch(error){
         return res.status(400).json({error: error.message})
     }
+
 }
 
 //Delete Alumni

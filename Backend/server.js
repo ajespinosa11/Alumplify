@@ -17,12 +17,12 @@ app.use((req, res, next) => {
 app.use('/api/contents/', routesAlum);
 
 mongoose.connect(process.env.MONGO_URI)
-.then(() => {
-    //listen request
-    app.listen(process.env.PORT, () => {
-        console.log("Connecting and listening to PORT: ", process.env.PORT)
-    });
-})
-.catch((error) => {
-    console.log(error);
-})
+    .then(() => {
+        //listen request
+        app.listen(process.env.PORT, () => {
+            console.log("Connecting and listening to PORT: ", process.env.PORT)
+        });
+    })
+    .catch((error) => {
+        console.log(error);
+    })

@@ -3,10 +3,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const alumniResult = new Schema ({
-    Response_ID:{
-        type: mongoose.Schema.Types.ObjectId,
-        require: true
-    },
     Alumni_ID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Alumni'

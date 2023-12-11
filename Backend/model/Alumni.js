@@ -3,10 +3,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const alumni = new Schema ({
-    Alumni_ID:{
-        type: mongoose.Schema.Types.ObjectId,
-        require: true
-    },
+    //1-to-1 relationship
     Coordinator_ID: {
         require: true,
         type: mongoose.Schema.Types.ObjectId,

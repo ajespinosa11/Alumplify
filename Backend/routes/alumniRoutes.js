@@ -1,20 +1,52 @@
 const express = require('express');
 
+const {
+    getAlumni,
+    getSingleAlumni,
+    postAlumni,
+    delAlumni,
+    updAlumni
+} = require('../controller/alumniController')
+
+const {
+    singleResponse,
+    addResponse,
+    deleteResponse,
+    updateResponse,
+    allResponse
+} = require('../controller/responseController')
+
+const {
+    getAllEvent,
+    getSingleEvent,
+    postEvent,
+    updEvent,
+    delEvent,
+    getAllStory,
+    getSingleStory,
+    postStory,
+    updStory,
+    delStory
+} = require('../controller/eventController')
+
 const router = express.Router();
 
 //Alumni
 
 //Get all alumni
-router.get('/alumni/');
+router.get('/alumni/', getAlumni);
 
 //Get all single alumni profile
-router.get('/alumni/:id');
+router.get('/alumni/:id', getSingleAlumni);
 
 //Post all alumni
-router.post('/alumni/');
+router.post('/alumni/', postAlumni);
 
-//Get all single Abstract
-router.patch('/alumni/:id');
+//Get editg alumni
+router.patch('/alumni/:id', updAlumni);
+
+//delete alumni
+router.delete('/alumni/id', delAlumni)
 
 
 //Events
@@ -67,3 +99,25 @@ router.patch('/abstract/:id');
 
 //Get all single Abstract
 router.delete('/abstract/:id');
+
+//Response
+
+//Get all Response
+router.get('/response/', allResponse);
+
+//Post single Response
+router.post('/response/', addResponse);
+
+//Get single Response
+router.get('/response/:id', singleResponse);
+
+//Get all single Response
+router.patch('/response/:id', updateResponse);
+
+//Get all single Response
+router.delete('/response/:id', deleteResponse);
+
+//Result
+
+
+module.exports = router
