@@ -27,7 +27,15 @@ const {
     postStory,
     updStory,
     delStory
-} = require('../controller/eventController')
+} = require('../controller/eventController');
+
+const {
+    allBoa,
+    singleBoa,
+    addBOA,
+    updBoa,
+    delBoa
+} = require('../controller/boaController')
 
 const router = express.Router();
 
@@ -52,53 +60,53 @@ router.delete('/alumni/id', delAlumni)
 //Events
 
 //Get all events
-router.get('/events/');
+router.get('/events/', getAllEvent);
 
 //Post single events
-router.post('/events/');
+router.post('/events/', postEvent);
 
 //Get all single events
-router.get('/events/:id');
+router.get('/events/:id', getSingleEvent);
 
 //Get all single events
-router.patch('/events/:id');
+router.patch('/events/:id', updEvent);
 
 //Get all single events
-router.delete('/events/:id');
+router.delete('/events/:id', delEvent);
 
 //Stories
 
 //Get all Stories
-router.get('/stories/');
+router.get('/stories/', getAllStory);
 
 //Post single Stories
-router.post('/stories/');
+router.post('/stories/', postStory);
 
 //Get all single Stories
-router.get('/stories/:id');
+router.get('/stories/:id', getSingleStory);
 
 //Get all single Stories
-router.patch('/stories/:id');
+router.patch('/stories/:id', updStory);
 
 //Get all single Stories
-router.delete('/stories/:id');
+router.delete('/stories/:id', delStory);
 
 //Book of Abstract
 
 //Get all Abstract
-router.get('/abstract/');
+router.get('/abstract/', allBoa);
 
 //Post single Abstract
-router.post('/abstract/');
+router.post('/abstract/', addBOA);
 
 //Get all single Abstract
-router.get('/abstract/:id');
+router.get('/abstract/:id', singleBoa);
 
 //Get all single Abstract
-router.patch('/abstract/:id');
+router.patch('/abstract/:id', updBoa);
 
 //Get all single Abstract
-router.delete('/abstract/:id');
+router.delete('/abstract/:id', delBoa);
 
 //Response
 
