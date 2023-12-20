@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&family=Roboto+Serif:opsz,wght@8..144,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web&family=Nunito:wght@200&family=Roboto+Serif:opsz,wght@8..144,600&display=swap');
+
+$primary: rgb(30,30,30); 
+
+@import '~bootstrap/scss/bootstrap';
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+Body {
+  height: 100vh;
+  background-color: rgb(30,30,30); 
+  font-family: 'Istok Web', sans-serif;
+}
+
+.bgNav {
+  object-fit: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgb(30, 30, 31)), url("./Assets/jpg/navbarBg.jpg");
+  background-size: cover;
+  background-position: 40% 50%;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  gap: 100px;
+}
+
+/* Repeated style  */
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: Column;
+}
+
+/* Navbar  */
+
+.cosTextPic {
+ gap: 40px;
+}
+
+.cosPic{
+  width: auto;
+  height: 180px;
+}
+
+.cosText{
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-family: 'Roboto Serif', serif;
+    color: #BF9745;
+    font-size: 40px;
+  }
+
+  p {
+    color: #F4F4F3;
+    font-size: 15px;
+    font-style: italic;
+  }
+}
+
+.navBar{
+  width: 100%;
+  max-width: 700px;
+}
+
+.Links {
+  gap: 20px;
+
+  a {
+    text-decoration: none;
+    color: #F4F4F3;
+    font-family: 'Nunito', sans-serif; // Use a comma-separated list for multiple font families
+  }
+
+  a:hover {
+    border-bottom: 1px solid #F4F4F3;
+    margin-bottom: -1px;
+  }
+}
+
+/* Announcement Event */
+
+.EventBorder{
+ justify-content: start;
+ align-items: center;
+ gap: 60px;
+}
+
+.evenUpperText{
+  width: 100%;
+  max-width: 1250px; 
+  color: #FBCD6E;
+  font-size: 30px;
+  
+}
+
+.contentBorder {
+  width: 100%;
+  max-width: 1050px; 
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.eventContent {
+ background-color: #FBCD6E;
+ align-items: center;
+  justify-content: center;
+  height: 100%px;
+  max-height: 500px;
+  gap: 10px
+}
+
+.monthEvent {
+  background-color: #FF0606;
+  border-radius: 10px 10px 0 0 ;
+  font-size: 17px;
+  width: 90px;
+  height: 30px;
+  color: #F4F4F3;
+  text-align: center;
+  letter-spacing: 5px;
+  font-weight: 500;
+}
+
+.dayEvent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F4F4F3;
+  border-radius: 0 0 10px 10px;
+  font-size: 35px;
+  height: 50px;
+  max-height: 100%;
+  width: 100%;
+  max-width: 90px;
+  color: rgb(30,30,30);
+  text-align: center;
+  letter-spacing: 5px;
+  font-weight: 500;
+}
+
+.titleEvent{
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.eventIn{
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.calendar {
+  width: 90px;
+}
+
+.EventTitleText{
+  width: 900px;
+  p {
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 20px;
+  }
+}
+
+.eventDescription {
+  gap: 0;
+  text-align: left;
+  width: 100%;
+  max-width: 350px;
+  
+  p {
+    margin-bottom: 0;
+    line-height: 15px;
+  }
+}
+
+.seeMore {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btnLM {
+  background-color: rgb(30,30,30); 
+  border: #BF9745 solid 1px;
+  color: #bf9745;
+  font-size: 20px;
+  width: 180px;
+  border-radius: 10px;
+}
