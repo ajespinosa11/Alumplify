@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&family=Roboto+Serif:opsz,wght@8..144,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Roboto+Serif:opsz,wght@8..144,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Istok+Web&family=Nunito:wght@200&family=Roboto+Serif:opsz,wght@8..144,600&display=swap');
 
 $primary: rgb(30,30,30); 
+$brandColor1: #bf9745;
+$bgColor: #1e1e1e;
+$textWhite : #F4F4F3;
 
 @import '~bootstrap/scss/bootstrap';
 
@@ -15,7 +18,7 @@ $primary: rgb(30,30,30);
 
 Body {
   height: 100vh;
-  background-color: rgb(30,30,30); 
+  background-color: $bgColor; 
   font-family: 'Istok Web', sans-serif;
 }
 
@@ -26,7 +29,7 @@ Body {
   background-position: 40% 50%;
   justify-content: center;
   align-items: center;
-  height: 250px;
+  height: 200px;
   gap: 100px;
 }
 
@@ -44,25 +47,28 @@ Body {
 /* Navbar  */
 
 .cosTextPic {
- gap: 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .cosPic{
-  width: auto;
-  height: 180px;
+  width: 150px;
+  height: 130px;
 }
 
 .cosText{
   justify-content: center;
   align-items: center;
+  width: 350px;
   h1 {
     font-family: 'Roboto Serif', serif;
-    color: #BF9745;
-    font-size: 40px;
+    color: $brandColor1;
+    font-size: 30px;
   }
 
   p {
-    color: #F4F4F3;
+    color: $textWhite;
     font-size: 15px;
     font-style: italic;
   }
@@ -78,16 +84,20 @@ Body {
 
   a {
     text-decoration: none;
-    color: #F4F4F3;
+    color: $textWhite;
     font-family: 'Nunito', sans-serif; // Use a comma-separated list for multiple font families
+    font-weight: bold;
+    margin-bottom: -1px;
   }
 
   a:hover {
-    border-bottom: 1px solid #F4F4F3;
-    margin-bottom: -1px;
+    border-bottom: 1px solid $brandColor1;
   }
 }
 
+.selStyle {
+  border-bottom: 1px solid $brandColor1;
+}
 /* Announcement Event */
 
 .EventBorder{
@@ -99,14 +109,19 @@ Body {
 .evenUpperText{
   width: 100%;
   max-width: 1250px; 
-  color: #FBCD6E;
+  color: $brandColor1;
   font-size: 30px;
   
 }
 
+.gridAnnContain{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
 .contentBorder {
   width: 100%;
-  max-width: 1050px; 
+  max-width: 1200px; 
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -118,7 +133,7 @@ Body {
   justify-content: center;
   height: 100%px;
   max-height: 500px;
-  gap: 10px
+  gap: 10px;
 }
 
 .monthEvent {
@@ -127,7 +142,7 @@ Body {
   font-size: 17px;
   width: 90px;
   height: 30px;
-  color: #F4F4F3;
+  color: $textWhite;
   text-align: center;
   letter-spacing: 5px;
   font-weight: 500;
@@ -137,14 +152,14 @@ Body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F4F4F3;
+  background-color: $textWhite;
   border-radius: 0 0 10px 10px;
   font-size: 35px;
   height: 50px;
   max-height: 100%;
   width: 100%;
   max-width: 90px;
-  color: rgb(30,30,30);
+  color: $bgColor;
   text-align: center;
   letter-spacing: 5px;
   font-weight: 500;
@@ -153,7 +168,7 @@ Body {
 .titleEvent{
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 10px;
   width: 100%;
   max-width: 350px;
 }
@@ -163,7 +178,7 @@ Body {
   align-items: center;
   gap: 10px;
   width: 100%;
-  max-width: 350px;
+  max-width: 320px;
 }
 
 .calendar {
@@ -171,7 +186,7 @@ Body {
 }
 
 .EventTitleText{
-  width: 900px;
+  width: 1000px;
   p {
     font-size: 15px;
     font-weight: bold;
@@ -203,10 +218,149 @@ Body {
 }
 
 .btnLM {
-  background-color: rgb(30,30,30); 
-  border: #BF9745 solid 1px;
-  color: #bf9745;
+  background-color: $bgColor; 
+  border: $brandColor1 solid 1px;
+  color: $brandColor1;
   font-size: 20px;
   width: 180px;
   border-radius: 10px;
+}
+
+// Book of Abstract
+
+.searchPart {
+  background-color: $bgColor; 
+  border: $textWhite solid 1px;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 1100px;
+  gap: 5px;
+}
+
+.searchInp {
+  border-right: 1px solid $textWhite;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  gap: 10px;
+  span{
+    color: $brandColor1;
+    user-select: none;
+    font-size: 40px;
+  }
+
+  input{
+    background: none;
+    border: none;
+    color: $brandColor1;
+    padding-right: 10px;
+  }
+  input:focus{
+    outline: none;
+  } 
+}
+
+.filtBord{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.filtTag {
+  justify-content: center;
+  align-items: center;
+  width: 750px;
+  height: 40px;
+  gap: 40px;
+  font-family: 'Istok Web', sans-serif;
+  span {
+    list-style-type: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-align: center;
+    width: 60px;
+  }
+  span:hover {
+    border-bottom: 1px solid $brandColor1;
+    margin-bottom: -1px;
+  }
+}
+
+.selectYear{
+  border-left: 1px solid $textWhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+
+  select{
+    color: #ffffff8b;
+    background-color: $bgColor;
+    border: none;
+    font-size: 17px;
+    text-align: center;
+
+  }
+  select:focus{
+    outline: none;
+  }
+}
+
+
+
+.BOAborder {
+  justify-content: center;
+  align-items: center;
+  color:$textWhite;
+  gap: 40px
+}
+
+.abstractBorder {
+  width: 100%;
+  max-width: 1200px;
+  gap: 50px
+}
+
+.plusIconBoa span, .dlIconBoa span{
+  color: $brandColor1;
+  user-select: none;
+  cursor: pointer;
+  font-size: 60px;
+}
+
+.abstractContBord {
+  display: flex;;
+  justify-content: center;
+  align-items: center;
+  border: $textWhite solid 1px;
+  background-color: $bgColor; 
+  border-radius: 30px;
+  height: 350px;
+}
+
+.abstractCont{
+  justify-content: center;
+  align-items: center;
+  width: 93%;
+  max-width: 1100px;
+}
+
+.upperBoaCont{
+  gap: 60px
+}
+
+.abstGridContainer {
+  display: grid;
+  grid-template-areas: 
+    'add titleAbst titleAbst'
+  ;
+}
+
+.bottomBoaCont{
+  display: none;
+  gap: 60px;
 }

@@ -11,7 +11,7 @@ const AnnEvent = () => {
       contentDisp.push(
       <div key={i} className='flexColumn eventContent'>
         <div >
-            <img src={ContentPic} style = {{width: "400px", height: "250px",objectFit: "cover"}}></img>
+            <img src={ContentPic} style = {{width: "380px", height: "250px",objectFit: "cover"}}></img>
         </div>
         <div className='flexColumn eventIn'>
           <div className = 'flexRow titleEvent'>
@@ -45,7 +45,7 @@ const AnnEvent = () => {
       <div className='evenUpperText'>
         <h2>Upcoming Events</h2>
       </div>
-      <div className='contentBorder flexRow'>
+      <div className='contentBorder flexRow gridAnnContain'>
         {< DisplayEvent/>}
       </div>
       <div>

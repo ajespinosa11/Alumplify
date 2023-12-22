@@ -1,9 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import cosLogo from '../Assets/png/cosLogo.png'
 
 
-const HeaderNavbar = () => {
+const HeaderNavbar = (nameCat, selCat) => {
+  const [topName, setTopName] = useState('COS | ALUMNI')
+  const [arrSel, setArrSel] = useState([null, null, null, null, null, null, null])
+  
+  const selStyle = {
+    borderBottom: "1px #F4F4F3 solid",
+  }
+
+  const clickTopBar = (nameCat, selCat) => {
+    setTopName(nameCat)
+    if(selCat === 'Home'){
+      setArrSel([true, false, false, false, false, false, false])
+    }
+    else if(selCat === 'About'){
+      setArrSel([false, true, false, false, false, false, false])
+    }
+    else if(selCat === 'Gallery'){
+      setArrSel([false, false, true, false, false, false, false])
+    }
+    else if(selCat === 'AnnEvent'){
+      setArrSel([false, false, false, true, false, false, false])
+    }else if(selCat === 'OnlService'){
+      setArrSel([false, false, false, false, true, false, false])
+    }
+  }
+
   return (
     <div className='bgNav flexRow'>
       <div className='flexRow cosTextPic'>
@@ -15,30 +40,47 @@ const HeaderNavbar = () => {
               }}></img>
         </div>
         <div className='flexColumn cosText'>
-          <h1>COS | ALUMNI</h1>
+          <h1>{topName}</h1>
           <p>Technological University of the Philippines</p>
         </div>
       </div>
       <div className='navBar'>
-      {/* <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Nav className="me-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/BOA">Link</Nav.Link>
-        </Nav>
-    
-      </Container>
-    </Navbar> */}
-        
         <nav >
           <div className='Links flexRow'>
-              <Link to='/'>Home</Link>
-              <Link to='/About'>About</Link>
-              <Link to='/Gallery'>Gallery</Link>
-              <Link to='/AnnEvent'>Announcement</Link>
-              <Link to='/OnlServ'>Online Services</Link>
+              <Link to='/' 
+              className={arrSel[0] ? 'selStyle' : ''}
+              onClick={(e) => clickTopBar(nameCat = 'COS | ALUMNI',
+                                          selCat = 'Home') }>
+                Home
+              </Link>
+              <Link to='/About' 
+              className={arrSel[1] ? 'selStyle' : ''}
+              onClick={(e) => clickTopBar(nameCat = 'ABOUT US',
+                                          selCat = 'About') }>
+                About
+              </Link>
+              <Link to='/Gallery' 
+              className={arrSel[2] ? 'selStyle' : ''} 
+              onClick={(e) => clickTopBar(nameCat = 'COS | ALUMNI',
+                                          selCat = 'Gallery')}>
+                Gallery
+                </Link>
+              <Link to='/AnnEvent' 
+                className={arrSel[3] ? 'selStyle' : ''} 
+                onClick={(e) => clickTopBar(nameCat = 'PROGRAMS & EVENTS', 
+                                          selCat= 'AnnEvent')}>
+                Announcement
+                </Link>
+              <Link to='/OnlServ' 
+              className={arrSel[4] ? 'selStyle' : ''} 
+              onClick={(e) => clickTopBar(nameCat = 'ONLINE SERVICE',
+                                          selCat= 'OnlService')}>
+                Online Services
+              </Link>
               <Link to='/profile'>Profile</Link>
-              <Link to='/BOA'>Abstract</Link>
+              <Link to='/BOA' onClick={(e) => clickTopBar(nameCat = 'BOOK OF ABSTRACT')}>
+                Abstract
+                </Link>
           </div>
         </nav>
       </div>
