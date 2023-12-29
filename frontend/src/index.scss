@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Roboto+Serif:opsz,wght@8..144,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Istok+Web&family=Nunito:wght@200&family=Roboto+Serif:opsz,wght@8..144,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Istok+Web&family=Nunito:wght@200&family=Roboto+Serif:opsz,wght@8..144,600&display=swap');
 
 $primary: rgb(30,30,30); 
 $brandColor1: #bf9745;
+$bordYellow: #FBCD6E;
 $bgColor: #1e1e1e;
 $textWhite : #F4F4F3;
+$surveyBord : #FCF5E5;
 
 @import '~bootstrap/scss/bootstrap';
 
@@ -31,6 +34,7 @@ Body {
   align-items: center;
   height: 200px;
   gap: 100px;
+  width: 100%;
 }
 
 /* Repeated style  */
@@ -50,6 +54,8 @@ Body {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  user-select: none;
+  width: 600px;
 }
 
 .cosPic{
@@ -75,7 +81,7 @@ Body {
 }
 
 .navBar{
-  width: 100%;
+  width: 700px;
   max-width: 700px;
 }
 
@@ -87,11 +93,12 @@ Body {
     color: $textWhite;
     font-family: 'Nunito', sans-serif; // Use a comma-separated list for multiple font families
     font-weight: bold;
-    margin-bottom: -1px;
+    user-select: none;
   }
 
   a:hover {
     border-bottom: 1px solid $brandColor1;
+    margin-bottom: -1px;
   }
 }
 
@@ -120,6 +127,7 @@ Body {
 }
 
 .contentBorder {
+  height: 100;
   width: 100%;
   max-width: 1200px; 
   justify-content: center;
@@ -137,15 +145,17 @@ Body {
 }
 
 .monthEvent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #FF0606;
   border-radius: 10px 10px 0 0 ;
   font-size: 17px;
   width: 90px;
   height: 30px;
   color: $textWhite;
-  text-align: center;
   letter-spacing: 5px;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .dayEvent {
@@ -154,15 +164,16 @@ Body {
   justify-content: center;
   background-color: $textWhite;
   border-radius: 0 0 10px 10px;
-  font-size: 35px;
-  height: 50px;
+  font-size: 50px;
+  height: 55px;
   max-height: 100%;
   width: 100%;
   max-width: 90px;
   color: $bgColor;
   text-align: center;
   letter-spacing: 5px;
-  font-weight: 500;
+  font-weight: bold;
+  font-family: 'Istok Web', sans-serif;
 }
 
 .titleEvent{
@@ -183,6 +194,7 @@ Body {
 
 .calendar {
   width: 90px;
+  user-select: none;
 }
 
 .EventTitleText{
@@ -203,7 +215,7 @@ Body {
   
   p {
     margin-bottom: 0;
-    line-height: 15px;
+    line-height: 20px;
   }
 }
 
@@ -215,6 +227,7 @@ Body {
   height: 50px;
   font-weight: bold;
   cursor: pointer;
+  user-select: none;
 }
 
 .btnLM {
@@ -313,16 +326,15 @@ Body {
 
 
 .BOAborder {
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   color:$textWhite;
-  gap: 40px
+  gap: 40px;
 }
 
 .abstractBorder {
-  width: 100%;
-  max-width: 1200px;
-  gap: 50px
+  width: 1200px;
+  gap: 50px;
 }
 
 .plusIconBoa span, .dlIconBoa span{
@@ -339,7 +351,8 @@ Body {
   border: $textWhite solid 1px;
   background-color: $bgColor; 
   border-radius: 30px;
-  height: 350px;
+  height: 100%;
+  
 }
 
 .abstractCont{
@@ -347,20 +360,245 @@ Body {
   align-items: center;
   width: 93%;
   max-width: 1100px;
+  height: 270px;
+  gap: 20px
 }
 
 .upperBoaCont{
   gap: 60px
 }
 
-.abstGridContainer {
-  display: grid;
-  grid-template-areas: 
-    'add titleAbst titleAbst'
-  ;
+.detAbstarct{
+  p{
+    margin-bottom: 0;
+    line-height: 25px;
+  }
 }
 
+
 .bottomBoaCont{
-  display: none;
   gap: 60px;
 }
+
+.closeDesc{
+  display: none;
+}
+
+.bottomLoad{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+// Survey
+.surveyBorder {
+  justify-content: start;
+  align-items: center;
+  color: $textWhite;
+  height: 1100px;
+  gap: 40px;
+  width: 100%;
+}
+
+.titleTextPage{
+  font-family: 'Abhaya Libre', serif;
+  letter-spacing: 10px;
+}
+
+.questionBord{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $surveyBord;
+  width: 1000px;
+  height: 800px;
+  gap: 60px;
+}
+
+.innerQuestBord{
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 50px;
+}
+
+.quewstionForm{
+  display: flex;
+  align-content: center;
+  justify-content: center;;
+  width: 100%;
+}
+
+.questPersInfo{
+  display: none;
+  gap: 40px
+}
+
+.questEduc{
+  display: none;
+  gap: 40px
+}
+.survHeader{
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  color: $brandColor1;
+  font-family: 'Abhaya Libre', serif;
+  width: 200px;
+  h1 {
+    font-size: 50px;
+  }
+}
+
+.inputAns{
+  gap: 20px;
+}
+
+.textAndPic{
+  gap: 110px;
+}
+
+.inputs4text{
+  font-size: 20px;
+  gap: 20px;
+  
+    input{
+      border: none;
+      background-color: none;
+      width: 95%;
+      &:focus{
+        outline: none;
+      }
+    }
+  .longAns{
+    width: 600px;
+  }
+}
+
+.questInpBord{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.dropBord{
+  background: transparent;
+  border-radius: none;
+  border: none;
+  width: 95%;
+  &:focus{
+    outline: none;
+  }
+}
+
+.input2drop{
+  font-size: 20px;
+  gap: 20px
+}
+
+.shortAns{
+  width: 290px;
+
+  input,select {
+    width: 270px
+  }
+}
+
+.inp2Txt1Drop{
+  font-size: 20px;
+  gap: 20px
+}
+
+.survCat{
+  justify-content: end;
+  align-items: center;
+  width: 900px;
+  font-family: 'Istok Web', sans-serif;
+  font-size: 15px;
+  gap: 20px;
+
+  label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fbcc6e25;
+    border: 1px $bordYellow solid;
+    height: 90px;
+    width: 124px;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+
+    &:hover{
+      background-color: $brandColor1;
+    }
+
+  }
+
+}
+
+
+
+.profPic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $bordYellow;
+  font-size: 130px;
+  width: 200px;
+  height: 210px;
+  background-color: white;
+}
+
+.profPicBord{
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+}
+
+.buttonUpload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bordYellow;
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+  color: $bgColor;
+  border-radius: 10px;
+  
+  &:hover{
+    background-color: #ffc042;
+    
+  }
+}
+
+.nextbtnBord{
+  display: flex;
+  justify-content: end;
+  width: 900px;
+}
+
+.nextButtonSurv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bordYellow;
+  font-size: 20px;
+  width: 190px;
+  height: 50px;
+  border: none;
+  letter-spacing: 8px;
+  font-family: 'Istok Web', sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+
+  &:hover{
+    background-color: #ffc042;
+  }
+}
+

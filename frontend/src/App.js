@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './Pages/HeaderNavbar'
-import BOA from './Pages/BOA'
+import BOA from './Pages/User/BOA'
 import Home from './Pages/Home';
-import AnnEvent from './Pages/AnnEvent'
+import AnnEvent from './Pages/User/AnnEvent'
+import SurveyTrace from './Pages/User/SurveyTrace'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={< Home/>}/>
           <Route path='/AnnEvent' element={< AnnEvent/>}/>
           <Route path='/Boa' element={< BOA/>}/>
+          <Route path = '/SurvTrace' element={< SurveyTrace/>}/> 
         </Route>
       </Routes>
      </BrowserRouter>

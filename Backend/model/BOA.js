@@ -1,29 +1,30 @@
 const mongoose = require('mongoose')
+const DateOnly = require('mongoose-dateonly')(mongoose)
 
 const Schema = mongoose.Schema;
 
-const alumniStory = new Schema ({
-    Event_ID: {
-        type: mongoose.Schema.Types.ObjectId,
-        require: true,
-    },
+const alumniBoa = new Schema ({
     Coordinator_ID:{
         type: mongoose.Schema.Types.ObjectId,
-        require: true,
+        required: true,
         ref: 'Coordinator'
     },
     Title: {
-        require: true,
+        required: true,
         type: String
     },
     Date_Publish: {
-        require: true,
-        type: Date
+        required: true,
+        type: DateOnly
+    },
+    Author: {
+        required: true,
+        type: String
     },
     Abstract: {
-        require: true,
+        required: true,
         type: String
     }
 });
 
-module.exports = mongoose.model('Story', alumniStory);
+module.exports = mongoose.model('BOA', alumniBoa);
