@@ -12,20 +12,15 @@ const HeaderNavbar = (nameCat, selCat) => {
   }
 
   const clickTopBar = (nameCat, selCat) => {
+    const clickSel = [...arrSel]
     setTopName(nameCat)
-    if(selCat === 'Home'){
-      setArrSel([true, false, false, false, false, false, false])
-    }
-    else if(selCat === 'About'){
-      setArrSel([false, true, false, false, false, false, false])
-    }
-    else if(selCat === 'Gallery'){
-      setArrSel([false, false, true, false, false, false, false])
-    }
-    else if(selCat === 'AnnEvent'){
-      setArrSel([false, false, false, true, false, false, false])
-    }else if(selCat === 'OnlService'){
-      setArrSel([false, false, false, false, true, false, false])
+    for(let i = 0; i < clickSel.length; i++){
+      if(i === selCat){
+        clickSel[i] = true;
+      }else{
+        clickSel[i] = null
+      }
+      setArrSel(clickSel)
     }
   }
 
@@ -50,37 +45,46 @@ const HeaderNavbar = (nameCat, selCat) => {
               <Link to='/' 
               className={arrSel[0] ? 'selStyle' : ''}
               onClick={(e) => clickTopBar(nameCat = 'COS | ALUMNI',
-                                          selCat = 'Home') }>
+                                          selCat = 0) }>
                 Home
               </Link>
               <Link to='/About' 
               className={arrSel[1] ? 'selStyle' : ''}
               onClick={(e) => clickTopBar(nameCat = 'ABOUT US',
-                                          selCat = 'About') }>
+                                          selCat = 1) }>
                 About
               </Link>
               <Link to='/Gallery' 
               className={arrSel[2] ? 'selStyle' : ''} 
               onClick={(e) => clickTopBar(nameCat = 'COS | ALUMNI',
-                                          selCat = 'Gallery')}>
+                                          selCat = 2)}>
                 Gallery
                 </Link>
-              <Link to='/AnnEvent' 
+              <Link to='/NewsStories' 
                 className={arrSel[3] ? 'selStyle' : ''} 
+                onClick={(e) => clickTopBar(nameCat = 'NEWS & STORIES', 
+                                          selCat= 3)}>
+                Stories
+              </Link>
+              <Link to='/AnnEvent' 
+                className={arrSel[4] ? 'selStyle' : ''} 
                 onClick={(e) => clickTopBar(nameCat = 'PROGRAMS & EVENTS', 
-                                          selCat= 'AnnEvent')}>
+                                          selCat= 4)}>
                 Announcement
                 </Link>
+              <Link to='/BOA' 
+              className={arrSel[5] ? 'selStyle' : ''}
+              onClick={(e) => clickTopBar(nameCat = 'BOOK OF ABSTRACT', selCat= 5)}>
+                Abstract
+              </Link>
               <Link to='/OnlServ' 
-              className={arrSel[4] ? 'selStyle' : ''} 
+              className={arrSel[6] ? 'selStyle' : ''} 
               onClick={(e) => clickTopBar(nameCat = 'ONLINE SERVICE',
-                                          selCat= 'OnlService')}>
+                                          selCat= 6)}>
                 Online Services
               </Link>
               <Link to='/profile'>Profile</Link>
-              <Link to='/BOA' onClick={(e) => clickTopBar(nameCat = 'BOOK OF ABSTRACT')}>
-                Abstract
-                </Link>
+              
           </div>
         </nav>
       </div>

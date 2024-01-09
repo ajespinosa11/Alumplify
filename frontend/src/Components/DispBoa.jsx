@@ -30,8 +30,8 @@ const DispBoa = ({ boa, amount, condLoad}) => {
               </span>
           </div>
           <div>
-            <div>
-              <h2>ALUMPLIFY: {boa.Title}</h2>
+            <div style={{fontSize:'30px'}}>
+              <p>ALUMPLIFY: {boa.Title}</p>
             </div>
             <div className='detAbstarct'>
               <p><strong>Date Published:</strong> {boa.Date_Publish}</p>

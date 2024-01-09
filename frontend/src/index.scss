@@ -45,7 +45,7 @@ Body {
 
 .flexColumn {
   display: flex;
-  flex-direction: Column;
+  flex-direction: column;
 }
 
 /* Navbar  */
@@ -81,8 +81,8 @@ Body {
 }
 
 .navBar{
-  width: 700px;
-  max-width: 700px;
+  width: 800px;
+ 
 }
 
 .Links {
@@ -366,6 +366,8 @@ Body {
 
 .upperBoaCont{
   gap: 60px
+
+
 }
 
 .detAbstarct{
