@@ -1,0 +1,170 @@
+.dashboard {
+    display: flex;
+    height: 88%;
+}
+
+.admin-navbar {
+    height: 12%;
+    width: 100%;
+    background-color: #181614;
+    display: flex;
+    justify-content: space-between;
+
+    .nav-title {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        padding-left: 30px;
+
+        h1 {
+            color: #BF9745;
+            letter-spacing: 8px;
+            font-family: 'Abhaya Libre', serif;
+        }
+
+        p {
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: white;
+            font-style: italic;
+        }
+    }
+
+    .date-time {
+        float: right;
+        margin: 30px;
+        color: white;
+
+        h1 {
+            margin-right: 50px;
+            display: inline;
+            vertical-align: middle;
+        }
+
+        .date {
+            vertical-align: middle;
+            display: inline-block;
+            text-align: center;
+        }
+    }
+
+    img {
+        padding: 15px;
+        vertical-align: middle;
+        height: 8vh;
+        width: auto;
+    }
+
+    .navdata{
+        color: white;
+        padding: 40px;
+
+        h3{
+            padding-right: 80px;
+            display: inline;
+        }
+    }
+}
+
+.side-navbar {
+    width: 10vh;
+    height: 100%;
+    background-color: #181614;
+
+    ul,
+    li {
+        padding: 15px;
+        list-style-type: none;
+    }
+
+    .material-symbols-outlined {
+        color: white;
+    }
+}
+
+.content {
+    background-color: #FCF5E5;
+    flex-grow: 1;
+    padding: 20px;
+    font-family: 'Istok Web', sans-serif;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+
+    content::-webkit-scrollbar {
+        display: none;
+      }
+
+    h1 {
+        letter-spacing: 5px;
+    }
+
+    .data-card {
+        height: 100px;
+        width: 350px;
+        background-color: #F9BA39;
+        border-radius: 15px;
+        text-align: center;
+        padding: 15px;
+        display: inline-block;
+        margin: 25px;
+
+        .material-symbols-outlined {
+            font-size: 100px;
+            margin-right: 50px;
+            vertical-align: middle;
+        }
+
+        h3 {
+            font-size: 50px;
+        }
+
+        .data {
+            vertical-align: middle;
+            display: inline-block;
+        }
+    }
+}
+
+.charts {
+    height: 50%;
+    width: 45%;
+    display: inline-block;
+    margin: 15px;
+
+    h3 {
+        margin-bottom: 25px;
+    }
+}
+
+#dboard-doughnut {
+    height: 350px;
+    width: 20%;
+}
+
+.data-story {
+    margin-left: 50px;
+    display: inline-block;
+    width: 25%;
+    height: 350px;
+
+    h3 {
+        margin-bottom: 25px;
+    }
+
+    table {
+        padding: 15px;
+        background-color: #FBCD6E;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        border-radius: 15px;
+    }
+
+}
+
+#person-pie{
+    padding-left: 50px;
+    height: 400px;
+    width: 20%;
+}

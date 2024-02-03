@@ -1,0 +1,192 @@
+{
+  "respondents": [
+    {
+      "label": "January",
+      "value": 32,
+      "respondents": 16
+    },
+    {
+      "label": "February",
+      "value": 28,
+      "respondents": 5
+    },
+    {
+      "label": "March",
+      "value": 59,
+      "respondents": 2
+    },
+    {
+      "label": "April",
+      "value": 25,
+      "respondents": 22
+    },
+    {
+      "label": "May",
+      "value": 16,
+      "respondents": 18
+    },
+    {
+      "label": "June",
+      "value": 78,
+      "respondents": 15
+    },
+    {
+      "label": "July",
+      "value": 23,
+      "respondents": 43
+    },
+    {
+      "label": "August",
+      "value": 33,
+      "respondents": 62
+    }
+  ],
+  "boa": [
+    {
+      "label": "BSIT",
+      "value": 15
+    },
+    {
+      "label": "BSCS",
+      "value": 4
+    },
+    {
+      "label": "BASLT",
+      "value": 2
+    },
+    {
+      "label": "BSES",
+      "value": 11
+    },
+    {
+      "label": "BSIS",
+      "value": 22
+    }
+  ],
+  "age": [
+    {
+      "label": 21,
+      "value": 5
+    },
+    {
+      "label": 22,
+      "value": 8
+    },
+    {
+      "label": 25,
+      "value": 9
+    },
+    {
+      "label": 23,
+      "value": 13
+    },
+    {
+      "label": 26,
+      "value": 8
+    }
+  ],
+  "gender": [
+    {
+      "label": "Men",
+      "value": 15
+    },
+    {
+      "label": "Women",
+      "value": 4
+    }
+  ],
+  "civil": [
+    {
+      "label": "Married",
+      "value": 15
+    },
+    {
+      "label": "Not Married",
+      "value": 4
+    },
+    {
+      "label": "Widowed",
+      "value": 6
+    }
+  ],
+  "residence": [
+    {
+      "label": "City",
+      "value": 15
+    },
+    {
+      "label": "Municipality",
+      "value": 4
+    }
+  ],
+  "regions": [
+    {
+      "label": "NCR",
+      "value": 15
+    },
+    {
+      "label": "Region I",
+      "value": 7
+    },
+    {
+      "label": "CAR",
+      "value": 12
+    },
+    {
+      "label": "Region II",
+      "value": 5
+    },
+    {
+      "label": "Region III",
+      "value": 18
+    },
+    {
+      "label": "Region IV-A",
+      "value": 0
+    },
+    {
+      "label": "Region IV-B",
+      "value": 10
+    },
+    {
+      "label": "Region V",
+      "value": 0
+    },
+    {
+      "label": "Region VI",
+      "value": 2
+    },
+    {
+      "label": "Region VII",
+      "value": 14
+    },
+    {
+      "label": "Region VIII",
+      "value": 11
+    },
+    {
+      "label": "Region IX",
+      "value": 0
+    },
+    {
+      "label": "Region X",
+      "value": 0
+    },
+    {
+      "label": "Region XI",
+      "value": 8
+    },
+    {
+      "label": "Region XII",
+      "value": 13
+    },
+    {
+      "label": "Region XIII",
+      "value": 1
+    },
+    {
+      "label": "BARMM",
+      "value": 17
+    }
+  ]
+}

@@ -12,11 +12,11 @@ function navbar() {
         </div>
         
         <nav>
-          <a href="/Home">Home</a>
+          <a href="/">Home</a>
           <a href="/#">About</a>
           <a href="/newsandstories">Gallery</a>
           <a href="/#">Announcements</a>
-          <a href="/#">Online Services</a>
+          <a href="/#">OnlineServices</a>
           <a href="/#">Profile</a>
         </nav>
       </div>

@@ -1,26 +1,27 @@
 import React from 'react';
 import './App.scss';
+import './admin.scss'
 import Navbar from './components/Navbar.js';
 import Newsandstories from './Pages/newsandstories.js';
 import Yearbook from './Pages/yearbook.js'
 import Story from './components/Story.js';
 import Home from './Pages/home.js'
+import Admindashboard from './Pages/Admindashboard.js';
+import Adminpersoninfo from './Pages/AdminPersonInfo.js'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Navbar />
       <Routes>
-        <Route>
-          <Route path="/Home" element={< Home />} />
-          <Route path="/Newsandstories" element={< Newsandstories />} />
-          <Route path='/Newsandstories/:id' element={< Story/>} />
-          <Route path="/Yearbook" element={< Yearbook/>} />
-        </Route>
+          <Route path="/" element={<div> <Navbar/> < Home/> </div>} />
+          <Route path="/Newsandstories" element={<div> <Navbar/> <Newsandstories/> </div>} />
+          <Route path='/Newsandstories/:id' element={<div> <Navbar /><Story/> </div>} />
+          <Route path="/Yearbook" element={<div> <Navbar /> <Yearbook/> </div>} />
+          <Route path='/admindashboard' element={<Admindashboard/>} />
+          <Route path='/Personal-Information' element={<Adminpersoninfo/>} />
       </Routes>
       </BrowserRouter>
     </div>
@@ -28,3 +29,4 @@ function App() {
 }
 
 export default App;
+

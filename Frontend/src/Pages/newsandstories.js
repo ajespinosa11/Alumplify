@@ -6,7 +6,7 @@ const Newsandstories = () => {
 
   useEffect(() => {
     // Fetch data from the API endpoint
-    fetch('http://localhost:8000/api/content')
+    fetch('http://localhost:3000/api/content')
       .then((response) => response.json())
       .then((data) => setNews(data))
       .catch((error) => console.error('Error fetching data:', error));
