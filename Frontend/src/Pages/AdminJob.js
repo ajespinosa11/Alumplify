@@ -30,10 +30,10 @@ function AdminJob() {
                         <h2>First job after college</h2>
                         <Pie
                             data={{
-                                labels: sampleData.gender.map((data) => data.label),
+                                labels: sampleData.boolean.map((data) => data.label),
                                 datasets: [
                                     {
-                                        data: sampleData.gender.map((data) => data.value),
+                                        data: sampleData.boolean.map((data) => data.value),
                                     },
                                 ],
                             }}

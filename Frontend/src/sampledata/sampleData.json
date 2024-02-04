@@ -1,4 +1,14 @@
 {
+  "boolean": [
+    {
+      "label": "Yes",
+      "value": 25
+    },
+    {
+    "label": "No",
+    "value": 18
+    }
+  ],
   "respondents": [
     {
       "label": "January",
