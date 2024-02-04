@@ -18,15 +18,16 @@ function AdminPersonInfo() {
                 </div>
                 </div>
                 <div className="navdata">
-                    <h3>Personal Information</h3>
+                    <a href="/Personal-information"><h3>Personal Information</h3></a>
                     <h3>Education</h3>
                     <h3>Employment</h3>
-                    <h3>Job</h3>
+                    <a href="/Alumni-job"><h3>Job</h3></a>
                 </div>
             </div>
-            <div className="dashboard">
+            <div className="admin-wrapper">
                 <Sidenavbar />
                 <div className="content">
+                    <h1 id='personinfo-title'>Alumni Personal information Data</h1>
                     <div className="charts">
                         <h2>Alumni Ages</h2>
                         <Bar
@@ -86,7 +87,7 @@ function AdminPersonInfo() {
                             }}
                         />
                     </div>
-                    <div id='person-pie' className="charts">
+                    <div id='person-pie-end' className="charts">
                         <h2>Location of Residence</h2>
                         <Pie
                             data={{

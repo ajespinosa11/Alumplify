@@ -2,6 +2,7 @@ import React from 'react';
 import { Chart as ChartJS } from "chart.js/auto";
 import { Doughnut, Line } from "react-chartjs-2";
 import sampleData from "../sampledata/sampleData.json";
+import Sidenavbar from '../components/Side-navbar';
 
 function Admindashboard() {
   return (
@@ -21,18 +22,10 @@ function Admindashboard() {
           </div>
         </div>
       </div>
-      <div className="dashboard">
-        <div className="side-navbar">
-          <ul>
-            <li><a href=" "><span class="material-symbols-outlined">dashboard </span></a></li>
-            <li><a href=" "><span class="material-symbols-outlined">publish </span></a></li>
-            <li><a href=" "><span class="material-symbols-outlined">book_2 </span></a></li>
-            <li><a href=" "><span class="material-symbols-outlined">school </span></a></li>
-            <li><a href="/Personal-Information"><span class="material-symbols-outlined">bar_chart </span></a></li>
-          </ul>
-        </div>
+      <div className="admin-wrapper">
+        <Sidenavbar/>
         <div className="content">
-          <h1>OVERVIEW</h1>
+          <h1 id='dashboard-title'>OVERVIEW</h1>
           <div className="data-card">
             <span className="material-symbols-outlined">
               face
