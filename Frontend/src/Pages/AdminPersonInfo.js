@@ -19,8 +19,8 @@ function AdminPersonInfo() {
                 </div>
                 <div className="navdata">
                     <a href="/Personal-information"><h3>Personal Information</h3></a>
-                    <h3>Education</h3>
-                    <h3>Employment</h3>
+                    <a href=" "><h3>Education</h3></a>
+                    <a href=" "><h3>Employment</h3></a>
                     <a href="/Alumni-job"><h3>Job</h3></a>
                 </div>
             </div>
