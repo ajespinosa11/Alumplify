@@ -6,7 +6,7 @@ const Newsandstories = () => {
 
   useEffect(() => {
     // Fetch data from the API endpoint
-    fetch('http://localhost:3000/api/content')
+    fetch('http://localhost:5000/api/content')
       .then((response) => response.json())
       .then((data) => setNews(data))
       .catch((error) => console.error('Error fetching data:', error));
@@ -24,7 +24,7 @@ const Newsandstories = () => {
       {limitedNews.map((item) => (
         <div className="card" key={item._id}>
           <div className="image-container">
-            <img src="/logo.png" alt="CardImage" />
+            <img src="/sample.jpg" alt="CardImage" />
           </div>
           <div className="cardbg">
             <div className="card-content">

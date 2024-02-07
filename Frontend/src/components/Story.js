@@ -10,7 +10,7 @@ const Story = () => {
     // Function to fetch news details by ID
     const fetchNewsDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/api/content/${id}`);
+        const response = await fetch(`http://localhost:5000/api/content/${id}`);
         console.log('News details response:', response);
         const data = await response.json();
         setNewsItem(data);

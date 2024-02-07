@@ -3,6 +3,11 @@ import { Chart as ChartJS } from "chart.js/auto";
 import { Doughnut, Line } from "react-chartjs-2";
 import sampleData from "../sampledata/sampleData.json";
 import Sidenavbar from '../components/Side-navbar';
+import Clock from 'react-live-clock';
+
+const currentDate = new Date();
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const formattedDate = currentDate.toLocaleDateString('en-US', options);
 
 function Admindashboard() {
   return (
@@ -16,9 +21,9 @@ function Admindashboard() {
         </div>          
         </div>
         <div className="date-time">
-          <h1>14:32:22</h1>
+          <h1><Clock format="HH:mm:ss" interval={1000} ticking={true}/></h1>
           <div className="date">
-            <h3>Tuesday, January 30 2024</h3>
+            <h3>{formattedDate}</h3>
           </div>
         </div>
       </div>

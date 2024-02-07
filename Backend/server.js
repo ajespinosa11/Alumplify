@@ -4,7 +4,7 @@ const { MongoClient, ObjectId } = require('mongodb');
 
 
 const app = express();
-const port = 3000; // Change this to your desired port
+const port = 5000; // Change this to your desired port
 
 // Enable CORS for all routes
 app.use(cors());
@@ -20,7 +20,7 @@ const collectionName = 'content';
 
 // API endpoint to fetch data
 app.get('/api/content', async (req, res) => {
-  const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+  const client = new MongoClient(url);
 
   try {
     await client.connect();
@@ -37,12 +37,11 @@ app.get('/api/content', async (req, res) => {
     await client.close();
   }
 
-  
 });
 
 // API endpoint to fetch individual content details by ID
 app.get('/api/content/:id', async (req, res) => {
-  const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+  const client = new MongoClient(url);
 
   try {
     await client.connect();
