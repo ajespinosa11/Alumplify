@@ -24,6 +24,9 @@ const alumniBoa = new Schema ({
     Abstract: {
         required: true,
         type: String
+    },
+    Img:{
+        type: String
     }
 });
 

@@ -26,7 +26,8 @@ const getSingleEvent = async (req, res) => {
 }
 
 const postEvent = async (req, res) => {
-    const {Coordinator_ID, Title, Date_Publish, Picture} = req.body;
+    const {Coordinator_ID, Title, Date_Implement, Content, idFold, Images} = req.body;
+    console.log(Images)
     let coordId;
     try{
         //Get Id value from the Coordinator model
@@ -40,7 +41,11 @@ const postEvent = async (req, res) => {
             });
         const getId = await coordinatorModel.findOne({ _id: coordId})
 
-        const event = await eventModel.create({Coordinator_ID: getId._id, Title, Date_Publish, Picture})
+        const event = await eventModel.create({Coordinator_ID: getId._id, Title, Date_Implement, Content, 
+            Picture:{
+                foldId: idFold,
+                Images
+            }})
         
         res.status(200).json(event);
     }catch(error){
@@ -100,7 +105,7 @@ const getSingleStory = async (req, res) => {
 }
 
 const postStory = async (req, res) => {
-    const {Coordinator_ID, Title, Date_Publish, Picture} = req.body;
+    const {Coordinator_ID, Title, Date_Publish, Content, Picture} = req.body;
     let coordId;
     try{
         //Get Id value from the Coordinator model
@@ -114,7 +119,7 @@ const postStory = async (req, res) => {
             });
         const getId = await coordinatorModel.findOne({ _id: coordId})
 
-        const event = await eventModel.create({Coordinator_ID: getId._id, Title, Date_Publish, Picture})
+        const event = await eventModel.create({Coordinator_ID: getId._id, Title, Date_Publish, Content, Picture})
         
         res.status(200).json(event);
     }catch(error){

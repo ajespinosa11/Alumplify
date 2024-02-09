@@ -103,7 +103,7 @@ router.post('/abstract/', addBOA);
 router.get('/abstract/:id', singleBoa);
 
 //Get all single Abstract
-router.patch('/abstract/:id', updBoa);
+router.put('/abstract/:id', updBoa);
 
 //Get all single Abstract
 router.delete('/abstract/:id', delBoa);

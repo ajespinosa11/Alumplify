@@ -16,8 +16,11 @@ const BOA = () => {
       console.log(json)
       if(response.ok){
         setBoa(json)
+      }else{
+        console.log('error access fetch')
       }
     }
+    document.body.style.backgroundColor = '#1e1e1e'
 
     fetchBoa()
   }, [])
@@ -79,7 +82,10 @@ const BOA = () => {
             ))}
         </div>
         <div className='bottomLoad'>
-          <Button onClick={(e) => LoadTrig()}  className={`btnLM`}>{textLoad}</Button>
+          {boa ? 
+            <Button onClick={(e) => LoadTrig()}  className={`btnLM`}>{textLoad}</Button>
+            : ''
+          }
         </div>
       </div>
     </div>

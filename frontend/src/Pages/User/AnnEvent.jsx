@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from 'react-bootstrap';
 import ContentPic from '../../Assets/jpg/406517440_240288745747393_5783927159101220422_n.jpg'
 
 const AnnEvent = () => {
   const DisplayEvent = () => {
     
+    useEffect(() => {
+      document.body.style.backgroundColor = '#1e1e1e'
+    }, [])
+
     const contentDisp = [];
     
     for(let i = 0; i < 12; i++){
@@ -43,7 +47,7 @@ const AnnEvent = () => {
     }
     return contentDisp
   }
-
+  
   return (
     <div className='flexColumn EventBorder'>
       <div className='evenUpperText'>

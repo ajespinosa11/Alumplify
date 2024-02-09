@@ -20,6 +20,10 @@ const alumniStory = new Schema ({
         require: true,
         type: Date
     },
+    Content:{
+        require: true,
+        type: String
+    },
     Picture: {
         require: true,
         type: String

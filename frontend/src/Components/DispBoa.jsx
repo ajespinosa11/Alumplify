@@ -17,36 +17,34 @@ const DispBoa = ({ boa, amount, condLoad}) => {
   
   return (
     <div style= {{display: amount > 2 && condLoad === false ? 'none' : ''}} 
-    className='abstractContBord'>
-      <div className='flexColumn abstractCont' 
-      style={{
+     className='abstractContBord'>
+      <div className='abstractCont' 
+        style={{
         height: trig === true ? '406px': '270px'
-      }}>
-        <div className='flexRow upperBoaCont'>
-          <div className= 'plusIconBoa' >
-            <span onClick={(e) => clickTrigAdd()} 
-            className="material-symbols-outlined">
-              {trig === false ? 'add' : 'remove'}
-              </span>
+        }}>
+        <div className= 'plusIconBoa' >
+          <span onClick={(e) => clickTrigAdd()} 
+          className="material-symbols-outlined">
+            {trig === false ? 'add' : 'remove'}
+            </span>
+        </div>
+        <div className='boaTitle'>
+          <div style={{fontSize:'30px'}}>
+            <p>ALUMPLIFY: {boa.Title}</p>
           </div>
-          <div>
-            <div style={{fontSize:'30px'}}>
-              <p>ALUMPLIFY: {boa.Title}</p>
-            </div>
-            <div className='detAbstarct'>
-              <p><strong>Date Published:</strong> {boa.Date_Publish}</p>
-              <p><strong>Author:</strong> {boa.Author}</p>
-            </div>
+          <div className='detAbstarct'>
+            <p><strong>Date Published:</strong> {boa.Date_Publish}</p>
+            <p><strong>Author:</strong> {boa.Author}</p>
           </div>
-          <div>
-            <FontAwesomeIcon icon={faFileLines} style={{color: "#ffffff", fontSize: "150px", }} />
-          </div>
+        </div>
+        <div className='boaPic'>
+          <FontAwesomeIcon icon={faFileLines} style={{color: "black", fontSize: "150px", }} />
         </div>
         <div className={`flexRow bottomBoaCont ${trig === false ? 'closeDesc': ''}`}>
           <div className='dlIconBoa'>
             <span className="material-symbols-outlined">download</span>
           </div>
-          <div>
+          <div className='abstText'>
             <p><strong>Abstract:</strong> {boa.Abstract}</p>
           </div>
         </div>

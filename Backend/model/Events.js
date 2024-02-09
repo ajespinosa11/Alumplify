@@ -16,13 +16,21 @@ const alumniEvent = new Schema ({
         require: true,
         type: String
     },
-    Date_Publish: {
+    Date_Implement: {
         require: true,
         type: Date
     },
-    Picture: {
+    Content: {
         require: true,
         type: String
+    },
+    Picture: {
+        foldId:{
+            type: String
+        },
+        Images: {
+            type: Array
+        }
     }
 });
 

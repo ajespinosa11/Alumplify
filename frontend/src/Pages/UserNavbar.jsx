@@ -5,7 +5,7 @@ import cosLogo from '../Assets/png/cosLogo.png'
 
 const HeaderNavbar = (nameCat, selCat) => {
   const [topName, setTopName] = useState('COS | ALUMNI')
-  const [arrSel, setArrSel] = useState([null, null, null, null, null, null, null])
+  const [arrSel, setArrSel] = useState([null, null, null, null, null, null])
   
   const selStyle = {
     borderBottom: "1px #F4F4F3 solid",
@@ -48,13 +48,13 @@ const HeaderNavbar = (nameCat, selCat) => {
                                           selCat = 0) }>
                 Home
               </Link>
-              <Link to='/About' 
+              <Link to='/' 
               className={arrSel[1] ? 'selStyle' : ''}
               onClick={(e) => clickTopBar(nameCat = 'ABOUT US',
                                           selCat = 1) }>
                 About
               </Link>
-              <Link to='/Gallery' 
+              <Link to='/YearBook' 
               className={arrSel[2] ? 'selStyle' : ''} 
               onClick={(e) => clickTopBar(nameCat = 'COS | ALUMNI',
                                           selCat = 2)}>
@@ -77,14 +77,19 @@ const HeaderNavbar = (nameCat, selCat) => {
               onClick={(e) => clickTopBar(nameCat = 'BOOK OF ABSTRACT', selCat= 5)}>
                 Abstract
               </Link>
-              <Link to='/OnlServ' 
-              className={arrSel[6] ? 'selStyle' : ''} 
-              onClick={(e) => clickTopBar(nameCat = 'ONLINE SERVICE',
-                                          selCat= 6)}>
-                Online Services
-              </Link>
+              <div className='dropdown'>
+                <button className='dropbtn' htmlFor ='selOS'>
+                  Online Services
+                  <span className="material-symbols-outlined">
+                    expand_more
+                  </span>
+                </button>
+                <div className='dropList'>
+                  <Link to = '/SurvTrace'>Graduate Tracer Study</Link>
+                  <Link to = '/ReqDoc'>Request For Document</Link>
+                </div>
+              </div>
               <Link to='/profile'>Profile</Link>
-              
           </div>
         </nav>
       </div>
