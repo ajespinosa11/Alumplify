@@ -17,7 +17,7 @@ const dbName = 'AlumplifyDB'; // Change this to your database name
 
 // Collection Name
 
-// API endpoint to fetch data
+// API endpoint to fetch news and story
 app.get('/api/content', async (req, res) => {
   const client = new MongoClient(url);
 
@@ -66,15 +66,25 @@ app.get('/api/content/:id', async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 //api to feth alumni data
 app.get('/api/alumndata', async (req, res) => {
+=======
+// API endpoint to fetch job data
+app.get('/api/jobdata', async (req, res) => {
+>>>>>>> 7a9a7c07e01fe638da87b9b49875d1cf7c1fca8a
   const client = new MongoClient(url);
 
   try {
     await client.connect();
 
+<<<<<<< HEAD
     const db = client.db(dbName);
     const collection = db.collection('personalinfos');
+=======
+    const db = client.db(data);
+    const collection = db.collection(jobData);
+>>>>>>> 7a9a7c07e01fe638da87b9b49875d1cf7c1fca8a
 
     // Query to fetch all documents from the collection
     const result = await collection.find({}).toArray();

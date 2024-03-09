@@ -1,8 +1,8 @@
 import React from 'react';
 import { Chart as ChartJS } from "chart.js/auto";
 import { Doughnut, Line } from "react-chartjs-2";
-import sampleData from "../sampledata/sampleData.json";
-import Sidenavbar from '../components/Side-navbar';
+import sampleData from "../../sampledata/sampleData.json";
+import Sidenavbar from '../../components/Side-navbar';
 import Clock from 'react-live-clock';
 
 const currentDate = new Date();

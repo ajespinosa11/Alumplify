@@ -1,9 +1,17 @@
+<<<<<<< HEAD:Frontend/src/Pages/AdminPersonInfo.js
 import Sidenavbar from "../components/Side-navbar";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Bar, Pie } from "react-chartjs-2";
 import sampleData from "../sampledata/sampleData.json";
 import React, { useState, useEffect } from 'react';
 
+=======
+import React from 'react';
+import Sidenavbar from "../../components/Side-navbar";
+import { Chart as ChartJS } from "chart.js/auto";
+import { Bar, Pie } from "react-chartjs-2";
+import sampleData from "../../sampledata/sampleData.json";
+>>>>>>> 7a9a7c07e01fe638da87b9b49875d1cf7c1fca8a:Frontend/src/Pages/admin/AdminPersonInfo.js
 
 const filteredData = sampleData.regions.filter((data) => data.value !== 0);
 

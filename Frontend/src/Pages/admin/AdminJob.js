@@ -1,10 +1,25 @@
-import React from 'react'
-import Sidenavbar from "../components/Side-navbar";
+import React, { useEffect, useState } from 'react'
+import Sidenavbar from "../../components/Side-navbar";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Bar, Pie } from "react-chartjs-2";
-import sampleData from "../sampledata/sampleData.json";
+import sampleData from "../../sampledata/sampleData.json";
 
-function AdminJob() {
+const AdminJob = () => {
+    const [data, setData] = useState([]);
+
+useEffect(() => {
+    fetch('https://localhost:5000/api/jobdata')
+        .then((response) => response.json())
+        .then((data) => setData(data))
+        .catch((error) => console.error('error fetching data:', error));
+}, []);
+
+const counts = data.reduce((acc, curr) => {
+    const answer = curr.Question1; // Assuming 'Question2' contains the answer
+    acc[answer] = (acc[answer] || 0) + 1;
+    return acc;
+}, {});
+
     return (
         <body>
             <div className='admin-navbar'>
@@ -30,10 +45,10 @@ function AdminJob() {
                         <h2>First job after college</h2>
                         <Pie
                             data={{
-                                labels: sampleData.boolean.map((data) => data.label),
+                                labels: Object.keys(counts),
                                 datasets: [
                                     {
-                                        data: sampleData.boolean.map((data) => data.value),
+                                        data: Object.values(counts),
                                     },
                                 ],
                             }}
