@@ -1,12 +1,89 @@
-import React from 'react';
 import Sidenavbar from "../components/Side-navbar";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Bar, Pie } from "react-chartjs-2";
 import sampleData from "../sampledata/sampleData.json";
+import React, { useState, useEffect } from 'react';
+
 
 const filteredData = sampleData.regions.filter((data) => data.value !== 0);
 
 function AdminPersonInfo() {
+
+    const [civildata, agedata, setPersonInfo] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            // Fetch data from the API endpoint
+            const response = await fetch('http://localhost:5000/api/alumndata');
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+    
+            // Set the fetched data to state
+            setPersonInfo(data);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
+
+      //group of age
+      const groupData = (data) => {
+        const groupMap = new Map();
+      
+        data.forEach((item) => {
+          const age = item.age;
+          const civilStatus = item.civil_status;
+      
+          const key = `${age}_${civilStatus}`;
+          groupMap.set(key, (groupMap.get(key) || 0) + 1);
+        });
+      
+        // Convert map to array of objects
+        const groupedData = Array.from(groupMap, ([key, count]) => {
+          const [age, civilStatus] = key.split('_');
+          return { age, civilStatus, count };
+        });
+      
+        return groupedData;
+      };
+      
+      // Group similar ages and civil_statuses
+      const groupedData = groupData(civildata);
+      
+      /*
+      
+      const renderAgeChart = (ageData) => {
+  // Code to render a chart based on ageData
+  // Use a library like Chart.js or any other charting library
+};
+
+const renderCivilStatusChart = (civilStatusData) => {
+  // Code to render a chart based on civilStatusData
+  // Use a library like Chart.js or any other charting library
+};
+
+// In your component or render function
+// ...
+
+// Group similar ages and civil_statuses
+const groupedData = groupData(civildata);
+
+// Separate the grouped data for age and civil status
+const ageData = groupedData.map(({ age, count }) => ({ label: age, count }));
+const civilStatusData = groupedData.map(({ civilStatus, count }) => ({ label: civilStatus, count }));
+
+// Render charts
+renderAgeChart(ageData);
+renderCivilStatusChart(civilStatusData);
+
+       */
+
+
     return (
         <body>
             <div className='admin-navbar'>
@@ -32,11 +109,11 @@ function AdminPersonInfo() {
                         <h2>Alumni Ages</h2>
                         <Bar
                             data={{
-                                labels: sampleData.age.map((data) => data.label),
+                                labels: ageGroups.map((group) => group.age),
                                 datasets: [
                                     {
                                         label: "No. of Alumni",
-                                        data: sampleData.age.map((data) => data.value),
+                                        data: ageGroups.map((group) => group.count),
                                     },
                                 ],
                             }}
@@ -46,10 +123,10 @@ function AdminPersonInfo() {
                         <h2>Civil Status</h2>
                         <Pie
                             data={{
-                                labels: sampleData.civil.map((data) => data.label),
+                                labels: civilGroups.map((civildata) => civildata.civil_status),
                                 datasets: [
                                     {
-                                        data: sampleData.civil.map((data) => data.value),
+                                        data: civilGroups.map((civildata) => civildata.civilcount),
                                     },
                                 ],
                             }}
