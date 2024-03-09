@@ -18,7 +18,7 @@ const dbName = 'newsandstories'; // Change this to your database name
 // Collection Name
 const collectionName = 'content';
 
-// API endpoint to fetch data
+// API endpoint to fetch news and story
 app.get('/api/content', async (req, res) => {
   const client = new MongoClient(url);
 
@@ -65,6 +65,27 @@ app.get('/api/content/:id', async (req, res) => {
   } finally {
     await client.close();
   }
+});
+
+// API endpoint to fetch job data
+app.get('/api/jobdata', async (req, res) => {
+  const client = new MongoClient(url);
+
+  try {
+    await client.connect();
+
+    const db = client.db(data);
+    const collection = db.collection(jobData);
+
+    // Query to fetch all documents from the collection
+    const result = await collection.find({}).toArray();
+
+    // Respond with the fetched data
+    res.json(result);
+  } finally {
+    await client.close();
+  }
+
 });
 
 // Start the server

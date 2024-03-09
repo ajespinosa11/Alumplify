@@ -1,8 +1,8 @@
 import React from 'react';
-import Sidenavbar from "../components/Side-navbar";
+import Sidenavbar from "../../components/Side-navbar";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Bar, Pie } from "react-chartjs-2";
-import sampleData from "../sampledata/sampleData.json";
+import sampleData from "../../sampledata/sampleData.json";
 
 const filteredData = sampleData.regions.filter((data) => data.value !== 0);
 
