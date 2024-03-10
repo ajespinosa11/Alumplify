@@ -1,12 +1,57 @@
-import React from 'react';
 import Sidenavbar from "../../components/Side-navbar";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Bar, Pie } from "react-chartjs-2";
-import sampleData from "../../sampledata/sampleData.json";
+import React, { useState, useEffect } from 'react';
 
-const filteredData = sampleData.regions.filter((data) => data.value !== 0);
+//filter regions sample
+//const filteredData = sampleData.regions.filter((data) => data.value !== 0);
 
 function AdminPersonInfo() {
+
+    const [persondata, setPersonInfo] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            // Fetch data from the API endpoint
+            const response = await fetch('http://localhost:5000/api/aluminfo');
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+    
+            // Set the fetched data to state
+            setPersonInfo(data);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
+
+      const groupDataByKey = (data, key) => {
+        const dataMap = new Map();
+        data.forEach((item) => {
+            const value = item[key];
+            dataMap.set(value, (dataMap.get(value) || 0) + 1);
+        });
+    
+        return Array.from(dataMap, ([value, count]) => ({ [key]: value, count }));
+    };
+
+        const groupAges = (data) => groupDataByKey(data, 'age');
+        const groupCivilStatus = (data) => groupDataByKey(data, 'civil_status');
+        const groupGender = (data) => groupDataByKey(data, 'gender');
+        const groupRegion = (data) => groupDataByKey(data, 'region');
+        const groupResidence = (data) => groupDataByKey(data, 'residence');
+        
+        const ageGroups = groupAges(persondata);
+        const civilStatusGroups = groupCivilStatus(persondata);
+        const genderGroups = groupGender(persondata);
+        const regionGroups = groupRegion(persondata);
+        const residenceGroups = groupResidence(persondata);
+    
     return (
         <body>
             <div className='admin-navbar'>
@@ -32,11 +77,11 @@ function AdminPersonInfo() {
                         <h2>Alumni Ages</h2>
                         <Bar
                             data={{
-                                labels: sampleData.age.map((data) => data.label),
+                                labels: ageGroups.map((group) => group.age), //group.age yung name nung variable sa db
                                 datasets: [
                                     {
                                         label: "No. of Alumni",
-                                        data: sampleData.age.map((data) => data.value),
+                                        data: ageGroups.map((group) => group.count),
                                     },
                                 ],
                             }}
@@ -46,10 +91,20 @@ function AdminPersonInfo() {
                         <h2>Civil Status</h2>
                         <Pie
                             data={{
-                                labels: sampleData.civil.map((data) => data.label),
+                                labels: civilStatusGroups.map((group) => group.civilStatus),
                                 datasets: [
                                     {
-                                        data: sampleData.civil.map((data) => data.value),
+                                        label: " Alumni",
+                                        data: civilStatusGroups.map((group) => group.count),
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.7)', // Red
+                                            'rgba(54, 162, 235, 0.7)', // Blue
+                                            'rgba(255, 206, 86, 0.7)', // Yellow
+                                            'rgba(75, 192, 192, 0.7)', // Green
+                                            'rgba(153, 102, 255, 0.7)', // Purple
+                                            'rgba(255, 159, 64, 0.7)' // Orange
+                                            // You can add more colors if needed
+                                        ],
                                     },
                                 ],
                             }}
@@ -59,10 +114,16 @@ function AdminPersonInfo() {
                         <h2>Alumni Gender</h2>
                         <Pie
                             data={{
-                                labels: sampleData.gender.map((data) => data.label),
+                                labels: genderGroups.map((group) => group.gender),
                                 datasets: [
                                     {
-                                        data: sampleData.gender.map((data) => data.value),
+                                        label: " Alumni",
+                                        data: genderGroups.map((group) => group.count),
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.7)', // Red for female
+                                            'rgba(54, 162, 235, 0.7)', // Blue for male
+                                            // You can add more colors if needed
+                                        ],
                                     },
                                 ],
                             }}
@@ -72,12 +133,12 @@ function AdminPersonInfo() {
                         <h2>Region of Origin</h2>
                         <Bar
                             data={{
-                                labels: filteredData.map((data) => data.label),
+                                labels: regionGroups.map((group) => group.region),
                                 datasets: [
                                     {
                                         axis: 'y',
                                         label: "No. of Alumni",
-                                        data: filteredData.map((data) => data.value),
+                                        data: regionGroups.map((group) => group.count),
                                         backgroundColor: 'orange'
                                     },
                                 ],
@@ -91,10 +152,16 @@ function AdminPersonInfo() {
                         <h2>Location of Residence</h2>
                         <Pie
                             data={{
-                                labels: sampleData.residence.map((data) => data.label),
+                                labels: residenceGroups.map((group) => group.residence),
                                 datasets: [
                                     {
-                                        data: sampleData.residence.map((data) => data.value),
+                                        label: " Alumni",
+                                        data: residenceGroups.map((group) => group.count),
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.7)', // Red for female
+                                            'rgba(54, 162, 235, 0.7)', // Blue for male
+                                            // You can add more colors if needed
+                                        ],
                                     },
                                 ],
                             }}

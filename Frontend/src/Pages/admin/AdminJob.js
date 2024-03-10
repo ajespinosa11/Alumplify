@@ -1,25 +1,70 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import Sidenavbar from "../../components/Side-navbar";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Bar, Pie } from "react-chartjs-2";
 import sampleData from "../../sampledata/sampleData.json";
 
 const AdminJob = () => {
-    const [data, setData] = useState([]);
 
-useEffect(() => {
-    fetch('https://localhost:5000/api/jobdata')
-        .then((response) => response.json())
-        .then((data) => setData(data))
-        .catch((error) => console.error('error fetching data:', error));
-}, []);
+    const [personjob, setPersonJob] = useState([]);
 
-const counts = data.reduce((acc, curr) => {
-    const answer = curr.Question1; // Assuming 'Question2' contains the answer
-    acc[answer] = (acc[answer] || 0) + 1;
-    return acc;
-}, {});
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            // Fetch data from the API endpoint
+            const response = await fetch('http://localhost:5000/api/alumjob');
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+    
+            // Set the fetched data to state
+            setPersonJob(data);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
+      const groupDataByKey = (data, key) => {
+        const dataMap = new Map();
+        data.forEach((item) => {
+            const value = item[key];
+            dataMap.set(value, (dataMap.get(value) || 0) + 1);
+        });
+    
+        return Array.from(dataMap, ([value, count]) => ({ [key]: value, count }));
+    };
+
+    const groupQuest1 = (data) => groupDataByKey(data, 'Question1');
+    const groupQuest2 = (data) => groupDataByKey(data, 'Question2');
+    const groupQuest3 = (data) => groupDataByKey(data, 'Question3');
+    const groupQuest4 = (data) => groupDataByKey(data, 'Question4');
+    const groupQuest5 = (data) => groupDataByKey(data, 'Question5');
+    const groupQuest6 = (data) => groupDataByKey(data, 'Question6');
+    const groupQuest7 = (data) => groupDataByKey(data, 'Question7');
+    const groupQuest8 = (data) => groupDataByKey(data, 'Question8');
+    const groupQuest9 = (data) => groupDataByKey(data, 'Question9');
+    const groupQuest10 = (data) => groupDataByKey(data, 'Question10');
+    const groupQuest11 = (data) => groupDataByKey(data, 'Question11');
+    
+
+    const quest1Groups = groupQuest1(personjob);
+    const quest2Groups = groupQuest2(personjob);
+    const quest3Groups = groupQuest3(personjob);
+    const quest4Groups = groupQuest4(personjob);
+    const quest5Groups = groupQuest5(personjob);
+    const quest6Groups = groupQuest6(personjob);
+    const quest7Groups = groupQuest7(personjob);
+    const quest8Groups = groupQuest8(personjob);
+    const quest9Groups = groupQuest9(personjob);
+    const quest10Groups = groupQuest10(personjob);
+    const quest11Groups = groupQuest11(personjob);
+    
+
+    
     return (
         <body>
             <div className='admin-navbar'>
@@ -45,10 +90,19 @@ const counts = data.reduce((acc, curr) => {
                         <h2>First job after college</h2>
                         <Pie
                             data={{
-                                labels: Object.keys(counts),
+                                labels: quest1Groups.map((group) => group.Question1),
                                 datasets: [
                                     {
-                                        data: Object.values(counts),
+                                        data: quest1Groups.map((group) => group.count),
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.7)', // Red
+                                            'rgba(54, 162, 235, 0.7)', // Blue
+                                            'rgba(255, 206, 86, 0.7)', // Yellow
+                                            'rgba(75, 192, 192, 0.7)', // Green
+                                            'rgba(153, 102, 255, 0.7)', // Purple
+                                            'rgba(255, 159, 64, 0.7)' // Orange
+                                            // You can add more colors if needed
+                                        ],
                                     },
                                 ],
                             }}
@@ -58,10 +112,19 @@ const counts = data.reduce((acc, curr) => {
                         <h2>First job related to the course took up to the college</h2>
                         <Pie
                             data={{
-                                labels: sampleData.gender.map((data) => data.label),
+                                labels: quest2Groups.map((group) => group.Question2),
                                 datasets: [
                                     {
-                                        data: sampleData.gender.map((data) => data.value),
+                                        data: quest2Groups.map((group) => group.count),
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.7)', // Red
+                                            'rgba(54, 162, 235, 0.7)', // Blue
+                                            'rgba(255, 206, 86, 0.7)', // Yellow
+                                            'rgba(75, 192, 192, 0.7)', // Green
+                                            'rgba(153, 102, 255, 0.7)', // Purple
+                                            'rgba(255, 159, 64, 0.7)' // Orange
+                                            // You can add more colors if needed
+                                        ],
                                     },
                                 ],
                             }}
@@ -71,12 +134,12 @@ const counts = data.reduce((acc, curr) => {
                         <h2>Reason for staying on the job</h2>
                         <Bar
                             data={{
-                                labels: sampleData.regions.map((data) => data.label),
+                                labels: quest3Groups.map((group) => group.Question3),
                                 datasets: [
                                     {
                                         axis: 'y',
                                         label: "No. of Alumni",
-                                        data: sampleData.regions.map((data) => data.value),
+                                        data: quest3Groups.map((group) => group.count),
                                         backgroundColor: 'orange'
                                     },
                                 ],
@@ -90,12 +153,12 @@ const counts = data.reduce((acc, curr) => {
                         <h2>Reason for accepting job</h2>
                         <Bar
                             data={{
-                                labels: sampleData.regions.map((data) => data.label),
+                                labels: quest4Groups.map((group) => group.Question4),
                                 datasets: [
                                     {
                                         axis: 'y',
                                         label: "No. of Alumni",
-                                        data: sampleData.regions.map((data) => data.value),
+                                        data: quest4Groups.map((group) => group.count),
                                         backgroundColor: 'orange'
                                     },
                                 ],
@@ -109,12 +172,12 @@ const counts = data.reduce((acc, curr) => {
                         <h2>Reason for changing job</h2>
                         <Bar
                             data={{
-                                labels: sampleData.regions.map((data) => data.label),
+                                labels: quest5Groups.map((group) => group.Question5),
                                 datasets: [
                                     {
                                         axis: 'y',
                                         label: "No. of Alumni",
-                                        data: sampleData.regions.map((data) => data.value),
+                                        data: quest5Groups.map((group) => group.count),
                                         backgroundColor: 'orange'
                                     },
                                 ],
@@ -128,10 +191,19 @@ const counts = data.reduce((acc, curr) => {
                         <h2>How long stay on first job</h2>
                         <Pie
                             data={{
-                                labels: sampleData.gender.map((data) => data.label),
+                                labels: quest6Groups.map((group) => group.Question6),
                                 datasets: [
                                     {
-                                        data: sampleData.gender.map((data) => data.value),
+                                        data: quest6Groups.map((group) => group.count),
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.7)', // Red
+                                            'rgba(54, 162, 235, 0.7)', // Blue
+                                            'rgba(255, 206, 86, 0.7)', // Yellow
+                                            'rgba(75, 192, 192, 0.7)', // Green
+                                            'rgba(153, 102, 255, 0.7)', // Purple
+                                            'rgba(255, 159, 64, 0.7)' // Orange
+                                            // You can add more colors if needed
+                                        ],
                                     },
                                 ],
                             }}
@@ -141,10 +213,19 @@ const counts = data.reduce((acc, curr) => {
                         <h2>How long to land first job</h2>
                         <Pie
                             data={{
-                                labels: sampleData.gender.map((data) => data.label),
+                                labels: quest7Groups.map((group) => group.Question7),
                                 datasets: [
                                     {
-                                        data: sampleData.gender.map((data) => data.value),
+                                        data: quest7Groups.map((group) => group.count),
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.7)', // Red
+                                            'rgba(54, 162, 235, 0.7)', // Blue
+                                            'rgba(255, 206, 86, 0.7)', // Yellow
+                                            'rgba(75, 192, 192, 0.7)', // Green
+                                            'rgba(153, 102, 255, 0.7)', // Purple
+                                            'rgba(255, 159, 64, 0.7)' // Orange
+                                            // You can add more colors if needed
+                                        ],
                                     },
                                 ],
                             }}
@@ -154,12 +235,12 @@ const counts = data.reduce((acc, curr) => {
                         <h2>How did you find your first job</h2>
                         <Bar
                             data={{
-                                labels: sampleData.regions.map((data) => data.label),
+                                labels: quest8Groups.map((group) => group.Question8),
                                 datasets: [
                                     {
                                         axis: 'y',
                                         label: "No. of Alumni",
-                                        data: sampleData.regions.map((data) => data.value),
+                                        data: quest8Groups.map((group) => group.count),
                                         backgroundColor: 'orange'
                                     },
                                 ],
@@ -173,11 +254,11 @@ const counts = data.reduce((acc, curr) => {
                         <h2>Job level position</h2>
                         <Bar
                             data={{
-                                labels: sampleData.age.map((data) => data.label),
+                                labels: quest9Groups.map((data) => data.Question9),
                                 datasets: [
                                     {
                                         label: "No. of Alumni",
-                                        data: sampleData.age.map((data) => data.value),
+                                        data: quest9Groups.map((data) => data.count),
                                     },
                                 ],
                             }}
@@ -187,10 +268,19 @@ const counts = data.reduce((acc, curr) => {
                         <h2>INITIAL GROSS MONTHLY EARNING IN YOUR FIRST JOB AFTER COLLEGE</h2>
                         <Pie
                             data={{
-                                labels: sampleData.gender.map((data) => data.label),
+                                labels: quest10Groups.map((group) => group.Question10),
                                 datasets: [
                                     {
-                                        data: sampleData.gender.map((data) => data.value),
+                                        data: quest10Groups.map((group) => group.count),
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.7)', // Red
+                                            'rgba(54, 162, 235, 0.7)', // Blue
+                                            'rgba(255, 206, 86, 0.7)', // Yellow
+                                            'rgba(75, 192, 192, 0.7)', // Green
+                                            'rgba(153, 102, 255, 0.7)', // Purple
+                                            'rgba(255, 159, 64, 0.7)' // Orange
+                                            // You can add more colors if needed
+                                        ],
                                     },
                                 ],
                             }}
@@ -200,10 +290,19 @@ const counts = data.reduce((acc, curr) => {
                         <h2>WAS THE CURRICULUM YOU HAD IN COLLEGE RELEVANT TO YOUR FIRST JOB?</h2>
                         <Pie
                             data={{
-                                labels: sampleData.gender.map((data) => data.label),
+                                labels: quest11Groups.map((group) => group.Question11),
                                 datasets: [
                                     {
-                                        data: sampleData.gender.map((data) => data.value),
+                                        data: quest11Groups.map((group) => group.count),
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.7)', // Red
+                                            'rgba(54, 162, 235, 0.7)', // Blue
+                                            'rgba(255, 206, 86, 0.7)', // Yellow
+                                            'rgba(75, 192, 192, 0.7)', // Green
+                                            'rgba(153, 102, 255, 0.7)', // Purple
+                                            'rgba(255, 159, 64, 0.7)' // Orange
+                                            // You can add more colors if needed
+                                        ],
                                     },
                                 ],
                             }}
