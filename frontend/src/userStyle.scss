@@ -68,6 +68,503 @@ Body {
   flex-direction: column;
 }
 
+/* Login */
+.log_style{
+  padding: 0;
+    margin: 0;
+    font-family: 'Montagu Slab', serif; 
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.left-col{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100vh;
+  color: #fff;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Gelasio', serif;
+  background-image: url(/Assets/jpg/navbarBg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.left-col::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: brightness(40%);
+  z-index: -1;
+}
+
+.left-col h1{
+  font-family: 'Abhaya Libre', serif;
+  letter-spacing: 8px;
+  font-size: 4.5rem;
+  color: #bf9745;
+}
+
+.left-col p{
+  letter-spacing: 2px;
+}
+
+.right-col{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 100vh;
+  justify-content: center;
+  text-align: left;
+  color: #fff;
+  background-color: #111;
+  font-family: 'Montagu Slab', serif;
+  padding:  0 100px 0 50px;
+}
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.right-col .right-text{
+  text-align: left;
+  margin-bottom: 20px;
+  font-weight: bold;
+  gap: 25px;
+}
+
+.right-col .right-text1{
+  letter-spacing: 2px;
+  font-size: 2rem;
+}
+
+.right-col .right-text2{
+  font-size: .8rem;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.form-container{
+  gap: 20px;
+}
+
+.form-container button{
+  background-color: #bf9745;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: 'Abhaya Libre', serif;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.form-container .a-btn{
+  color: #000;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.form-container .b-btn{
+  color: #fff;
+  font-weight: bold;
+}
+
+.form-container .admin-login-btn{
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.form-container .user-sign-btn{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.form-container .right-text3{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.form-container input{
+  border-radius: 4px;
+}
+
+.form-container .box{
+  height: 40px;
+  margin: 10px 0 10px 0;
+  padding: 10px;
+}
+
+.form-container .box2{
+  height: 60px; 
+}
+
+.form-container .form-container1{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.form-container .form-container2{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.form-container .SU-box{
+  height: 25px;
+  width: 45%;
+  margin: 10px 0 10px 0;
+  padding: 10px;
+}
+
+.form-container .SU-box1{
+  height: 25px;
+  margin: 10px 0 10px 0;
+  padding: 10px;
+}
+
+.form-container .SU-box2{
+  height: 45px;
+}
+
+.left-col footer{
+  align-items: end;
+  letter-spacing: 2px;
+}
+
+/* Home */
+
+.homeStyle{
+  margin: 0;
+    padding: 0;
+    font-family: 'Montagu Slab', serif;
+    background-color: #111;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  border: 1px solid #111;
+  height: auto;
+  width: auto;
+}
+
+
+.NewsStories{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  min-height: 50vh;
+}
+
+
+.NewsStories .NS-Header .NS-Header-text{
+  margin: 0;
+  font-size: 40px;
+  font-family: 'Abhaya Libre', serif;
+  color: #FBCD6E;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.NewsStories .NS-Header .NS-Header-line{
+  margin: 0 0 40px 0;
+  font-size: 30px;
+  color: #fff;
+}
+
+
+.card-holder{
+  display: flex;
+  justify-content: center;
+}
+
+.content-card{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 100px;
+  width: 400px;
+}
+
+.card{
+  border: 1px solid #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #FBCD6E;
+  font-family: 'Abhaya Libre', serif;
+}
+
+.card img{
+  width: 300px;
+  height: 300px;
+}
+
+.card .ns-content-title{
+  font-weight: bold;
+}
+
+.card .description{
+  font-family: "Actor", sans-serif;
+  padding: 0 20px 0 20px;
+}
+
+.NewsStories .E-LM{
+  color: #FBCD6E;
+  font-size: 15px;
+  padding: 5px 10px 5px 10px;
+  margin: 20px 42% 20px 42%;
+  border: 2px solid #FBCD6E;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.NewsStories .E-LM a{
+  color: #FBCD6E;
+}
+
+.NewsStories .E-LM .arrow{
+  min-width: 0;
+  max-width: 30px;
+
+}
+
+.Events{
+  padding: 30px;
+  min-width: 0;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  background: #79542E;
+}
+
+.Events .E-header{
+  color:#FFE1A4;
+  font-family: 'Abhaya Libre', serif;
+  font-size: 40px;
+  letter-spacing: 3px;
+  margin: 0 0 50px 50px;
+}
+
+.Events .E-text{
+  color:#fff;
+  font-family: 'Abhaya Libre', serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+  margin: 0 0 50px 50px;
+}
+
+.E-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.event{
+  display: flex;
+  width: 45%;
+  gap: 30px;
+  font-family: "Istok Web", sans-serif;
+}
+
+.when{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 0;
+}
+
+.when .month{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  background: #FF0606;
+  border-radius: 10px 10px 0 0;
+  height: 28px;
+  width: 105px;
+}
+
+.when .date{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FBCD6E;
+  border-radius: 0 0 10px 10px;
+  height: 77px;
+  width: 105px;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
+.what{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  color: #fff;
+  font-family: "Istok Web", sans-serif;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.what .what-1{
+  font-size: 18px;
+}
+
+.what .what-2{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.what .what-3{
+  font-size: 20px;
+}
+
+.what p{
+  margin: 0;
+}
+
+.E-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+}
+
+.E-link a{
+  padding: 20px;
+  margin: 20px;
+  width: 30%;
+  background: peachpuff;
+  border-radius: 10px;
+  color: #111;
+  text-align: center;
+}
+
+.Gallery{
+  min-height: 400px ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  min-width: 0;
+  max-width: 100%;
+  background-color: #FCF5E5;
+}
+
+.Gallery .Images{
+  width: 50%;
+  display: grid;
+  grid-template-columns: 150px 150px 150px 150px;
+  grid-template-rows: 150px 150px;
+  gap: 10px;
+  padding: 10px;
+  height: 300px;
+}
+
+.img-1{
+  height: 150px;
+  width: 310px;
+  border: 2px solid black;
+  grid-row: 1 / 2;
+  grid-column: 2 / 4;
+}
+
+.img-2{
+  height: 150px;
+  width: 150px;
+  border: 2px solid black;
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+.img-3{
+  height: 150px;
+  width: 150px;
+  border: 2px solid black;
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
+}
+
+.Gallery .Images img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+.G-Text{
+  width: 40%;
+  text-align: center;
+  color: #111;
+  letter-spacing: 3px;
+}
+
+.G-Text .G-header{
+  font-size: 40px;
+  font-family: 'Abhaya Libre', serif;
+}
+
+.G-Text .G-subheader{
+  font-size: 20px;
+  font-family: "Corben", serif;
+}
+
+.G-Text .G-LM{
+  background: #FBCD6E;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin: 0 25% 0 25%;
+}
+
+.G-Text .G-LM a{
+  color: #111;
+}
+
+.G-Text .G-LM .arrow{
+  min-width: 0;
+  max-width: 30px;
+}
+
 /* Navbar  */
 
 .cosTextPic {
@@ -123,7 +620,7 @@ Body {
 
 .dropdown .dropbtn{
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   border: none;
   background-color: transparent;
   text-decoration: none;
@@ -151,31 +648,212 @@ Body {
 .selStyle {
   border-bottom: 1px solid $brandColor1;
 }
+
+/* Request Form */
+
+.ReqFormStyle{
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  max-height: fit-content;
+  background-color: #111;   
+  letter-spacing: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading{
+  text-align: center;
+  color: #fff;
+  font-family: 'Abhaya Libre', serif;
+  font-size: 55px;
+}
+
+.Form-cont{
+  background: rgb(249, 244, 198);
+  height: 100%;
+  margin: 30px;
+  padding: 30px;
+  width: 80%;
+}
+
+.head{
+  display: flex;
+  justify-content: space-between;
+}
+
+.Form-cont .head h2{
+  color: #BF9745;
+  font-size: 49px;
+  font-family: 'Abhaya Libre', serif;
+  margin: 0 0 40px 0;
+}
+
+
+.Form-cont .head .date{
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  width: 207px;
+  height: 70px;
+  margin: 0;
+}
+
+.Form-cont .head .date .calendar{
+  padding: 5px 15px 5px 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  font-family: "Istok Web", sans-serif;
+  font-size: 28px;
+  color: palegoldenrod;
+}
+
+.Form-cont .head .date .date-text{
+  font-size: 20px;   
+  font-family: "Istok Web", sans-serif;
+}
+
+.Form-cont .head .date p{
+  margin: 0;
+}
+
+.Form-cont .purpose{
+  font-family: "Istok Web", sans-serif;
+}
+
+.Form-cont .purpose h3{
+  font-size: 28px;
+}
+
+.Form-cont .purpose .docu-req{
+  line-height: 2.5;
+  font-size: 20px;
+  margin: 0 50px 0 50px;
+}
+
+.Form-cont .purpose .docu-req .holder{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.Form-cont .purpose .docu-req .textbox{
+  border: none;
+  border-bottom: 2px solid #111;
+  outline: none;
+  background-color: transparent;
+}
+
+
+.Form-cont .purpose .docu-req .holder input[type="checkbox"]{
+  width: 30px;
+  height: 30px;
+}
+
+.Form-cont .purpose .info-1 input{
+  border: none;
+  border-bottom: 2px solid #111;
+  outline: none;
+  background-color: transparent;
+}
+
+.Form-cont .purpose .info-1{
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 20px;
+  gap: 15px;
+  margin: 30px 0 30px 0;
+}
+
+.Form-cont .purpose .info-1 input[type="checkbox"]{
+  width: 30px;
+  height: 30px;
+}
+
+.Form-cont .purpose .info-1 .info-1-holder{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.Form-cont .purpose .info-2{
+  margin: 30px;
+  gap: 15px;
+  line-height: 2.5;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Form-cont .purpose .info-2 .info-2-1{
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  height: 70px;
+  font-size: 28;
+  font-family: "Istok Web", sans-serif;
+  letter-spacing: 3px;
+  color: palegoldenrod;
+  padding: 10px;
+  font-weight: bold;
+}
+
+
+.Form-cont .purpose .info-2 .info-2-2{
+  display: flex;
+  flex-wrap: wrap;
+  width: 480px;
+  height: 70px;
+  padding: 10px 11px 10px 10px;
+  font-size: 28;
+  font-family: "Istok Web", sans-serif;
+  letter-spacing: 3px;
+  color: palegoldenrod;
+  font-weight: bold;
+}
+
+
+.Form-cont .purpose .submit-btn{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 100px 0 30px 30px;
+}
+
+.Form-cont .purpose a{
+  text-decoration: none;
+  color: #111;
+  padding: 20px 50px 20px 50px;
+  margin: 20px;
+  background: #FBCD6E;
+  border-radius: 8px;
+  font-size: 28px;
+  font-family: "Istok Web", sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
 /* Announcement Event */
 
 .EventBorder{
- justify-content: start;
+ justify-content: flex-start;
  align-items: center;
  gap: 60px;
+ width: 100%;
 }
 
 .evenUpperText{
-  width: 100%;
-  max-width: 1250px; 
+  width: 90%;
   color: $brandColor1;
   font-size: 30px;
   
 }
 
-.gridAnnContain{
-  display: grid;
-  grid-template-columns: auto auto auto;
-}
-
 .contentBorder {
-  height: 100;
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
-  max-width: 1200px; 
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -291,11 +969,14 @@ Body {
   background-color: #FCF5E5; 
   border: $textWhite solid 1px;
   justify-content: center;
+  clip-path: polygon(3% 0, 100% 0, 100% 50%, 97% 100%, 0 100%, 0 50%);
   align-items: center;
   height: 60px;
-  width: 1100px;
+  width: 83%;
   gap: 5px;
 }
+
+.outerSearch{}
 
 .searchInp {
   border-right: 1px solid $textWhite;
@@ -372,14 +1053,14 @@ Body {
 
 
 .BOAborder {
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   color:black;
   gap: 40px;
 }
 
 .abstractBorder {
-  width: 1200px;
+  width: 87%;
   gap: 50px;
 }
 
@@ -393,21 +1074,15 @@ Body {
 }
 
 .abstractCont{
-  display: grid;
-  grid-template-areas: 
-  'plus title pic'
-  'abstract abstract abstract';
+  justify-content: center;
   width: 93%;
   max-width: 1100px;
-  gap: 20px
-}
+  gap: 20px;
+  padding: 30px 0 30px 0
 
-.plusIconBoa{
-  grid-area: plus;
 }
 
 .plusIconBoa span, .dlIconBoa span{
-  grid-area: downL;
   color: #FFB316;
   user-select: none;
   cursor: pointer;
@@ -415,11 +1090,8 @@ Body {
 }
 
 .boaTitle{
-  grid-area: title;
-}
-
-.boaPic{
-  grid-area: pic;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .detAbstarct{
@@ -431,15 +1103,13 @@ Body {
 
 
 .bottomBoaCont{
-  grid-area: abstract;
-  display: grid;
-  grid-template-areas: 
-  'downL abstr';
-  gap: 60px;
+  gap: 20px;
+  width: 93%;
 }
 
 .abstText{
-  grid-area: abstr;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .closeDesc{
@@ -455,23 +1125,23 @@ Body {
 
 // Survey
 .surveyBorder {
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   color: $textWhite;
   gap: 40px;
   width: 100%;
-
+  padding-bottom: 20px;
   input[type=checkbox]{
-    width: 18px;
     height: 18px;
   }
-  input[type=text], input[type=tel], input[type=email], textarea{
-    border: none;
-    background-color: none;
-    width: 95%;
-    &:focus{
-      outline: none;
-    }
+  
+  input[type=number]{
+    -moz-appearance: textfield;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
 
@@ -490,17 +1160,13 @@ Body {
   }
 }
 
-.titleTextPage{
-  font-family: 'Abhaya Libre', serif;
-  letter-spacing: 10px;
-}
-
 .questionBord{
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: $surveyBord;
-  width: 1000px;
+  width: 90%;
+  max-width: 1000px;
   gap: 60px;
 }
 
@@ -509,6 +1175,11 @@ Body {
   align-items: center;
   width: 90%;
   gap: 50px;
+  padding: 50px 0 50px 0;
+}
+
+.quewstionForm{
+  width: 100%;
 }
 
 .inputSurvText{
@@ -520,12 +1191,13 @@ Body {
 
 .questPersInfo{
   display: none;
-  gap: 40px
+  gap: 40px;
+  width: 100%;
 }
 
 .questEduc{
   display: none;
-  width: 100%;
+  width: auto;
   gap: 40px;
 }
 
@@ -552,11 +1224,11 @@ Body {
 
 .survHeader{
   display: flex;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   color: $brandColor1;
   font-family: 'Abhaya Libre', serif;
-  width: 200px;
+  width: 100%;
   h1 {
     font-size: 50px;
   }
@@ -565,19 +1237,12 @@ Body {
 .inputAns{
   gap: 20px;
   width: 100%;
-}
-
-.textAndPic{
-  gap: 110px;
+  
 }
 
 .inputs4text{
   font-size: 20px;
   gap: 20px;
-
-  .longAns{
-    width: 600px;
-  }
 }
 
 .inputText{
@@ -595,6 +1260,20 @@ Body {
   align-items: center;
   border-radius: 10px;
   background-color: white;
+  width: 100%;
+  height: 100%;
+
+  input[type=text], input[type=tel], input[type=number], select, input[type=email], textarea{
+    width: 95%;
+    padding: 20px 0 20px 0;
+    border: none;
+    background-color: none;
+    resize: none;
+
+    &:focus{
+      outline: none;
+    }
+  }
 }
 
 .heightInp{
@@ -605,7 +1284,6 @@ Body {
   background: transparent;
   border-radius: none;
   border: none;
-  width: 95%;
   &:focus{
     outline: none;
   }
@@ -616,46 +1294,52 @@ Body {
   gap: 20px
 }
 
-.shortAns{
-  width: 290px;
-
-  input,select {
-    width: 270px
+.inp2Txt1Drop{
+  font-size: 20px;
+  gap: 20px;
+  
+  input, select{
+    width: 90%
   }
 }
 
-.inp2Txt1Drop{
-  font-size: 20px;
-  gap: 20px
-}
-
 .survCat{
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
-  width: 900px;
+  width: 90%;
+  max-width: 900px;
   font-family: 'Istok Web', sans-serif;
   font-size: 15px;
   gap: 20px;
 
-  label{
+  .outerCat{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fbcc6e25;
-    border: 1px $bordYellow solid;
+    background-color: $brandColor1;
+    clip-path: polygon(25% 0, 100% 0, 100% 70%, 75% 100%, 0 100%, 0 30%);
     height: 90px;
     width: 124px;
     cursor: pointer;
     user-select: none;
     text-align: center;
+  }
+  .innerCat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(25% 0, 100% 0, 100% 70%, 75% 100%, 0 100%, 0 30%);
+    width: 98%;
+    height: 98%;
+    background-color: #251e18;
 
     &:hover{
       background-color: $brandColor1;
-    }
-
+    } 
   }
-
 }
+
+
 
 .profPic {
   display: flex;
@@ -669,7 +1353,7 @@ Body {
 }
 
 .profPicBord{
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   gap: 20px;
 }
@@ -704,7 +1388,10 @@ Body {
   font-family: 'Istok Web', sans-serif;
   font-weight: bold;
   border-radius: 10px;
-
+  color: black;
+  user-select: none;
+  cursor: pointer;
+  
   &:hover{
     background-color: #ffc042;
   }
@@ -806,6 +1493,13 @@ Body {
       text-decoration: none;
     }
   }
+}
+
+.nsAnnVis{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
 }
 
 //Story card style
@@ -1230,7 +1924,7 @@ Body {
   width: 50px;
   display: flex;
   justify-content: center;  
-  align-items: start;
+  align-items: flex-start;
   background-color: $bgColor;
 }
 
@@ -1238,7 +1932,7 @@ Body {
   top: 0;
   display: flex;
   justify-content: center;  
-  align-items: end;
+  align-items: flex-end;
   height: 400px;
   nav{
     display: flex;
@@ -1296,7 +1990,9 @@ Body {
   display: flex;
   text-align: justify;
   background-color: $bordYellow;
+  height: 200px;
   cursor: pointer;
+  gap: 20px;
 }
 
 .moreIcon{
@@ -1320,10 +2016,10 @@ Body {
 .innerBoa{
   position: relative;
   left: 15px;
-  gap: 5px;
+  gap: 20px;
   width: 320px;
-  align-items: start;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .InnerInp{
@@ -1378,7 +2074,7 @@ Body {
   width: 90%;
   label{
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     font-size: 18px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
@@ -1416,7 +2112,7 @@ Body {
   user-select: none;
   display: flex;
   width: 100%;
-  align-items: start;
+  align-items: flex-start;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bold;
 }
@@ -1430,7 +2126,7 @@ Body {
 .bottomBtn{
   height: 120px;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .btnArea{
@@ -1500,7 +2196,7 @@ Body {
 }
 
 .innerHeader{
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   gap: 20px;
   width: 380px;
@@ -1591,8 +2287,207 @@ Body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 .ContDesc{
- width: 210px;
+ width: 150px;
+}
+
+/* Dashoard */
+
+.adminpage{
+
+  width: 100%;
+
+.admin-navbar {
+  height: 12%;
+  width: 100%;
+  background-color: #181614;
+  display: flex;
+  justify-content: space-between;
+
+  .nav-title {
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      padding-left: 30px;
+
+      h1 {
+          color: #BF9745;
+          letter-spacing: 8px;
+          font-family: 'Abhaya Libre', serif;
+      }
+
+      p {
+          font-size: 12px;
+          letter-spacing: 1px;
+          color: white;
+          font-style: italic;
+      }
+  }
+
+  .date-time {
+      float: right;
+      margin: 30px;
+      color: white;
+
+      h1 {
+          margin-right: 50px;
+          display: inline;
+          vertical-align: middle;
+          font-size: 40px;
+      }
+
+      .date {
+          vertical-align: middle;
+          display: inline-block;
+          text-align: center;
+      }
+  }
+
+  img {
+      padding: 15px;
+      vertical-align: middle;
+      height: 8vh;
+      width: auto;
+  }
+
+  .navdata{
+      color: white;
+      margin: 40px;
+
+      h3{
+          display: inline;
+      }
+
+      a{
+          margin-right: 80px;
+          color: white;
+          text-decoration: none;
+      }
+  }
+}
+
+
+.admin-wrapper {
+  display: flex;
+  height: 90%;
+}
+
+.jobStyle{
+  width: 100px;
+}
+
+.content {
+  flex-direction: column;
+  flex-grow: 1;
+  display: flex;
+  padding: 20px;
+  font-family: 'Istok Web', sans-serif;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
+
+  content::-webkit-scrollbar {
+      display: none;
+    }
+
+  #dashboard-title {
+      letter-spacing: 5px;
+  }
+
+  #personinfo-title{
+      letter-spacing: 2px;
+  }
+
+  .cards{
+    gap: 20px
+  }
+
+  .data-card {
+      justify-content: start;
+      align-items: center;
+      height: 130px;
+      width: 40%;
+      background-color: #F9BA39;
+      border-radius: 15px;
+      text-align: center;
+      padding: 25px;
+
+      .material-symbols-outlined {
+          font-size: 60px;         
+          vertical-align: middle;
+      }
+
+      h3 {
+          font-size: 50px;
+      }
+
+      .data {
+          vertical-align: middle;
+          align-items: center;
+          width: 100%;
+      }
+  }
+}
+
+.first_Row{
+  width: 100%;
+  height: 100px;
+}
+
+.graphs{
+  width: 100%;
+}
+
+.charts {
+
+  width: 45%;
+  display: inline-block;
+  margin: 15px;
+  padding-top: 50px;
+  text-align: center;
+
+  h3 {
+      margin-bottom: 25px;
+  }
+}
+
+#dboard-doughnut {
+  height: 350px;
+  width: 20%;
+}
+
+.data-story {
+  margin-left: 50px;
+  display: inline-block;
+  width: 25%;
+  height: 350px;
+
+  h3 {
+      margin-bottom: 25px;
+  }
+
+  table {
+      padding: 15px;
+      background-color: #FBCD6E;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      border-radius: 15px;
+  }
+
+}
+
+.person-pie{
+  height: 100px;
+  width: 10%;
+}
+
+.person-pie-end{
+  padding-left: 200px;
+  height: 400px;
+  width: 20%;
+}
 }

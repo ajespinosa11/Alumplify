@@ -5,77 +5,97 @@ const Schema = mongoose.Schema
 const jobSchema = new Schema ({
     Answer:{
         quesAns1:{
-            type: Boolean,
+            type: String,
             require: true
         },
         quesAns2:{
             check1: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check2: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check3: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check4: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check5: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check6: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check7: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check8: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
         },
         quesAns3:{
-            type: Boolean,
+            type: String,
             require: true
         },
         quesAns4:{
             check1: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check2: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check3: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check4: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check5: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check6: {
-                type: Boolean
+                type: Boolean,
+                default: false
             }
         },
         quesAns5:{
             check1: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check2: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check3: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check4: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check5: {
-                type: Boolean
+                type: Boolean,
+                default: false
             },
             check6: {
-                type: Boolean
+                type: Boolean,
+                default: false
             }
         },
         quesAns6:{
@@ -105,6 +125,9 @@ const jobSchema = new Schema ({
             },
             check7: {
                 type: Boolean
+            },
+            check8: {
+                type: Boolean
             }
         },
         quesAns9:{
@@ -132,7 +155,7 @@ const jobSchema = new Schema ({
             require: true
         },
         quesAns11:{
-            type: Boolean,
+            type: String,
             require: true
         },
         quesAns12:{

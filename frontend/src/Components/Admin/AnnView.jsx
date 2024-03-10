@@ -56,30 +56,12 @@ const AnnView = ({viewEvnt, editEvnt, defEvnt, editDefEvnt, disable, setDis}) =>
             } */}
             <textarea 
                 disabled
-                style={{border: '1px solid black', fontWeight: 'bold', fontSize: '20px'}} 
+                style={{ fontWeight: 'bold', fontSize: '20px'}} 
                 className='txtView' 
                 // onChange={inptChange} 
                 name='Title'
                 ref={(element) => {TxtAreaRef.current[0] = element}} 
                 rows={1} value= {viewEvnt.Title}/>
-          </div>
-          <div style={{fontWeight: 'bold', fontSize: '16px', paddingTop: '8px'}}>
-            {/* {disable ? <textarea disabled
-              style={{fontWeight: 'bold', fontSize: '16px'}}
-              className='txtView' 
-              name='Author'
-              ref={(element) => {TxtAreaRef.current[1] = element}} 
-              rows={1} value= {viewBoa.Author}/>
-                :
-              <textarea
-              style={{border: '1px solid black', fontWeight: 'bold', fontSize: '16px'}}
-              className='txtView hoverInCont' 
-              onChange={inptChange}
-              name='Author'
-              ref={(element) => {TxtAreaRef.current[1] = element}} 
-              rows={1} value= {viewBoa.Author}/>
-            } */}
-           
           </div>
           <div >
             {/* {disable ? 
@@ -102,7 +84,7 @@ const AnnView = ({viewEvnt, editEvnt, defEvnt, editDefEvnt, disable, setDis}) =>
                 type="text" 
                 className='txtView' 
                 name='Date' 
-                value= {viewEvnt.Date_Implementation} />
+                value= {viewEvnt.Date_Implement} />
           </div>
           <div style={{fontSize: '14px',
                     display: 'flex',
@@ -110,7 +92,7 @@ const AnnView = ({viewEvnt, editEvnt, defEvnt, editDefEvnt, disable, setDis}) =>
                     
                     paddingTop: '10px'}} >
             <div style={{width: '530px'}}>
-            { disable  ?  <textarea disabled
+            {/* { disable  ?  <textarea disabled
                 className='txtView contentText' 
                 // onChange={inptChange} 
                 name='Abstract'
@@ -121,7 +103,14 @@ const AnnView = ({viewEvnt, editEvnt, defEvnt, editDefEvnt, disable, setDis}) =>
                 // onChange={inptChange} 
                 name='Abstract'
                 ref={(element) => {TxtAreaRef.current[2] = element}} 
-                rows={1} value= {viewEvnt.Content}/>}
+                rows={1} value= {viewEvnt.Content}/>} */}
+
+                <textarea disabled 
+                className='txtView contentText ' 
+                // onChange={inptChange} 
+                name='Abstract'
+                ref={(element) => {TxtAreaRef.current[2] = element}} 
+                rows={1} value= {viewEvnt.Content}/>
               </div>
           </div>
         </div>
@@ -158,6 +147,9 @@ const AnnView = ({viewEvnt, editEvnt, defEvnt, editDefEvnt, disable, setDis}) =>
               </div>
             </div>
             }
+          </div>
+          <div className='viewImg' style={{height: "300px", width: "300px"}}>
+            <img src={viewEvnt.Picture.Images[0]} alt="Boa Pic" width={'100%'} height={'100%'} />
           </div>
           {/* {disable ? 
           

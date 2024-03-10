@@ -17,11 +17,8 @@ const DispBoa = ({ boa, amount, condLoad}) => {
   
   return (
     <div style= {{display: amount > 2 && condLoad === false ? 'none' : ''}} 
-     className='abstractContBord'>
-      <div className='abstractCont' 
-        style={{
-        height: trig === true ? '406px': '270px'
-        }}>
+     className='flexColumn abstractContBord'>
+      <div className='flexRow abstractCont' >
         <div className= 'plusIconBoa' >
           <span onClick={(e) => clickTrigAdd()} 
           className="material-symbols-outlined">
@@ -40,13 +37,13 @@ const DispBoa = ({ boa, amount, condLoad}) => {
         <div className='boaPic'>
           <FontAwesomeIcon icon={faFileLines} style={{color: "black", fontSize: "150px", }} />
         </div>
-        <div className={`flexRow bottomBoaCont ${trig === false ? 'closeDesc': ''}`}>
-          <div className='dlIconBoa'>
-            <span className="material-symbols-outlined">download</span>
-          </div>
-          <div className='abstText'>
-            <p><strong>Abstract:</strong> {boa.Abstract}</p>
-          </div>
+      </div>
+      <div style={{display: trig === true ? '' : 'none'}} className={`flexRow bottomBoaCont ${trig === false ? 'closeDesc': ''}`}>
+        <div className='dlIconBoa'>
+          <span className="material-symbols-outlined">download</span>
+        </div>
+        <div className='abstText'>
+          <p><strong>Abstract:</strong> {boa.Abstract}</p>
         </div>
       </div>
     </div>

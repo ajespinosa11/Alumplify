@@ -9,14 +9,6 @@ const {
 } = require('../controller/alumniController')
 
 const {
-    singleResponse,
-    addResponse,
-    deleteResponse,
-    updateResponse,
-    allResponse
-} = require('../controller/responseController')
-
-const {
     getAllEvent,
     getSingleEvent,
     postEvent,
@@ -36,6 +28,38 @@ const {
     updBoa,
     delBoa
 } = require('../controller/boaController')
+
+const {
+    singPers,
+    allPers,
+    addPers,
+    deletePers,
+    updatePers
+} = require('../controller/surveyController/persInfoCont')
+
+const {
+    singEmp,
+    allEmp,
+    addEmp,
+    deleteEmp,
+    updateEmp
+} = require('../controller/surveyController/empCont')
+
+const {
+    singEduc,
+    allEduc,
+    addEduc,
+    deleteEduc,
+    updateEduc
+} = require('../controller/surveyController/educCont')
+
+const {
+    singJob,
+    allJob,
+    addJob,
+    deleteJob,
+    updateJob
+} = require('../controller/surveyController/jobCont')
 
 const router = express.Router();
 
@@ -108,22 +132,73 @@ router.put('/abstract/:id', updBoa);
 //Get all single Abstract
 router.delete('/abstract/:id', delBoa);
 
-//Response
-
+//Response----------------------------------------------------
+//Personal Information
 //Get all Response
-router.get('/response/', allResponse);
+router.get('/response/persInf', allPers);
 
 //Post single Response
-router.post('/response/', addResponse);
+router.post('/response/persInf', addPers);
 
 //Get single Response
-router.get('/response/:id', singleResponse);
+router.get('/response/persInf/:id', singPers);
 
 //Get all single Response
-router.patch('/response/:id', updateResponse);
+router.patch('/response/persInf/:id', updatePers);
 
 //Get all single Response
-router.delete('/response/:id', deleteResponse);
+router.delete('/response/persInf/:id', deletePers);
+
+//Education
+//Get all Response
+router.get('/response/Educ', allEduc);
+
+//Post single Response
+router.post('/response/Educ', addEduc);
+
+//Get single Response
+router.get('/response/Educ/:id', singEduc);
+
+//Get all single Response
+router.patch('/response/Educ/:id', updateEduc);
+
+//Get all single Response
+router.delete('/response/Educ/:id', deleteEduc);
+
+//Employe
+//Get all Response
+router.get('/response/Employee', allEmp);
+
+//Post single Response
+router.post('/response/Employee', addEmp);
+
+
+router.get('/response/Employee/:id', singEmp);
+
+//Get all single Response
+router.patch('/response/Employee/:id', updateEmp);
+
+//Get all single Response
+router.delete('/response/Employee/:id', deleteEmp);
+
+//Job
+//Get all Response
+router.get('/response/Job', allJob);
+
+//Post single Response
+router.post('/response/Job', addJob);
+
+//Get single Response
+router.get('/response/Job/:id', singJob);
+
+//Get all single Response
+router.patch('/response/Job/:id', updateJob);
+
+//Get all single Response
+router.delete('/response/Job/:id', deleteJob);
+
+//Response----------------------------------------------------
+
 
 //Result
 

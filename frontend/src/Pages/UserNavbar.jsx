@@ -42,13 +42,13 @@ const HeaderNavbar = (nameCat, selCat) => {
       <div className='navBar'>
         <nav >
           <div className='Links flexRow'>
-              <Link to='/' 
+              <Link to='/Home' 
               className={arrSel[0] ? 'selStyle' : ''}
               onClick={(e) => clickTopBar(nameCat = 'COS | ALUMNI',
                                           selCat = 0) }>
                 Home
               </Link>
-              <Link to='/' 
+              <Link to='/About' 
               className={arrSel[1] ? 'selStyle' : ''}
               onClick={(e) => clickTopBar(nameCat = 'ABOUT US',
                                           selCat = 1) }>
@@ -86,7 +86,7 @@ const HeaderNavbar = (nameCat, selCat) => {
                 </button>
                 <div className='dropList'>
                   <Link to = '/SurvTrace'>Graduate Tracer Study</Link>
-                  <Link to = '/ReqDoc'>Request For Document</Link>
+                  <Link to = '/RequestForm'>Request For Document</Link>
                 </div>
               </div>
               <Link to='/profile'>Profile</Link>

@@ -36,7 +36,7 @@ const InptNsAnn = () => {
       if(catNsAnn === 1)
         return <InptAnn />
     }else{
-      if(catNsAnn === 1)
+      if(catNsAnn === 1 && indivEvnt != null)
         return <AnnView 
         viewEvnt = {indivEvnt}
         editEvnt = {setIndivEvnt}
@@ -45,6 +45,13 @@ const InptNsAnn = () => {
         disable = {disable}
         setDis = {setDisable}
         />
+      else{
+          return (
+          <div className='nsAnnVis'>
+            CLICK EITHER (NEWS/EVENTS)
+          </div>
+          )
+        }
     }
   }
 
@@ -53,7 +60,8 @@ const InptNsAnn = () => {
       for(let i = 0 ; i < 9; i++)
       return <DispNs />
     if(catNsAnn === 1)
-      {event && event.map((evnt) => {
+      {
+      return event && event.map((evnt) => {
         <DispAnn key={evnt._id}
           event = {evnt}
           click = {setClick}
@@ -111,7 +119,18 @@ const InptNsAnn = () => {
           </div>
         </div>
         <div className='flexColumn' style={{gap: '10px'}}>
-          {dispNsAnn()}
+          {catNsAnn === 1 ?
+          event && event.map((evnt) => (
+            <DispAnn key={evnt._id}
+              event = {evnt}
+              click = {setClick}
+              getEvntIndiv={setIndivEvnt}
+              getDefEvnt = {setDefEvnt}
+              disable = {setDisable}/>
+              ))
+              :  ''
+              } 
+              
         </div>
       </div>
     </div>

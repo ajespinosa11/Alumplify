@@ -131,12 +131,12 @@ const EducSchemaAns = new Schema ({
             },
         },
         quesAns5:{
+            default: '',
             type: String,
-            require: true
         },
         quesAns6:{
+            default: '',
             type: String,
-            require: true
         },
         quesAns7:{
             checkBox1:{

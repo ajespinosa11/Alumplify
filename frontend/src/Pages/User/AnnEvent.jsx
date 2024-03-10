@@ -53,7 +53,7 @@ const AnnEvent = () => {
       <div className='evenUpperText'>
         <h2>Upcoming Events</h2>
       </div>
-      <div className='contentBorder flexRow gridAnnContain'>
+      <div className='contentBorder flexRow'>
         {< DisplayEvent/>}
       </div>
       <div>

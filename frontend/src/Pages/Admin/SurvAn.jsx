@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react'
-import Employee from '../../Components/Admin/Analytics.jsx/Employee'
+import React from 'react'
+import Employee from './AnalSurv/Employee'
+import Education from './AnalSurv/Education'
 
 const SurvAn = () => {
-
-  useEffect(() => {
-    document.body.style.backgroundColor = '#FCF5E5'
-
-  }, [])
-
   return (
-    <div>
-
+    <div className='admin-wrapper'>
+        <Employee />
+        <Education />
     </div>
   )
 }
