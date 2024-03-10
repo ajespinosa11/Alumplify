@@ -10,13 +10,11 @@ const port = 5000; // Change this to your desired port
 app.use(cors());
 
 // Connection URL
-const url = "mongodb+srv://josiajeth:JJMP4547@cluster0.zefhw4s.mongodb.net/AlumplifyDB";
+const url = "mongodb+srv://tenstois:8g93zEy946HHOhXA@alumplify.jhymrjr.mongodb.net/?retryWrites=true&w=majority";
 
 // Database Name
-const dbName = 'AlumplifyDB'; // Change this to your database name
+const dbName = 'newsandstories'; // Change this to your database name
 
-// Collection Name
-const collectionName = 'content';
 
 // API endpoint to fetch news and story
 app.get('/api/content', async (req, res) => {
@@ -26,7 +24,7 @@ app.get('/api/content', async (req, res) => {
     await client.connect();
 
     const db = client.db(dbName);
-    const collection = db.collection(collectionName);
+    const collection = db.collection('content');
 
     // Query to fetch all documents from the collection
     const result = await collection.find({}).toArray();
@@ -47,7 +45,7 @@ app.get('/api/content/:id', async (req, res) => {
     await client.connect();
 
     const db = client.db(dbName);
-    const collection = db.collection(collectionName);
+    const collection = db.collection('content');
 
     // Extract the ID from the request parameters
     const itemId = req.params.id;
@@ -87,19 +85,15 @@ app.get('/api/aluminfo', async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-//api to feth alumni data
-app.get('/api/alumndata', async (req, res) => {
-=======
 // API endpoint to fetch job data
-app.get('/api/jobdata', async (req, res) => {
+app.get('/api/alumjob', async (req, res) => {
   const client = new MongoClient(url);
 
   try {
     await client.connect();
 
-    const db = client.db(data);
-    const collection = db.collection(jobData);
+    const db = client.db(dbName);
+    const collection = db.collection('alumjobdata');
 
     // Query to fetch all documents from the collection
     const result = await collection.find({}).toArray();
