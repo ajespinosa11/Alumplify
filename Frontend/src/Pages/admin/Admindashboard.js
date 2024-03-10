@@ -28,7 +28,7 @@ function Admindashboard() {
         </div>
       </div>
       <div className="admin-wrapper">
-        <Sidenavbar/>
+      <Sidenavbar />
         <div className="content">
           <h1 id='dashboard-title'>OVERVIEW</h1>
           <div className="data-card">

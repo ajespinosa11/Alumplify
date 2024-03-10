@@ -16,9 +16,8 @@ const url = "mongodb+srv://josiajeth:JJMP4547@cluster0.zefhw4s.mongodb.net/Alump
 const dbName = 'AlumplifyDB'; // Change this to your database name
 
 // Collection Name
-const collectionName = 'content';
 
-// API endpoint to fetch news and story
+// API endpoint to fetch data
 app.get('/api/content', async (req, res) => {
   const client = new MongoClient(url);
 
@@ -26,7 +25,7 @@ app.get('/api/content', async (req, res) => {
     await client.connect();
 
     const db = client.db(dbName);
-    const collection = db.collection(collectionName);
+    const collection = db.collection('personalinfos');
 
     // Query to fetch all documents from the collection
     const result = await collection.find({}).toArray();
@@ -47,7 +46,7 @@ app.get('/api/content/:id', async (req, res) => {
     await client.connect();
 
     const db = client.db(dbName);
-    const collection = db.collection(collectionName);
+    const collection = db.collection('stories');
 
     // Extract the ID from the request parameters
     const itemId = req.params.id;
@@ -67,15 +66,15 @@ app.get('/api/content/:id', async (req, res) => {
   }
 });
 
-// API endpoint to fetch alumni info
-app.get('/api/aluminfo', async (req, res) => {
+//api to feth alumni data
+app.get('/api/alumndata', async (req, res) => {
   const client = new MongoClient(url);
 
   try {
     await client.connect();
 
     const db = client.db(dbName);
-    const collection = db.collection('Aluminfo');
+    const collection = db.collection('personalinfos');
 
     // Query to fetch all documents from the collection
     const result = await collection.find({}).toArray();
@@ -85,30 +84,7 @@ app.get('/api/aluminfo', async (req, res) => {
   } finally {
     await client.close();
   }
-});
 
-<<<<<<< HEAD
-//api to feth alumni data
-app.get('/api/alumndata', async (req, res) => {
-=======
-// API endpoint to fetch job data
-app.get('/api/jobdata', async (req, res) => {
-  const client = new MongoClient(url);
-
-  try {
-    await client.connect();
-
-    const db = client.db(data);
-    const collection = db.collection(jobData);
-
-    // Query to fetch all documents from the collection
-    const result = await collection.find({}).toArray();
-
-    // Respond with the fetched data
-    res.json(result);
-  } finally {
-    await client.close();
-  }
 });
 
 // Start the server
