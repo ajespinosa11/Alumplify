@@ -93,7 +93,7 @@ router.post('/events/', postEvent);
 router.get('/events/:id', getSingleEvent);
 
 //Get all single events
-router.patch('/events/:id', updEvent);
+router.put('/events/:id', updEvent);
 
 //Get all single events
 router.delete('/events/:id', delEvent);
@@ -110,7 +110,7 @@ router.post('/stories/', postStory);
 router.get('/stories/:id', getSingleStory);
 
 //Get all single Stories
-router.patch('/stories/:id', updStory);
+router.put('/stories/:id', updStory);
 
 //Get all single Stories
 router.delete('/stories/:id', delStory);
@@ -126,13 +126,14 @@ router.post('/abstract/', addBOA);
 //Get all single Abstract
 router.get('/abstract/:id', singleBoa);
 
-//Get all single Abstract
+//Update single Abstract
 router.put('/abstract/:id', updBoa);
 
 //Get all single Abstract
 router.delete('/abstract/:id', delBoa);
 
 //Response----------------------------------------------------
+
 //Personal Information
 //Get all Response
 router.get('/response/persInf', allPers);
@@ -144,7 +145,7 @@ router.post('/response/persInf', addPers);
 router.get('/response/persInf/:id', singPers);
 
 //Get all single Response
-router.patch('/response/persInf/:id', updatePers);
+router.put('/response/persInf/:id', updatePers);
 
 //Get all single Response
 router.delete('/response/persInf/:id', deletePers);
@@ -160,7 +161,7 @@ router.post('/response/Educ', addEduc);
 router.get('/response/Educ/:id', singEduc);
 
 //Get all single Response
-router.patch('/response/Educ/:id', updateEduc);
+router.put('/response/Educ/:id', updateEduc);
 
 //Get all single Response
 router.delete('/response/Educ/:id', deleteEduc);

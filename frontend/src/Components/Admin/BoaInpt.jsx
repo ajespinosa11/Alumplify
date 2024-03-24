@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { alumniImageDB } from '../../firebaseImge';
 import {v4} from 'uuid'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { AlumniHooks } from '../../Hooks/AlumniHooks'
 
 const BoaInpt = () => { 
+    const {dispatch} = AlumniHooks()
     const [imgfile, setImg] = useState()
     const [dispImg, setDispImg] = useState()
     const [Title, setBoaTitle] = useState('');
@@ -43,7 +45,8 @@ const BoaInpt = () => {
           setContent('')
           setDispImg('')
           setImg('')
-          
+          dispatch({type: 'CREATE_ALUM', payload: json})
+        
           console.log("New boa added", json)
         }
 

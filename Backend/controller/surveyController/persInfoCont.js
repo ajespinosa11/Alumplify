@@ -28,10 +28,11 @@ const addPers = async (req, res) => {
     const {quesAns1, quesAns2, quesAns3, quesAns4, 
         quesAns5, quesAns6, quesAns7, quesAns8, quesAns9} = req.body
 
+
     try{
         const personInf = await AnsPersonInfo.create({Answer:{
             quesAns1, quesAns2, quesAns3, quesAns4, quesAns5,
-            quesAns6, quesAns7, quesAns8, quesAns9
+            quesAns6, quesAns7: quesAns7, quesAns8, quesAns9
         }});
         res.status(200).json(personInf)
 

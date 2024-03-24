@@ -3,11 +3,14 @@ import { deleteObject, uploadBytes } from 'firebase/storage'
 import { alumniImageDB } from '../../firebaseImge';
 import { v4 } from 'uuid'
 import { getDownloadURL, listAll, ref} from 'firebase/storage'
+import { AlumniHooks } from '../../Hooks/AlumniHooks';
+
 
 const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
   const [getImg, setGetImg] = useState(null)
   const [dispImg, setDispImg] = useState(null)
   const TxtAreaRef = useRef([])
+  const {dispatch} = AlumniHooks()
 
   const resizeTextArea = () => {
     TxtAreaRef.current[0].style.height = "auto";
@@ -52,16 +55,15 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
         }
       })
       const json = await response.json()
-      
-          if(!response.ok){
-            console.log(json.error)
-          }
-          if(response.ok){
-            setDis(true)
-            setGetImg(null)
-            setDispImg(null)
-            editDefBoa(viewBoa)// change default to new default
-          }
+      if(!response.ok){
+        console.log(json.error)
+      }
+      if(response.ok){
+        setDis(true)
+        setGetImg(null)
+        setDispImg(null)
+        editDefBoa(viewBoa)// change default to new default
+      }
           
     }
     //get all the image from the firebase
@@ -112,6 +114,7 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
 
     if(response.ok){
         console.log("Abstract, deleted")
+        dispatch({type: 'DELETE_ALUM', payload: json})
     }
 
     listAll(ref(alumniImageDB,"BOA")).then(imgs => {

@@ -2183,7 +2183,7 @@ Body {
 
 .headerInpt{
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   user-select: none;
   position: absolute;
@@ -2199,7 +2199,7 @@ Body {
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
-  width: 380px;
+  width: 500px;
 }
 
 .cosPicAdmin{
@@ -2400,7 +2400,8 @@ Body {
   #personinfo-title{
       letter-spacing: 2px;
   }
-
+  
+  }
   .cards{
     gap: 20px
   }
@@ -2431,7 +2432,31 @@ Body {
       }
   }
 }
+.navAnalyt{
+  width: 100%;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: end;
+  height: 100%;
+  div {
+    padding-right: 40px;
+    padding-left: 40px;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    &:hover{
+      background-color: #BF9745;
+      color:rgb(30, 30, 31);
+    }
+    &:active{
+      background-color: $surveyBord;
+
+    }
+  }
 .first_Row{
   width: 100%;
   height: 100px;
@@ -2490,4 +2515,26 @@ Body {
   height: 400px;
   width: 20%;
 }
+}
+
+// Event Arrow Btn
+.arrowContainer{
+  justify-content: center;
+  align-items: center;
+}
+
+#arr_left::after{
+  content: "\2906";
+}
+
+#arr_right::after{
+  content: "\2907";
+}
+
+.arrowBtn{
+  color: white;
+  text-align: center;
+  padding: 10px;
+  background-color: black;
+  width: 20px;
 }

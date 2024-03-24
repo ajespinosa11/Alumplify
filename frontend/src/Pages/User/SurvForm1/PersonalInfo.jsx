@@ -10,6 +10,7 @@ const PersonalInfo = ({arrPers, changeVal})  => {
 
   const getValue = (e) => {
     changeVal((prev) => ({...prev, [e.target.name]: e.target.value}))
+    console.log(e.target.value)
   }
 
   return (

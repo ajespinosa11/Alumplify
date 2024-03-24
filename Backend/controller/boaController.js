@@ -29,9 +29,6 @@ const singleBoa = async (req, res) => {
 const addBOA = async (req, res) => {
     
     const {Title, Date_Publish, Author, Abstract, imgName} = req.body;
-    console.log(imgName)
-    const datePub = new DateOnly(Date_Publish)
-    console.log(datePub);
     let CoordId;
     try{
         const coordinator = await coordinatorModel.find({})
@@ -45,7 +42,7 @@ const addBOA = async (req, res) => {
         const getId = await coordinatorModel.findOne({ _id: CoordId })
 
         const BOA = await boaModel.create({Coordinator_ID: getId._id, Title, 
-            Date_Publish: datePub, Author, Abstract, Img: imgName})
+            Date_Publish, Author, Abstract, Img: imgName})
 
         res.status(200).json(BOA)
     }catch(err){

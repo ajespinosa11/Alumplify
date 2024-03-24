@@ -15,7 +15,7 @@ const alumniBoa = new Schema ({
     },
     Date_Publish: {
         required: true,
-        type: DateOnly
+        type: Date
     },
     Author: {
         required: true,

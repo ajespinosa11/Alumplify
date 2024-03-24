@@ -5,29 +5,28 @@ import DispAnn from '../../Components/Admin/DispAnn'
 import DispNs from '../../Components/Admin/DispNs'
 import cosLog from '../../Assets/png/cosLogo.png'
 import AnnView from '../../Components/Admin/AnnView'
+import { AlumniHooks } from '../../Hooks/AlumniHooks' 
+
 
 const InptNsAnn = () => {
-  
+  const {Alumni, dispatch} = AlumniHooks()
   const [clickAdd, setClick] = useState(false)
   const [catNsAnn, setCatAnn] = useState()
-  const [event, setEvnt] = useState(null)
   const [indivEvnt, setIndivEvnt] = useState(null) // Changes Content
   const [defEvent, setDefEvnt] = useState(null) // default content
   const [disable, setDisable] = useState(true)
 
-  useEffect(() => {
-    const fetchEvent = async () => {
-      const response =  await fetch('/api/contents/events')
-      const json = await response.json()
+  const fetchEvent = async () => {
+    document.body.style.backgroundColor = '#FCF5E5'
+    const response =  await fetch('/api/contents/events')
+    const json = await response.json()
+    console.log(json)
+    if(response.ok){
       console.log(json)
-      if(response.ok){
-        setEvnt(json)
-      }
+      dispatch({type: 'SET_ALUM', payload: json})
+    }
   }
-  fetchEvent()
-  document.body.style.backgroundColor = '#FCF5E5'
-
-  }, [])
+  useEffect((e) => fetchEvent,[])
 
   const inpt = () => {
     if(clickAdd){
@@ -38,6 +37,7 @@ const InptNsAnn = () => {
     }else{
       if(catNsAnn === 1 && indivEvnt != null)
         return <AnnView 
+        setEvents = {fetchEvent}
         viewEvnt = {indivEvnt}
         editEvnt = {setIndivEvnt}
         defEvnt = {defEvent}
@@ -55,23 +55,23 @@ const InptNsAnn = () => {
     }
   }
 
-  const dispNsAnn = () => {
-    if(catNsAnn === 0)
-      for(let i = 0 ; i < 9; i++)
-      return <DispNs />
-    if(catNsAnn === 1)
-      {
-      return event && event.map((evnt) => {
-        <DispAnn key={evnt._id}
-          event = {evnt}
-          click = {setClick}
-          getEvntIndiv={setIndivEvnt}
-          getDefEvnt = {setDefEvnt}
-          disable = {setDisable}
-        />
-      })}
+  // const dispNsAnn = () => {
+  //   if(catNsAnn === 0)
+  //     for(let i = 0 ; i < 9; i++)
+  //     return <DispNs />
+  //   if(catNsAnn === 1)
+  //     {
+  //     return Event && Event.map((evnt) => {
+  //       <DispAnn key={evnt._id}
+  //         event = {evnt}
+  //         click = {setClick}
+  //         getEvntIndiv={setIndivEvnt}
+  //         getDefEvnt = {setDefEvnt}
+  //         disable = {setDisable}
+  //       />
+  //     })}
     
-  }
+  // }
 
   return (
     <div className='flexRow InptCont' >
@@ -120,7 +120,7 @@ const InptNsAnn = () => {
         </div>
         <div className='flexColumn' style={{gap: '10px'}}>
           {catNsAnn === 1 ?
-          event && event.map((evnt) => (
+          Alumni && Alumni.map((evnt) => (
             <DispAnn key={evnt._id}
               event = {evnt}
               click = {setClick}

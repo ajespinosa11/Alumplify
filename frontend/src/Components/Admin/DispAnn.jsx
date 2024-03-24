@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import testPic from '../../Assets/jpg/footer.jpg'
+import { AlumniHooks } from '../../Hooks/AlumniHooks';
 
 const DispAnn = ({event, click, getEvntIndiv, getDefEvnt, disable}) => {
+    const {dispatch} = AlumniHooks()
+
   const selClick = (e) => {
     click(false)
     fetchIndivEvnt(event._id)
@@ -16,6 +19,8 @@ const DispAnn = ({event, click, getEvntIndiv, getDefEvnt, disable}) => {
         getEvntIndiv(json)
         getDefEvnt(json)
     }
+    console.log("mood")
+
   }
 return (
 <div onClick={(e) => selClick()} className='flexRow singleCont'>
@@ -32,7 +37,7 @@ return (
                     {event.Title}
                 </div>
                 <div style={{fontSize: '13px'}}>
-                    December 8 of every year is declared as a special non-working holiday in the 
+                    {event.Content}
                 </div>
             </div>
         </div>

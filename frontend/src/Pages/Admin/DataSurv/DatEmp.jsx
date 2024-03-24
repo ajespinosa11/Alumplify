@@ -1,41 +1,41 @@
 import { useEffect, useState } from 'react'
 
 const DatEmp = () => {
-    const [emp, setEmp] = useState(null)
+  const [datEmp, setDatEmp] = useState(null)
 
-    useEffect(() => {
-      const fetchSurv = async () => {
-        try{
-          const response = await fetch('/api/contents/response/Employee')
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }else if (response.ok){
-            const json = await response.json()
-            setEmp(json)
-          }
-        } catch(e) {
-          console.error('Error fetching data:', e);
+  useEffect(() => {
+    const fetchSurv = async () => {
+      try{
+        const response = await fetch('/api/contents/response/Employee')
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }else if (response.ok){
+          const json = await response.json()
+          setDatEmp(json) 
         }
+      } catch(e) {
+        console.error('Error fetching data:', e);
       }
-      fetchSurv()
-      document.body.style.backgroundColor = '#FCF5E5'
-  },[])
+    }
+    fetchSurv()
+  }, [])
 
-  const DatQ1Yes = () => {
-    let yesCount = 0
+  const datQ1 = (ans) => {
+    let yesCount = 0;
+    let noCount = 0;
+    if(datEmp !== null){
+      datEmp.forEach(data => {
+           if (data.Answer.quesAns1 === "YES")
+               yesCount++;
+           else if (data.Answer.quesAns1 === "NO")
+               noCount++;
+       });
+     }
+     if(ans === "YES") return yesCount;
+     else if(ans === "NO") return noCount;
+   }
 
-    return 6
-  }
-
-  const DatQ1No = () => {
-    let noCount = 0
-    
-   
-
-    return 20
-  }
-  
-  return {DatQ1Yes, DatQ1No}
+  return {datQ1}
 }
 
 export default DatEmp

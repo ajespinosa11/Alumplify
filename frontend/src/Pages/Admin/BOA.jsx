@@ -3,16 +3,18 @@ import BoaInpt from '../../Components/Admin/BoaInpt';
 import BoaDisp from '../../Components/Admin/BoaDisp';
 import BoaView from '../../Components/Admin/BoaView';
 import cosLog from '../../Assets/png/cosLogo.png'
+import { AlumniHooks } from '../../Hooks/AlumniHooks' 
 
 const BOAInpt = () => {
-  const [boa, setBoa] = useState(null)
   const [clickAdd, setClick] = useState(true)
   const [indivBoa, setIndivBoa] = useState(null) // Changes Content
   const [defBoa, setDefBoa] = useState(null) // default content
   const [disable, setDisable] = useState(true)
+  const {Alumni, dispatch} = AlumniHooks()
 
 
   const inpt = () => {
+
     if(clickAdd){
       return <BoaInpt />
     }else if(!clickAdd && indivBoa != null){
@@ -28,16 +30,16 @@ const BOAInpt = () => {
   }
 
   useEffect(() => {
-      const fetchBoa = async () => {
-          const response =  await fetch('/api/contents/abstract')
-          const json = await response.json()
-          console.log(json)
-          if(response.ok){
-              setBoa(json)
-          }
+    const fetchBoa = async () => {
+      const response =  await fetch('/api/contents/abstract')
+      const json = await response.json()
+      console.log(json)
+      if(response.ok){
+        dispatch({type: 'SET_ALUM', payload: json})
       }
-      fetchBoa()
-      document.body.style.backgroundColor = '#FCF5E5'
+    }
+    fetchBoa()
+    document.body.style.backgroundColor = '#FCF5E5'
   }, []) 
 
 
@@ -82,7 +84,7 @@ const BOAInpt = () => {
           </div>
         </div>
         <div className='flexColumn' style={{gap: '10px'}}>
-            {boa && boa.map((getBoa) => (
+            {Alumni && Alumni.map((getBoa) => (
             < BoaDisp 
             key = {getBoa._id }
             boa = {getBoa}

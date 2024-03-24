@@ -30,7 +30,7 @@ const PersonalInfoAns = new Schema ({
             require: true
         },
         quesAns7: {
-            type: Date,
+            type: String,
             require: true
         },
         quesAns8: {
@@ -45,4 +45,4 @@ const PersonalInfoAns = new Schema ({
     
 }, { timestamps: true })
 
-module.exports = mongoose.model('PersonalInfo', PersonalInfoAns)
+module.exports = mongoose.model('Personals', PersonalInfoAns)

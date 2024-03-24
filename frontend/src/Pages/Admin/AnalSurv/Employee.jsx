@@ -3,13 +3,12 @@ import { Pie, Bar } from 'react-chartjs-2'
 import DatEmp from '../DataSurv/DatEmp'
 
 const Employee = () => {
-  
+
   return (
     <div>
       <div className="content">
       <h1 id=''>Alumni Job data</h1>
         <div className='flexRow'>
-
          
           <div className='flexColumn '>
             <div className="person-pie charts">
@@ -20,7 +19,7 @@ const Employee = () => {
                         datasets: [
                             {
                               label: 'Presently Employed',
-                              data: [20, 10],
+                              data: [DatEmp().datQ1("YES"), DatEmp().datQ1("NO")],
                             }
                         ],
                     }}
@@ -37,7 +36,6 @@ const Employee = () => {
                         'Self-Employed'],
                         datasets: [
                             {
-                              label: 'Presently Employed',
                               data: [40, 50, 30, 20, 60],
                             }
                         ],

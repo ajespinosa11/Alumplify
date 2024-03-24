@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { alumniImageDB } from '../../firebaseImge';
 import {v4} from 'uuid'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { AlumniHooks } from '../../Hooks/AlumniHooks' 
+
 
 const InptAnn = () => { 
+    const {dispatch} = AlumniHooks()
     const [imgfile, setImg] = useState([])
     const [dispImg, setDispImg] = useState([])
     const [Title, setAnnTitle] = useState('');
@@ -15,7 +18,6 @@ const InptAnn = () => {
     
     
     const boaSubm = async (e) => {
-
       const annStore = async (Images, idFold) => {
         
         const boa= {Title, Date_Implement, Location, Content, idFold, Images}
@@ -43,6 +45,7 @@ const InptAnn = () => {
           setContent('')
           setDispImg([])
           setImg([])
+          dispatch({type: 'CREATE_ALUM', payload: json})
           alert("Your Announcement is Added")
 
           console.log("New Announcement added", json)

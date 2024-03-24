@@ -46,13 +46,14 @@ const Employment = ({cat, arrEmp, changeVal}) => {
                 quesAns4: '',
                 quesAns5: '',
             }))
-        }else{
-            changeVal((prev) => ({...prev,
-                quesAns3: '',
-                quesAns4: '',
-                quesAns5: ''
-            }))
         }
+        // }else{
+        //     changeVal((prev) => ({...prev,
+        //         quesAns3: '',
+        //         quesAns4: '',
+        //         quesAns5: ''
+        //     }))
+        // }
 
         console.log(arrEmp.quesAns1)
 

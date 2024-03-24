@@ -42,7 +42,8 @@ const addEmp = async (req, res) => {
         quesAns7, quesAns8} = req.body
 
     try{
-        const response = await ansEmp.create({Answer:{
+        const response = await ansEmp.create({
+            Answer:{
             quesAns1,
             quesAns2:{
                 check1: quesAns2chck1,
