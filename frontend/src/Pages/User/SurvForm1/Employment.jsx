@@ -54,13 +54,8 @@ const Employment = ({cat, arrEmp, changeVal}) => {
         //         quesAns5: ''
         //     }))
         // }
-
-        console.log(arrEmp.quesAns1)
-
         
         changeVal((prev) => ({...prev, [e.target.name]: e.target.value}))
-
-
       }
     
     const isChecked = (e) => {

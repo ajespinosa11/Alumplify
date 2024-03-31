@@ -15,7 +15,17 @@ const NewStory = () => {
 
   }, []);
 
-  
+  const formatDate = (date) => {
+    const dateGet = new Date(date)
+    
+    const setFormat = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }
+    const formatDateConv = dateGet.toLocaleDateString('en-US', setFormat)
+    return formatDateConv
+  }
 
   const limitedNews = news.slice(0, 4);
 
@@ -24,15 +34,16 @@ const NewStory = () => {
       {limitedNews.map((item) => (
         <div className="card" key={item._id}>
           <div className="image-container">
-            <img src={testpic} alt="CardImage" />
+            <img src={item.Picture} alt="CardImage" />
           </div>
           <div className="cardbg">
             <div className="card-content">
               <div>
-                <p className='date'>{item.Date_Publish}</p>
-                <h2><Link to={`/RevealStory/${item._id}`} >{item.Title}<span className="material-symbols-outlined">north_east</span></Link></h2>  
+                <p className='date'>{formatDate(item.Date_Publish)}</p>
+                <h2><Link to={item.Content.Links != null ? item.Content.Links : 
+                   item.Content.Self != null ? `/RevealStory/${item._id}` : ""} >{item.Title}<span className="material-symbols-outlined">north_east</span></Link></h2>  
                 <p className='author'> by {item.Author}</p>
-                <p>{item.Content}</p>
+                <p>{item.Short_Desc}</p>
               </div>
             </div>
           </div>

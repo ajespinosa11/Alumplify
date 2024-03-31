@@ -14,6 +14,18 @@ const DispBoa = ({ boa, amount, condLoad}) => {
       setTrig(false)
     }
   }
+
+  const formatDate = (date) => {
+    const dateGet = new Date(date)
+    
+    const setFormat = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }
+    const formatDateConv = dateGet.toLocaleDateString('en-US', setFormat)
+    return formatDateConv
+  }
   
   return (
     <div style= {{display: amount > 2 && condLoad === false ? 'none' : ''}} 
@@ -30,7 +42,7 @@ const DispBoa = ({ boa, amount, condLoad}) => {
             <p>ALUMPLIFY: {boa.Title}</p>
           </div>
           <div className='detAbstarct'>
-            <p><strong>Date Published:</strong> {boa.Date_Publish}</p>
+            <p><strong>Date Published:</strong> {formatDate(boa.Date_Publish)}</p>
             <p><strong>Author:</strong> {boa.Author}</p>
           </div>
         </div>

@@ -89,7 +89,7 @@ const HeaderNavbar = (nameCat, selCat) => {
                   <Link to = '/RequestForm'>Request For Document</Link>
                 </div>
               </div>
-              <Link to='/profile'>Profile</Link>
+              <Link to='/Logins'>Profile</Link>
           </div>
         </nav>
       </div>

@@ -20,12 +20,25 @@ const alumniStory = new Schema ({
         require: true,
         type: Date
     },
-    Content:{
+    Author:{
         require: true,
         type: String
     },
-    Picture: {
+    Short_Desc:{
         require: true,
+        type: String
+    },
+    Content:{
+        Links:{
+            default: null,
+            type: String
+        },
+        Self:{
+            default: null,
+            type: String
+        }
+    },
+    Picture: {
         type: String
     }
 });

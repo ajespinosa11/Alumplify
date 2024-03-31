@@ -8,24 +8,24 @@ import datPers from '../DataSurv/DatPers'
 const filteredData = sampleData.regions.filter((data) => data.value !== 0);
 
 function AdminPersonInfo() {
+    const [person, setPerson] = useState(null)
 
-    const [persondata, setPersonInfo] = useState([]);
-
-    const groupAges = (data) => {
-    const ageMap = new Map();
-    data.forEach((item) => {
-        const age = item.age;
-        ageMap.set(age, (ageMap.get(age) || 0) + 1);
-    });
-
-    // Convert map to array of objects
-    const groupedAges = Array.from(ageMap, ([age, count]) => ({ age, count }));
-
-    return groupedAges;
-    };
-
-    // Group similar ages
-    const ageGroups = groupAges(persondata);
+    useEffect(() => {
+        const fetchSurv = async () => {
+          try{
+            const response = await fetch('/api/contents/response/persInf/')
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }else if (response.ok){
+              const json = await response.json()
+              setPerson(json) 
+            }
+          } catch(e) {
+            console.error('Error fetching data:', e);
+          }
+        }
+        fetchSurv()
+    }, [])
 
     return (
       <div>
@@ -35,37 +35,40 @@ function AdminPersonInfo() {
                   <h2>Alumni Ages</h2>
                   <Bar
                       data={{
-                          labels: datPers().datQ1().map((group) => group.age),
+                          labels: datPers(person).Q1().map((group) => group.age),
                           datasets: [
                               {
-                                  label: "No. of Alumni",
-                                  data: datPers().datQ1().map((group) => group.count),
+                                  data: datPers(person).Q1().map((group) => group.count),
                               },
+                        
                           ],
+                          
                       }}
                   />
               </div>
-              <div id='person-pie' className="charts">
+              <div  className="person-pie charts">
                   <h2>Civil Status</h2>
                   <Pie
                       data={{
-                          labels: sampleData.civil.map((data) => data.label),
+                          labels: datPers(person).Q5().map((group) => group.stats),
                           datasets: [
                               {
-                                  data: sampleData.civil.map((data) => data.value),
+                                label:datPers(person).Q5().map((group) => group.stats),
+                                data: datPers(person).Q5().map((group) => group.count),
                               },
                           ],
                       }}
                   />
               </div>
-              <div id='person-pie' className="charts">
+              <div  className="person-pie charts">
                   <h2>Alumni Gender</h2>
                   <Pie
                       data={{
-                          labels: sampleData.gender.map((data) => data.label),
+                          labels: datPers(person).Q6().map((group) => group.gender),
                           datasets: [
                               {
-                                  data: sampleData.gender.map((data) => data.value),
+                                label:datPers(person).Q6().map((group) => group.gender),
+                                data: datPers(person).Q6().map((group) => group.count),
                               },
                           ],
                       }}
@@ -75,12 +78,12 @@ function AdminPersonInfo() {
                   <h2>Region of Origin</h2>
                   <Bar
                       data={{
-                          labels: filteredData.map((data) => data.label),
+                          labels: datPers(person).Q8().map((group) => group.origin),
                           datasets: [
                               {
                                   axis: 'y',
-                                  label: "No. of Alumni",
-                                  data: filteredData.map((data) => data.value),
+                                  label: "Region",
+                                  data: datPers(person).Q8().map((group) => group.count),
                                   backgroundColor: 'orange'
                               },
                           ],

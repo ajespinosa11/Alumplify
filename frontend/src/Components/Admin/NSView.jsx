@@ -6,11 +6,12 @@ import { getDownloadURL, listAll, ref} from 'firebase/storage'
 import { AlumniHooks } from '../../Hooks/AlumniHooks';
 
 
-const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
+const NSView = ({setNS, viewNS, editNS, defNS, editDefNS, disable, setDis}) => {
   const [getImg, setGetImg] = useState(null)
   const [dispImg, setDispImg] = useState(null)
   const TxtAreaRef = useRef([])
   const {dispatch} = AlumniHooks()
+  const [optionCont, setContSel] = useState(null)
 
   const resizeTextArea = () => {
     TxtAreaRef.current[0].style.height = "auto";
@@ -19,9 +20,11 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
     TxtAreaRef.current[1].style.height = TxtAreaRef.current[1].scrollHeight + "px";
     TxtAreaRef.current[2].style.height = "auto";
     TxtAreaRef.current[2].style.height = TxtAreaRef.current[2].scrollHeight + "px";
+    TxtAreaRef.current[3].style.height = "auto";
+    TxtAreaRef.current[3].style.height = TxtAreaRef.current[3].scrollHeight + "px";
   }
 
-  useEffect(resizeTextArea, [viewBoa]);
+  useEffect(resizeTextArea, [viewNS]);
 
   const getImage = (e) => {
     if(e.target.files[0]){
@@ -35,7 +38,7 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
     e.preventDefault()
     
     const imgUpload = () => {
-      const imgRef = ref(alumniImageDB, `BOA/${v4()}`)
+      const imgRef = ref(alumniImageDB, `Stories/${v4()}`)
         uploadBytes(imgRef, getImg).then(url => {
           getDownloadURL(url.ref).then(getUrl => {
             mongoEdit(getUrl)
@@ -43,13 +46,12 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
         })
     }
     const mongoEdit = async (getUrl) => {
-      const insImg = viewBoa
-      insImg.Img = getUrl
-      console.log(insImg.Img)      
-      editBoa(insImg)
-      const response = await fetch('/api/contents/abstract/' + viewBoa._id, {
+      const insImg = viewNS
+      insImg.Picture = getUrl
+      editNS(insImg)
+      const response = await fetch('/api/contents/stories/' + viewNS._id, {
         method: 'PUT',
-        body: JSON.stringify(viewBoa),
+        body: JSON.stringify(viewNS),
         headers: {
             'Content-Type': 'application/json'
         }
@@ -62,12 +64,12 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
         setDis(true)
         setGetImg(null)
         setDispImg(null)
-        editDefBoa(viewBoa)// change default to new default
-      }
-          
+        editDefNS(viewNS)// change default to new default
+        setNS()
+      }    
     }
     //get all the image from the firebase
-    listAll(ref(alumniImageDB,"BOA")).then(imgs => {
+    listAll(ref(alumniImageDB,"Stories")).then(imgs => {
       // var detExist = false
       if(imgs.items.length === 0 || imgs.items.length === null ){
         imgUpload()
@@ -77,20 +79,18 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
         let a = 1
         if(imgs.items[i] != null){
           getDownloadURL(imgs.items[i]).then(url => {
-            if(viewBoa.Img === url){ //Detect the firebase specify file is exist
+            if(viewNS.Picture === url){ //Detect the firebase specify file is exist
               if(dispImg !== null){
                 //(1) delete the old image/url from the firebase
-                deleteObject(ref(alumniImageDB,"BOA/" + imgs.items[i].name))
+                deleteObject(ref(alumniImageDB,"Stories/" + imgs.items[i].name))
                 //(2) Insert new image into the firebase and set to the mongodb
                 imgUpload()
               }else{ // if
-                console.log('here bad')
                 // if the image change
-                mongoEdit(viewBoa.Img)        
+                mongoEdit(viewNS.Picture)        
               }
               exist = true;
             }else if(a === imgs.items.length && exist === false ){
-              console.log("here bad")
               imgUpload()
             }
             console.log(exist)
@@ -103,28 +103,39 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
   }
   
   const inptChange = (e) => {// Detect changes fro mthe input
-    editBoa((prev) => ({...prev, [e.target.name]: e.target.value}))
+    if(e.target.name === "Links"){
+        editNS((prev) => ({...prev, 
+          Content: {...prev.Content, [e.target.name]: e.target.value, Self: null}
+            }))
+      }else if(e.target.name === "Self"){
+        editNS((prev) => ({...prev, 
+          Content: {...prev.Content, [e.target.name]: e.target.value, Links: null},
+            }))
+      }
+      else{
+        editNS((prev) => ({...prev, [e.target.name]: e.target.value}))
+      }
   }
 
   const deleteCont = async () => {
-    const response = await fetch('/api/contents/abstract/' + viewBoa._id, {
+    const response = await fetch('/api/contents/Stories/' + viewNS._id, {
       method: 'DELETE'
     })
     const json = await response.json();
 
     if(response.ok){
-        console.log("Abstract, deleted")
-        dispatch({Variable: "BOA", type: 'DELETE_ALUM', payload: json})
+        console.log("Stories, deleted")
+        dispatch({Variable: "Stories", type: 'DELETE_ALUM', payload: json})
     }
 
-    listAll(ref(alumniImageDB,"BOA")).then(imgs => {
+    listAll(ref(alumniImageDB,"Stories")).then(imgs => {
       for(let i = 0; i <= imgs.items.length ; i++){
         let exist
         if(imgs.items[i] != null){
           getDownloadURL(imgs.items[i]).then(url => {
-            if(viewBoa.Img === url){
+            if(viewNS.Picture === url){
               //(1) delete the old image/url from the firebase
-              deleteObject(ref(alumniImageDB,"BOA/" + imgs.items[i].name))
+              deleteObject(ref(alumniImageDB,"Stories/" + imgs.items[i].name))
               exist = true;
             }
           })
@@ -136,9 +147,13 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
 
   const cancEdit = () => {
     setDis(true)
-    editBoa(defboa)
+    editNS(defNS)
     setGetImg(null)
     setDispImg(null)
+  }
+
+  const selectContRad = (e) => {
+    setContSel(e.target.id)
   }
 
   return (
@@ -152,14 +167,14 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
                 className='txtView' 
                 name='Title'
                 ref={(element) => {TxtAreaRef.current[0] = element}} 
-                rows={1} value= {viewBoa.Title}/>
+                rows={1} value= {viewNS.Title}/>
                 :
             <textarea 
                 style={{border: '1px solid black', fontWeight: 'bold', fontSize: '20px'}} 
                 className='txtView hoverInCont' onChange={inptChange} 
                 name='Title'
                 ref={(element) => {TxtAreaRef.current[0] = element}} 
-                rows={1} value= {viewBoa.Title}/>
+                rows={1} value= {viewNS.Title}/>
             }
           </div>
           <div style={{fontWeight: 'bold', fontSize: '16px', paddingTop: '8px'}}>
@@ -168,7 +183,7 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
               className='txtView' 
               name='Author'
               ref={(element) => {TxtAreaRef.current[1] = element}} 
-              rows={1} value= {viewBoa.Author}/>
+              rows={1} value= {viewNS.Author}/>
                 :
               <textarea
               style={{border: '1px solid black', fontWeight: 'bold', fontSize: '16px'}}
@@ -176,7 +191,7 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
               onChange={inptChange}
               name='Author'
               ref={(element) => {TxtAreaRef.current[1] = element}} 
-              rows={1} value= {viewBoa.Author}/>
+              rows={1} value= {viewNS.Author}/>
             }
             
           </div>
@@ -186,17 +201,81 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
               type="text" 
               className='txtView' 
               name='Date' 
-            value= {viewBoa.Date_Publish} />
+            value= {viewNS.Date_Publish} />
           :
           <input  style={{border: '1px solid black', fontWeight: 'bold', fontSize: '13px'}} 
           type="text" 
           className='txtView hoverInCont' 
           name='Date_Publish' 
           onChange={inptChange}   
-          value= {viewBoa.Date_Publish}
+          value= {viewNS.Date_Publish}
           />}
           </div>
-          <div style={{fontSize: '14px',
+        {disable === false ?
+        <div className='flexRow'>
+            <div>
+                <label htmlFor="self">Content</label>
+                <input type="radio" name="content_sec" id="self" 
+                checked= {optionCont === "self"}
+                onChange={selectContRad}/>
+            </div>
+            <div>
+                <label htmlFor="links">Links</label>
+                <input type="radio" name="content_sec" id="links" 
+                checked= {optionCont === "links"}
+                onChange={selectContRad}/>
+            </div>
+        </div> : ''
+        }
+        {viewNS.Content.Self !== null  ? 
+        <div style={{fontSize: '14px',
+            display: 'flex',
+            justifyContent: 'center',
+            paddingTop: '10px'}} >
+                <strong>Content:</strong>
+
+            <div style={{width: '530px'}}>
+                { disable  ?  <textarea disabled
+                className='txtView contentText' onChange={inptChange} 
+                name='Self'
+                ref={(element) => {TxtAreaRef.current[2] = element}} 
+                rows={1} value= {viewNS.Content.Self}
+            /> : !disable && optionCont === "self" ?
+                <textarea style={{border: '1px solid black'}} 
+                className='txtView contentText hoverInCont' onChange={inptChange} 
+                name='Self'
+                ref={(element) => {TxtAreaRef.current[2] = element}} 
+                rows={1} value= {viewNS.Content.Self}
+            /> : ""
+            }
+            </div>
+            </div>
+    
+        : viewNS.Content.Links !== null ? 
+            <div style={{fontSize: '14px',
+            display: 'flex',
+            justifyContent: 'center',
+            paddingTop: '10px'}} >
+                   <p>Links:</p>
+            <div style={{width: '530px'}}>
+            { disable  ?  <input disabled
+                className='txtView contentText' type="text"
+                onChange={inptChange} 
+                name='Self'
+              value= {viewNS.Content.Links}
+            /> : !disable && optionCont === "links" ? 
+                <input style={{border: '1px solid black'}} type="text"
+                className='txtView contentText hoverInCont' onChange={inptChange} 
+                name='Links' 
+                 value= {viewNS.Content.Links}
+            /> : ""
+            }
+            </div>
+            </div> : ""
+        
+        }
+            
+        <div style={{fontSize: '14px',
                     display: 'flex',
                     justifyContent: 'center',
                     
@@ -204,14 +283,14 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
             <div style={{width: '530px'}}>
             { disable  ?  <textarea disabled
                 className='txtView contentText' onChange={inptChange} 
-                name='Abstract'
-                ref={(element) => {TxtAreaRef.current[2] = element}} 
-                rows={1} value= {viewBoa.Abstract}/> : 
+                name='Short_Desc'
+                ref={(element) => {TxtAreaRef.current[3] = element}} 
+                rows={1} value= {viewNS.Short_Desc}/> : 
                 <textarea style={{border: '1px solid black'}} 
                 className='txtView contentText hoverInCont' onChange={inptChange} 
-                name='Abstract'
-                ref={(element) => {TxtAreaRef.current[2] = element}} 
-                rows={1} value= {viewBoa.Abstract}/>}
+                name='Short_Desc'
+                ref={(element) => {TxtAreaRef.current[3] = element}} 
+                rows={1} value= {viewNS.Short_Desc}/>}
               </div>
           </div>
         </div>
@@ -220,7 +299,13 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
         <div className='flexColumn rightInnView'>
           <div className='flexRow' style={{gap: '30px'}}>
             {disable ?
-            <button onClick={() => {setDis(false)}} className='btnDsg edtBtn'>
+            <button onClick={() => {
+                if(viewNS.Content.Self !== null)
+                    setContSel("self")
+                else if(viewNS.Content.Links !== null)
+                    setContSel("links")
+                setDis(false)
+                }} className='btnDsg edtBtn'>
               <div>
                 EDIT
               </div>
@@ -250,13 +335,13 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
           {disable ? 
           
           <div className='viewImg' style={{height: "300px", width: "300px"}}>
-            <img src={viewBoa.Img} alt="Boa Pic" width={'100%'} height={'100%'} />
+            <img src={viewNS.Picture} alt="Boa Pic" width={'100%'} height={'100%'} />
           </div>
           :
           <label htmlFor="getFile">
           <input type="file" accept='image/*' name='Img' onChange={getImage} id='getFile' hidden/>
           <div className='viewImg' style={{height: "300px", width: "300px"}}>
-            <img src={dispImg ? dispImg : viewBoa.Img } alt="Boa Pic" width={'100%'} height={'100%'} />
+            <img src={dispImg ? dispImg : viewNS.Picture } alt="Boa Pic" width={'100%'} height={'100%'} />
           </div>
           </label>
             }
@@ -275,4 +360,4 @@ const BoaView = ({viewBoa, editBoa, defboa, editDefBoa, disable, setDis}) => {
   )
 }
 
-export default BoaView
+export default NSView

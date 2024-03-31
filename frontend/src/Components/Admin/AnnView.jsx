@@ -82,7 +82,6 @@ const AnnView = ({setEvents,viewEvnt, editEvnt, defEvnt, editDefEvnt, disable, s
         setGetImg(null)
         setDispImg(null)
         editDefEvnt(viewEvnt)// change default to new default
-        dispatch({type: 'UPDATE_ALUM', payload: json})
         setEvents()
       }
 

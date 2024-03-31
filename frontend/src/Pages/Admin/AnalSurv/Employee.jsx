@@ -3,7 +3,24 @@ import { Pie, Bar } from 'react-chartjs-2'
 import DatEmp from '../DataSurv/DatEmp'
 
 const Employee = () => {
+  const [employee, setDatEmp] = useState(null)
 
+  useEffect(() => {
+    const fetchSurv = async () => {
+      try{
+        const response = await fetch('/api/contents/response/Employee')
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }else if (response.ok){
+          const json = await response.json()
+          setDatEmp(json) 
+        }
+      } catch(e) {
+        console.error('Error fetching data:', e);
+      }
+    }
+    fetchSurv()
+  }, [])
   return (
     <div>
       <div className="content">
@@ -19,7 +36,7 @@ const Employee = () => {
                         datasets: [
                             {
                               label: 'Presently Employed',
-                              data: [DatEmp().datQ1("YES"), DatEmp().datQ1("NO")],
+                              data: [DatEmp(employee).Q1("YES"), DatEmp(employee).Q1("NO")],
                             }
                         ],
                     }}
@@ -29,14 +46,11 @@ const Employee = () => {
                 <h2>Employment Status</h2>
                 <Pie
                     data={{
-                        labels: ['Regular/Permanent', 
-                        'Temporary',
-                        'Casual',
-                        'Contractual',
-                        'Self-Employed'],
+                        labels: DatEmp(employee).Q3().map(stat => stat.stats),
                         datasets: [
                             {
-                              data: [40, 50, 30, 20, 60],
+                              label: ['Status'],
+                              data: DatEmp(employee).Q3().map(stat => stat.count)
                             }
                         ],
                     }}
@@ -47,18 +61,29 @@ const Employee = () => {
                 <Pie
                     data={{
                         labels: [
-                        'Agriculture', 
-                        'Fishing',
-                        'Mining',
-                        'Manufacturing',
-                        'Electricity',
-                        'Construction',
-                        'Wholesale and Trade',
-                        'Hotels and Restaurants'],
+                          "AGRICULTURE",
+                          "FISHING",
+                          "MINING ",
+                          "MANUFACTURING",
+                          "ELECTRICITY",
+                          "CONSTRUCTION",
+                          "WHOLESALE TRADE",
+                          "HOTELS AND RESTAURANTS",
+                          "TRANSPORT ",
+                          "FINANCIAL INTERMEDIATION",
+                          "REAL ESTATE",
+                          "PUBLIC ADMINISTRATION AND DEFENSE",
+                          "EDUCATION",
+                          "HEALTH AND SOCIAL WORK",
+                          "OTHER COMMUNITY",
+                          "PRIVATE HOUSEHOLD",
+                          "EXTRA-TERRITORIAL ORGANIZATIONS",
+                          "IT INDUSTRY"
+                        ],
                         datasets: [
                             {
                               label: 'Presently Employed',
-                              data: [40, 50, 30, 20, 60, 30, 40, 10],
+                              data: DatEmp(employee).Q6(),
                             }
                         ],
                     }}
@@ -76,13 +101,13 @@ const Employee = () => {
                         'Health-related reason(s)',
                         'Lack of work experience',
                         'No job opportunity',
-                        'Did not look for a job'
+                        'Did not look for a job',
+                        'Other'
                         ],
                         datasets: [
                             {
                                 axis: 'y',
-                                label: "Reason not employed",
-                                data: [10, 20, 40, 50, 30],
+                                data: DatEmp(employee).Q2(),
                                 backgroundColor: 'orange'
                             },
                         ],
@@ -96,11 +121,11 @@ const Employee = () => {
                 <h2>Place of work or Business</h2>
                 <Pie
                     data={{
-                        labels: ['Local', 'Abroad'],
+                        labels: DatEmp(employee).Q8().map(data => data.place),
                         datasets: [
                             {
-                              label: 'Presently Employed',
-                              data: [10, 30],
+                              label: ['Presently Employed'],
+                              data: DatEmp(employee).Q8().map(data => data.count),
                             }
                         ],
                     }}

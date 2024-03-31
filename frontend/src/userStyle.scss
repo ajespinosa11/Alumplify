@@ -177,6 +177,7 @@ Body {
   color: #000;
   font-weight: bold;
   font-size: 25px;
+
 }
 
 .form-container .b-btn{
@@ -301,30 +302,37 @@ Body {
 .content-card{
   display: flex;
   justify-content: space-evenly;
-  gap: 100px;
-  width: 400px;
+  width: 100%;
 }
 
-.card{
+.card-home{
   border: 1px solid #111;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:space-between;
+  align-items:center;
   background: #FBCD6E;
   font-family: 'Abhaya Libre', serif;
+  width: 300px;
+  text-align: left;
 }
 
-.card img{
+.card-home a{
+  justify-self: flex-start;
+}
+
+.card-home img{
   width: 300px;
   height: 300px;
 }
 
-.card .ns-content-title{
+.card-home .ns-content-title{
   font-weight: bold;
 }
 
-.card .description{
+.card-home .description{
   font-family: "Actor", sans-serif;
+  width: 100%;
   padding: 0 20px 0 20px;
 }
 
@@ -339,18 +347,23 @@ Body {
   justify-content: center;
   align-items: center;
   gap: 5px;
+  text-decoration: none;
+
 }
 
 .NewsStories .E-LM a{
   color: #FBCD6E;
+  font-size: 15px;
+  font-weight: bold;
 }
 
-.NewsStories .E-LM .arrow{
-  min-width: 0;
-  max-width: 30px;
-
+.NewsStories .E-LM p::after{
+  content: "   \2192";
 }
 
+.a-btn-home-event{
+  text-decoration: none;
+}
 .Events{
   padding: 30px;
   min-width: 0;
@@ -401,8 +414,9 @@ Body {
   margin: 0;
 }
 
-.when .month{
+.month{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0;
@@ -415,10 +429,11 @@ Body {
   width: 105px;
 }
 
-.when .date{
+.date{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background: #FBCD6E;
   border-radius: 0 0 10px 10px;
   height: 77px;
@@ -558,6 +573,7 @@ Body {
 
 .G-Text .G-LM a{
   color: #111;
+  text-decoration: none;
 }
 
 .G-Text .G-LM .arrow{
@@ -1438,7 +1454,7 @@ Body {
     background-color: none;
 
     img {
-      width: 100%;
+      width: 280px;
       height: auto;
       object-fit: cover;
     }
@@ -1446,7 +1462,6 @@ Body {
 
   .card-content {
     padding: 10px;
-
     .date {
       letter-spacing: 1px;
       font-size: 12px;
@@ -1855,45 +1870,6 @@ Body {
       }
     }
   }
-
-  .home-footer{
-    padding-top: 25px;
-    display: grid;
-    grid-template-columns: 70% 30%;
-
-    .footer-left{
-      color: white;
-      padding: 80px;
-      letter-spacing: 2px;
-
-      h1{
-        color: #FFE1A4;
-      }
-
-      p{
-        padding-top: 30px;
-      }
-
-      h2{
-        padding-top: 25px;
-        color: #FFE1A4;
-
-      }
-    }
-
-    .footer-right{
-      img{
-        height: auto;
-        width: 100%;
-      }
-    }
-
-    .footer-icon{
-      padding: 5px;
-      display: inline-block;
-    }
-  }
-
 }
 
 
@@ -2380,9 +2356,8 @@ Body {
 }
 
 .content {
-  flex-direction: column;
+  background-color: #FCF5E5;
   flex-grow: 1;
-  display: flex;
   padding: 20px;
   font-family: 'Istok Web', sans-serif;
   -ms-overflow-style: none;
@@ -2402,22 +2377,20 @@ Body {
   }
   
   }
-  .cards{
-    gap: 20px
-  }
-
+ 
   .data-card {
-      justify-content: start;
-      align-items: center;
-      height: 130px;
-      width: 40%;
-      background-color: #F9BA39;
-      border-radius: 15px;
-      text-align: center;
-      padding: 25px;
+    height: 100px;
+    width: 350px;
+    background-color: #F9BA39;
+    border-radius: 15px;
+    text-align: center;
+    padding: 15px;
+    display: inline-block;
+    margin: 25px;
 
       .material-symbols-outlined {
-          font-size: 60px;         
+          font-size: 100px;
+          margin-right: 50px;
           vertical-align: middle;
       }
 
@@ -2426,9 +2399,9 @@ Body {
       }
 
       .data {
-          vertical-align: middle;
-          align-items: center;
-          width: 100%;
+        vertical-align: middle;
+        display: inline-block;
+      
       }
   }
 }
@@ -2468,6 +2441,7 @@ Body {
 
 .charts {
 
+  height: 60%;
   width: 45%;
   display: inline-block;
   margin: 15px;
@@ -2506,8 +2480,8 @@ Body {
 }
 
 .person-pie{
-  height: 100px;
-  width: 10%;
+  height: 500px;
+  width: 20%;
 }
 
 .person-pie-end{
@@ -2537,4 +2511,47 @@ Body {
   padding: 10px;
   background-color: black;
   width: 20px;
+}
+
+//Footer User
+
+.home-footer{
+  padding-top: 25px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+
+  .footer-left{
+    color: white;
+    padding: 80px;
+    letter-spacing: 2px;
+
+    h1{
+      color: #FFE1A4;
+    }
+
+    p{
+      padding-top: 30px;
+    }
+
+    h2{
+      padding-top: 25px;
+      color: #FFE1A4;
+
+    }
+  }
+
+  .footer-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    img{
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .footer-icon{
+    padding: 5px;
+    display: inline-block;
+  }
 }

@@ -142,7 +142,7 @@ const PersonInfo = () => {
         quesAns12chk7: false,
         quesAns13: ''
     })
-    console.log(job)
+    console.log(personalArr)
 
 
     const submitForm = async (e) => {

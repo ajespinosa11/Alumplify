@@ -45,7 +45,7 @@ const InptAnn = () => {
           setContent('')
           setDispImg([])
           setImg([])
-          dispatch({type: 'CREATE_ALUM', payload: json})
+          dispatch({Variable: "Event",type: 'CREATE_ALUM', payload: json})
           alert("Your Announcement is Added")
 
           console.log("New Announcement added", json)

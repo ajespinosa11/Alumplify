@@ -45,4 +45,4 @@ const PersonalInfoAns = new Schema ({
     
 }, { timestamps: true })
 
-module.exports = mongoose.model('Personals', PersonalInfoAns)
+module.exports = mongoose.model('Personalinfo', PersonalInfoAns)

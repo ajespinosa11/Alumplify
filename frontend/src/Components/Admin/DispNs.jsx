@@ -1,27 +1,41 @@
 import React from 'react'
 import testPic from '../../Assets/jpg/footer.jpg'
 
-const DispNs = () => {
+const DispNs = ({NSData, click, getNSIndiv, getDefNS, disable}) => {
     const selClick = (e) => {
-        console.log("hello")
+        click(false)
+        fetchIndivEvnt(NSData._id)
+        disable(true)
+      }
+    
+      const fetchIndivEvnt = async (id) => {
+        const response =  await fetch('/api/contents/stories/' + id)
+        const json = await response.json()
+        
+        if(response.ok){
+            getNSIndiv(json)
+            getDefNS(json)
+        }
+        console.log("mood")
+    
       }
   return (
     <div className='singleCont'>
         <div onClick={(e) => selClick()} className='flexColumn innerBoa'>
             <div className='flexRow' style={{gap: '20px'}}>
                 <div className='imgContent'>
-                    <img src={testPic} alt="Pic Content" width={'100%'} height={'100%'}/>
+                    <img src={NSData.Picture} alt="Pic Content" width={'100%'} height={'100%'}/>
                 </div>
                 <div className='innerContDesc'>
                     <div className='ContDesc'>
                         <div style={{fontSize: '12px'}}>
-                            DECEMBER 8, 2023
+                        {NSData.Date_Publish}
                         </div>
                         <div style={{fontSize: '14px', fontWeight:'bold'}}>
-                            FEAST OF IMMACULATE CONCEPTION OF MARY
+                            {NSData.Title}
                         </div>
                         <div style={{fontSize: '13px'}}>
-                            December 8 of every year is declared as a special non-working holiday in the entire country to commemorate the Feast of the Immaculate Conception of Mary.
+                            {NSData.Short_Desc}
                         </div>
                     </div>
                 </div>

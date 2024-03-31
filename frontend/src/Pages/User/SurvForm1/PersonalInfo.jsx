@@ -70,9 +70,9 @@ const PersonalInfo = ({arrPers, changeVal})  => {
                   <select onChange={getValue} name='quesAns8' 
                   value={arrPers.quesAns8} className='dropBord' id="region">
                       <option value ='' disabled hidden>REGION</option>
-                      <option value ='Male'>NCR</option>
-                      <option value ='Female'>Rergion I</option>
-                      <option value ='Unknown'>Region II</option>
+                      <option value ='NCR'>NCR</option>
+                      <option value ='Region I'>Rergion I</option>
+                      <option value ='Region II'>Region II</option>
                   </select>
               </div>
               <div className='questInpBord heightInp'>

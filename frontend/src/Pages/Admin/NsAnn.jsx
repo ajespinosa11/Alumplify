@@ -5,28 +5,32 @@ import DispAnn from '../../Components/Admin/DispAnn'
 import DispNs from '../../Components/Admin/DispNs'
 import cosLog from '../../Assets/png/cosLogo.png'
 import AnnView from '../../Components/Admin/AnnView'
+import NSView from '../../Components/Admin/NSView'
 import { AlumniHooks } from '../../Hooks/AlumniHooks' 
 
 
 const InptNsAnn = () => {
-  const {Alumni, dispatch} = AlumniHooks()
+  const {Event, Stories, dispatch} = AlumniHooks()
   const [clickAdd, setClick] = useState(false)
   const [catNsAnn, setCatAnn] = useState()
-  const [indivEvnt, setIndivEvnt] = useState(null) // Changes Content
-  const [defEvent, setDefEvnt] = useState(null) // default content
+  const [indivEvnt, setIndivEvnt] = useState(null) // Changes Content Event
+  const [defEvent, setDefEvnt] = useState(null) // default content Event
+  const [indivNS, setIndivNS] = useState(null) // Changes Content News & Stroies
+  const [defNS, setDefNS] = useState(null) // default content News & Stroies
   const [disable, setDisable] = useState(true)
 
-  const fetchEvent = async () => {
+  const ftchNSEvnt = async () => {
     document.body.style.backgroundColor = '#FCF5E5'
-    const response =  await fetch('/api/contents/events')
-    const json = await response.json()
-    console.log(json)
-    if(response.ok){
-      console.log(json)
-      dispatch({type: 'SET_ALUM', payload: json})
+    const eventRes =  await fetch('/api/contents/events')
+    const EventJson = await eventRes.json()
+    const NSRes = await fetch('/api/contents/stories')
+    const NSJson = await NSRes.json()
+   
+    if(NSRes.ok && eventRes.ok){
+      dispatch({Variable: "NSAnn", type: 'SET_ALUM', NSLoad: NSJson, eventLoad: EventJson})
     }
   }
-  useEffect((e) => fetchEvent,[])
+  useEffect((e) => ftchNSEvnt,[])
 
   const inpt = () => {
     if(clickAdd){
@@ -37,7 +41,7 @@ const InptNsAnn = () => {
     }else{
       if(catNsAnn === 1 && indivEvnt != null)
         return <AnnView 
-        setEvents = {fetchEvent}
+        setEvents = {ftchNSEvnt}
         viewEvnt = {indivEvnt}
         editEvnt = {setIndivEvnt}
         defEvnt = {defEvent}
@@ -45,6 +49,17 @@ const InptNsAnn = () => {
         disable = {disable}
         setDis = {setDisable}
         />
+      else if(catNsAnn === 0 && indivNS != null){
+        return <NSView 
+        setNS = {ftchNSEvnt}
+        viewNS = {indivNS}
+        editNS = {setIndivNS}
+        defNS = {defNS}
+        editDefNS = {setDefNS}
+        disable = {disable}
+        setDis = {setDisable}
+        />
+      }
       else{
           return (
           <div className='nsAnnVis'>
@@ -54,24 +69,6 @@ const InptNsAnn = () => {
         }
     }
   }
-
-  // const dispNsAnn = () => {
-  //   if(catNsAnn === 0)
-  //     for(let i = 0 ; i < 9; i++)
-  //     return <DispNs />
-  //   if(catNsAnn === 1)
-  //     {
-  //     return Event && Event.map((evnt) => {
-  //       <DispAnn key={evnt._id}
-  //         event = {evnt}
-  //         click = {setClick}
-  //         getEvntIndiv={setIndivEvnt}
-  //         getDefEvnt = {setDefEvnt}
-  //         disable = {setDisable}
-  //       />
-  //     })}
-    
-  // }
 
   return (
     <div className='flexRow InptCont' >
@@ -119,18 +116,29 @@ const InptNsAnn = () => {
           </div>
         </div>
         <div className='flexColumn' style={{gap: '10px'}}>
-          {catNsAnn === 1 ?
-          Alumni && Alumni.map((evnt) => (
-            <DispAnn key={evnt._id}
-              event = {evnt}
-              click = {setClick}
-              getEvntIndiv={setIndivEvnt}
-              getDefEvnt = {setDefEvnt}
-              disable = {setDisable}/>
-              ))
-              :  ''
-              } 
-              
+          {
+            catNsAnn === 0 ? Stories.map((ns) => (
+              <DispNs key ={ns._id} 
+                NSData = {ns}
+                click = {setClick}
+                getNSIndiv={setIndivNS}
+                getDefNS = {setDefNS}
+                disable = {setDisable}
+              />
+            )) 
+            : 
+            catNsAnn === 1 ?
+            Event && Event.map((evnt) => (
+              <DispAnn key={evnt._id}
+                event = {evnt}
+                click = {setClick}
+                getEvntIndiv={setIndivEvnt}
+                getDefEvnt = {setDefEvnt}
+                disable = {setDisable}/>
+                ))
+                :  ''
+                } 
+                
         </div>
       </div>
     </div>

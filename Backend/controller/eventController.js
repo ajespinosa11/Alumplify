@@ -109,7 +109,7 @@ const getSingleStory = async (req, res) => {
 }
 
 const postStory = async (req, res) => {
-    const {Coordinator_ID, Title, Date_Implement, Content, Picture} = req.body;
+    const {Title, Date_Publish, Author, Short_Desc, Content, Picture} = req.body;
     let coordId;
     try{
         //Get Id value from the Coordinator model
@@ -123,10 +123,12 @@ const postStory = async (req, res) => {
             });
         const getId = await coordinatorModel.findOne({ _id: coordId})
 
-        const event = await eventModel.create({Coordinator_ID: getId._id, Title, Date_Implement, Content, Picture})
+        const event = await storyModel.create({Coordinator_ID: getId._id, 
+            Title, Date_Publish, Author, Short_Desc, Content, Picture})
         
         res.status(200).json(event);
     }catch(error){
+        console.log(error.message)
         return res.status(400).json(error.message);
     }
 }
@@ -137,13 +139,15 @@ const updStory = async (req, res) => {
     if(!mongoose.Types.ObjectId.isValid(id)){
         res.status(400).json({ error: "The specific story was not exist" });
     }
-    
-    const event = await storyModel.findOneAndUpdate({_id: id});
 
-    if(!event){
+    const stories = await storyModel.findOneAndUpdate({ _id: id}, {
+        ...req.body
+    });
+
+    if(!stories){
         res.status(404).json({ error: "The specific story was not exist" });
     }
-    res.status(200).json(event);
+    res.status(200).json(stories);
 }
 
 const delStory = async (req, res) => {

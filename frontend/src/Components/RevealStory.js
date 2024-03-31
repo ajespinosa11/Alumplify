@@ -20,27 +20,37 @@ const RevealStory = () => {
       }
     };
     
-
     fetchNewsDetails();
   }, [id]);
 
   if (!newsItem) {
     return <p>Loading...</p>; // loading indicator while fetching data
   }
-  
+  const formatDate = (date) => {
+    const dateGet = new Date(date)
+    
+    const setFormat = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }
+    const formatDateConv = dateGet.toLocaleDateString('en-US', setFormat)
+    return formatDateConv
+  }
+
   return (
     <div className='storyBG'>
       <div className="storycard">
         <h2>{newsItem.Title}</h2>
         <div className="sline"></div>
-        <h4>{newsItem.Date_Publish}</h4>
-        <img src={testpic} alt="" />
+        <h4>{formatDate(newsItem.Date_Publish)}</h4>
+        <img src={newsItem.Picture} alt="" />
         <div style={{display: 'flex', 
         justifyContent: 'center', 
         alignItems: 'center',
         width: '94%',
         textAlign: 'justify'}}>
-            <p>{newsItem.Content}</p>
+            <p>{newsItem.Content.Self}</p>
         </div>
       </div>
     </div>

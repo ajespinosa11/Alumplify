@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Pie, Bar } from 'react-chartjs-2'
+import DatEduc from '../DataSurv/DatEduc'
 
 const Education = () => {
+
+  const [education, setEduc] = useState(null)
+
+    useEffect(() => {
+        const fetchSurv = async () => {
+          try{
+            const response = await fetch('/api/contents/response/Educ/')
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }else if (response.ok){
+              const json = await response.json()
+              setEduc(json) 
+            }
+          } catch(e) {
+            console.error('Error fetching data:', e);
+          }
+        }
+        fetchSurv()
+    }, [])
+
+    DatEduc(education).Q4()
   return (
     <div>
       <div className='flexRow'>
@@ -9,14 +31,11 @@ const Education = () => {
             <h2>Educational Attainment</h2>
             <Pie
                 data={{
-                    labels: ['BS in Computer Science', 
-                    'BS in Information Technology',
-                    'BS in Information System',
-                    ],
+                    labels: DatEduc(education).Q1().map((group) => group.crs),
                     datasets: [
                         {
-                          label: 'Presently Employed',
-                          data: [40, 50, 20],
+                          label: ["Alumni"],
+                          data: DatEduc(education).Q1().map((group) => group.count),
                         }
                     ],
                 }}
@@ -26,13 +45,11 @@ const Education = () => {
           <h2>Year Graduated</h2>
           <Pie
               data={{
-                  labels: ['2021', 
-                  '2022',
-                  ],
+                  labels: DatEduc(education).Q2().map((group) => group.year),
                   datasets: [
                       {
-                        label: 'Presently Employed',
-                        data: [40, 50]
+                        label: DatEduc(education).Q2().map((group) => group.year),
+                        data: DatEduc(education).Q2().map((group) => group.count)
                       }
                   ],
               }}
@@ -64,13 +81,13 @@ const Education = () => {
                         {
                             axis: 'x',
                             label: "Undergraduate",
-                            data: [10, 20, 33, 10, 20, 33, 10, 20, 33, 10, 20, 33, 10, 20, 33],
+                            data: DatEduc(education).Q4().undGrad,
                             backgroundColor: 'blue'
                         },
                         {
                           axis: 'x',
                           label: "Graduate",
-                          data: [40, 20, 54, 40, 20, 54, 40, 20, 54, 40, 20, 54, 40, 20, 54],
+                          data: DatEduc(education).Q4().grad,
                           backgroundColor: 'red'
                         },
                         
@@ -85,16 +102,11 @@ const Education = () => {
           <h2>Pursue advance studies</h2>
             <Bar
                 data={{
-                    labels: [
-                    'Promotion',
-                    'Professional Development',
-                    
-                    ],
+                    labels: DatEduc(education).Q7().map((group) => group.purs),
                     datasets: [
                         {
                             axis: 'y',
-                            label: "Pursue advance studies?",
-                            data: [10, 20],
+                            data: DatEduc(education).Q7().map((group) => group.count),
                             backgroundColor: 'orange'
                         },
                     ],
