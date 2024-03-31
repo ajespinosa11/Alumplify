@@ -9,6 +9,7 @@ import Home from './Pages/user/home.js'
 import Admindashboard from './Pages/admin/Admindashboard.js';
 import Adminpersoninfo from './Pages/admin/AdminPersonInfo.js'
 import Adminjob from './Pages/admin/AdminJob.js';
+import Profile from './Pages/user/profile.js';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -16,15 +17,16 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Routes>
-          <Route path="/" element={<div> <Navbar/> < Home/> </div>} />
-          <Route path="/Newsandstories" element={<div> <Navbar/> <Newsandstories/> </div>} />
-          <Route path='/Newsandstories/:id' element={<div> <Navbar /><Story/> </div>} />
-          <Route path="/Yearbook" element={<div> <Navbar /> <Yearbook/> </div>} />
-          <Route path='/admindashboard' element={<Admindashboard/>} />
-          <Route path='/Personal-Information' element={<Adminpersoninfo/>} />
-          <Route path='/Alumni-job' element={<Adminjob/>} />
-      </Routes>
+        <Routes>
+            <Route path="/" element={<div> <Navbar/> < Home/> </div>} />
+            <Route path="/Newsandstories" element={<div> <Navbar/> <Newsandstories/> </div>} />
+            <Route path='/Newsandstories/:id' element={<div> <Navbar /><Story/> </div>} />
+            <Route path="/Yearbook" element={<div> <Navbar /> <Yearbook/> </div>} />
+            <Route path="/profile" element={<div> <Navbar/> <Profile/> </div>} />
+            <Route path='/admindashboard' element={ <Admindashboard/>} />
+            <Route path='/Personal-Information' element={<Adminpersoninfo/>} />
+            <Route path='/Alumni-job' element={<Adminjob/>} />
+        </Routes>
       </BrowserRouter>
     </div>
   );

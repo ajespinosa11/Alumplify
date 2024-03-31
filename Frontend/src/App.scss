@@ -7,12 +7,11 @@ body {
   height: 100vh;
 }
 
-.navbar {
+.nav-bar {
   background: linear-gradient(rgba(0, 0, 0, 0.486), rgba(0, 0, 0, 0.534)), url("../public/Navbar.jpg");
   background-size: 100% 120%;
   background-repeat: no-repeat;
   height: 28vh;
-}
 
 .navblock {
   padding-top: 90px;
@@ -57,6 +56,7 @@ nav {
     margin-right: 25px;
     letter-spacing: 2px;
   }
+}
 }
 
 
@@ -543,6 +543,67 @@ nav {
       padding: 5px;
       display: inline-block;
     }
+  }
+
+}
+
+.profile{
+
+  @import "~bootstrap/scss/bootstrap";
+
+
+  padding: 2%;
+  height: 100%;
+  background-color: #181614;
+
+  .bg-prof{
+    background-color: #ece6d6;
+  }
+
+  .form-control{
+    background-color: white;
+  }
+
+  .form-control:focus {
+    background-color: white;
+    box-shadow: none;
+    border-color: #BA68C8
+  }
+  
+  .profile-button {
+      background: rgb(99, 39, 120);
+      box-shadow: none;
+      border: none
+  }
+  
+  .profile-button:hover {
+      background: #682773
+  }
+  
+  .profile-button:focus {
+      background: #682773;
+      box-shadow: none
+  }
+  
+  .profile-button:active {
+      background: #682773;
+      box-shadow: none
+  }
+  
+  .back:hover {
+      color: #682773;
+      cursor: pointer
+  }
+  
+  .labels {
+      font-size: 11px
+  }
+  
+  .add-experience:hover {
+      background: #BA68C8;
+      color: #fff;
+      cursor: pointer;
+      border: solid 1px #BA68C8
   }
 
 }
