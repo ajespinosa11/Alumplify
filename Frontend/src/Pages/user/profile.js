@@ -32,45 +32,45 @@ const Profile = () => {
                             <div className="row mt-2">
                                 <div className="col-md-6 p-1">
                                     <label className="labels fs-6 p-1">Firstname</label>
-                                    <input type="text" className="form-control" placeholder="first name" value={info.fname} />
+                                    <input type="text" className="form-control" placeholder="first name" defaultValue={info.fname}  />
                                 </div>
                                 <div className="col-md-6 p-1">
                                     <label className="labels fs-6 p-1">Surname</label>
-                                    <input type="text" className="form-control" value={info.lname} placeholder="surname" />
+                                    <input type="text" className="form-control" defaultValue={info.lname} placeholder="surname" />
                                 </div>
                                 <div className="col-md-6 p-1">
                                     <label className="labels fs-6 p-1">Date of Birth</label>
-                                    <input type="text" className="form-control" value={info.dob} placeholder="Date of birth" />
+                                    <input type="text" className="form-control" defaultValue={info.dob} placeholder="Date of birth" />
                                 </div>
                                 <div className="col-md-6 p-1">
                                     <label className="labels fs-6 p-1">Gender</label>
-                                    <input type="text" className="form-control" value={info.sex} placeholder="Gender" />
+                                    <input type="text" className="form-control" defaultValue={info.sex} placeholder="Gender" />
                                 </div>
                                 <div className="col-md-6 p-1">
                                     <label className="labels fs-6 p-1">Civil status</label>
-                                    <input type="text" className="form-control" value={info.cstat} placeholder="Civil status" />
+                                    <input type="text" className="form-control" defaultValue={info.cstat} placeholder="Civil status" />
                                 </div>
                             </div>
                             <div className="row mt-3">
                                 <div className="col-md-12 p-1">
                                     <label className="labels fs-6 p-1">Mobile Number</label>
-                                    <input type="text" className="form-control" placeholder="enter phone number" value={info.mblnum} />
+                                    <input type="text" className="form-control" placeholder="enter phone number" defaultValue={info.mblnum} />
                                 </div>
                                 <div className="col-md-12 p-1">
                                     <label className="labels fs-6 p-1">Address Line 1</label>
-                                    <input type="text" className="form-control" placeholder="enter address line 1" value={info.address} />
+                                    <input type="text" className="form-control" placeholder="enter address line 1" defaultValue={info.address} />
                                 </div>
                                 <div className="col-md-12 p-1">
                                     <label className="labels fs-6 p-1">City/Municipality</label>
-                                    <input type="text" className="form-control" placeholder="City/Municipality" value={info.cty_mncplty} />
+                                    <input type="text" className="form-control" placeholder="City/Municipality" defaultValue={info.cty_mncplty} />
                                 </div>
                                 <div className="col-md-12 p-1">
                                     <label className="labels fs-6 p-1">Email Address</label>
-                                    <input type="text" className="form-control" placeholder="Email address" value={info.email} />
+                                    <input type="text" className="form-control" placeholder="Email address" defaultValue={info.email} />
                                 </div>
                                 <div className="col-md-12 p-1">
                                     <label className="labels fs-6 p-1">Graduate course</label>
-                                    <input type="text" className="form-control" placeholder="Graduate course" value={info.gradcou} />
+                                    <input type="text" className="form-control" placeholder="Graduate course" defaultValue={info.gradcou} />
                                 </div>
                             </div>
                             <div className="mt-5 text-center">
