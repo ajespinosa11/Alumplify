@@ -91,7 +91,7 @@ function AdminPersonInfo() {
                         <h2>Civil Status</h2>
                         <Pie
                             data={{
-                                labels: civilStatusGroups.map((group) => group.civilStatus),
+                                labels: civilStatusGroups.map((group) => group.civil_status),
                                 datasets: [
                                     {
                                         label: " Alumni",

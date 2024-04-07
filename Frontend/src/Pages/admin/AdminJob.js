@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Sidenavbar from "../../components/Side-navbar";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Bar, Pie } from "react-chartjs-2";
-import sampleData from "../../sampledata/sampleData.json";
 
 const AdminJob = () => {
-
     const [personjob, setPersonJob] = useState([]);
 
     useEffect(() => {
@@ -62,8 +60,6 @@ const AdminJob = () => {
     const quest9Groups = groupQuest9(personjob);
     const quest10Groups = groupQuest10(personjob);
     const quest11Groups = groupQuest11(personjob);
-    
-
     
     return (
         <body>

@@ -105,6 +105,26 @@ app.get('/api/alumjob', async (req, res) => {
   }
 });
 
+// API endpoint to fetch profile info
+app.get('/api/profile', async (req, res) => {
+  const client = new MongoClient(url);
+
+  try {
+    await client.connect();
+
+    const db = client.db(dbName);
+    const collection = db.collection('profile');
+
+    // Query to fetch all documents from the collection
+    const result = await collection.find({}).toArray();
+
+    // Respond with the fetched data
+    res.json(result);
+  } finally {
+    await client.close();
+  }
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
