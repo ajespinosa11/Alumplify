@@ -1,0 +1,100 @@
+.cont{
+    width: 100%;
+    height: 80vh;
+    margin: 20px auto;
+}
+
+.carousel{
+    width: 100%;
+    height: 100%;
+    border: 2px solid #000000;
+    border-radius: 3px;
+    position: relative;
+}
+
+.slider{
+    width: 100%;
+    height: 100%;
+}
+
+.slider section .slider-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Source Serif 4", serif;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    color: white
+}
+
+.slider section .slider-text-1{
+    font-size: 45px;
+}
+
+.slider section .slider-text-2{
+    font-size: 110px;
+    font-weight: bold;
+}
+.slider section .slider-text-3{
+    font-size: 30px;
+    font-style: italic;
+}
+
+.slider section{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    opacity: 0;
+    z-index: 0;
+    transition: all 2s;
+    animation: slider 15s forwards alternate infinite;
+    background-size: cover;
+}
+
+@keyframes slider{
+    0%{
+        background: (rgba(249,217,73,27),url("img/carousel\ 1.jpg"));
+    }
+    25%{
+        background: url("img/carousel\ 2.jpg");
+    }
+    50%{
+        background: url("img/carousel\ 3.jpg");
+    }
+    75%{
+        background: url("img/carousel\ 4.jpg");
+    }
+    100%{
+        background: url("img/carousel\ 5.jpg");
+    }
+
+}
+
+.slider section .bg-holder{
+    height: 100%;
+    width: 100%;
+    margin: 50px 0 50px 0;
+}
+
+.slider section .bg-holder img{
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+.slider section:nth-child(1){
+    opacity: 1;
+    z-index: 1;
+}
+
