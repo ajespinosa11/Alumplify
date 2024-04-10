@@ -1,7 +1,9 @@
 .cont{
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     margin: 20px auto;
+      
+    
 }
 
 .carousel{
@@ -10,39 +12,46 @@
     border: 2px solid #000000;
     border-radius: 3px;
     position: relative;
+    
 }
 
 .slider{
     width: 100%;
     height: 100%;
+    
 }
 
-.slider section .slider-text{
+ .slider-text{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: "Source Serif 4", serif;
+    font-family: "Source Serif Pro", serif;
     position: absolute;
     top: 0px;
     height: 100%;
-    color: white
+    width: 100%;
+    color: white;
+    z-index: 1;
 }
-
-.slider section .slider-text-1{
+ .slider-text-1{
     font-size: 45px;
+    font-weight: 500;
+    letter-spacing: 15%;
+    padding-bottom: 35px;
 }
 
-.slider section .slider-text-2{
+ .slider-text-2{
     font-size: 110px;
     font-weight: bold;
+    letter-spacing: 10%;
 }
-.slider section .slider-text-3{
+ .slider-text-3{
     font-size: 30px;
     font-style: italic;
 }
 
-.slider section{
+.image_section{
     position: absolute;
     top: 0;
     left: 0;
@@ -54,34 +63,56 @@
     text-align: center;
     opacity: 0;
     z-index: 0;
-    transition: all 2s;
     animation: slider 15s forwards alternate infinite;
-    background-size: cover;
+    background-size: contain, cover;
+    filter: blur(2px);
 }
 
 @keyframes slider{
     0%{
-        background: (rgba(249,217,73,27),url("img/carousel\ 1.jpg"));
+        background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 1.jpg");
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: multiply;
+        transform: scale(1000px, 0);
     }
     25%{
-        background: url("img/carousel\ 2.jpg");
+        background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 2.jpg");
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: multiply;
+        
     }
     50%{
-        background: url("img/carousel\ 3.jpg");
+        background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 3.jpg");
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: multiply;
+        
     }
     75%{
-        background: url("img/carousel\ 4.jpg");
+        background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 4.jpg");
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: multiply;
+        
     }
     100%{
-        background: url("img/carousel\ 5.jpg");
+        background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 5.jpg");
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: multiply;
+        
     }
-
 }
+
+
 
 .slider section .bg-holder{
     height: 100%;
     width: 100%;
     margin: 50px 0 50px 0;
+    
 }
 
 .slider section .bg-holder img{
@@ -90,6 +121,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    
 }
 
 
