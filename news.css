@@ -1,0 +1,59 @@
+.upcoming-events {
+  text-align: center;
+  background-color: #E0E0E0;
+  
+}
+
+.upcoming-events h2 {
+  color: #3C486B;
+  font-family: "Abril Fatface", serif;
+  letter-spacing: 4px;
+  padding-bottom: 10px;
+  font-size: 30px;
+}
+
+.upcoming-events p {
+  color: #3C486B;
+  
+}
+
+.event-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.event-card {
+  width: 24%;
+  margin-bottom: 2%;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  position: relative; 
+}
+
+.event-title {
+  margin-bottom: 30px;
+}
+
+.event-description {
+  margin-bottom: 10px;
+}
+
+.event-read-more {
+  color: red;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.event-read-more:hover {
+  color: #5C6BA8; 
+  text-decoration: none; 
+}
+
+
+
