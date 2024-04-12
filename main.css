@@ -1,132 +1,259 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .cont{
-    width: 100%;
-    height: 100vh;
-    margin: 20px auto;
-      
+  width: 100%;
+  height: 100vh;
+  margin: auto;
     
+  
 }
 
 .carousel{
-    width: 100%;
-    height: 100%;
-    border: 2px solid #000000;
-    border-radius: 3px;
-    position: relative;
-    
+  width: 100%;
+  height: 100%;
+  border: 2px solid #000000;
+  border-radius: 3px;
+  position: relative;
+  
 }
 
 .slider{
-    width: 100%;
-    height: 100%;
-    
+  width: 100%;
+  height: 100%;
+  
 }
 
- .slider-text{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: "Source Serif Pro", serif;
-    position: absolute;
-    top: 0px;
-    height: 100%;
-    width: 100%;
-    color: white;
-    z-index: 1;
+.slider-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Source Serif Pro", serif;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  color: white;
+  z-index: 1;
 }
- .slider-text-1{
-    font-size: 45px;
-    font-weight: 500;
-    letter-spacing: 15%;
-    padding-bottom: 35px;
+.slider-text-1{
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: 15%;
+  padding-bottom: 35px;
 }
 
- .slider-text-2{
-    font-size: 110px;
-    font-weight: bold;
-    letter-spacing: 10%;
+.slider-text-2{
+  font-size: 110px;
+  font-weight: bold;
+  letter-spacing: 10%;
 }
- .slider-text-3{
-    font-size: 30px;
-    font-style: italic;
+.slider-text-3{
+  font-size: 30px;
+  font-style: italic;
 }
 
 .image_section{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    opacity: 0;
-    z-index: 0;
-    animation: slider 15s forwards alternate infinite;
-    background-size: contain, cover;
-    filter: blur(2px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  opacity: 0;
+  z-index: 0;
+  animation: slider 15s forwards alternate infinite;
+  background-size: contain, cover;
+  filter: blur(2px);
 }
 
-@keyframes slider{
-    0%{
-        background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 1.jpg");
-        background-size: cover;
-        background-position: center;
-        background-blend-mode: multiply;
-        transform: scale(1000px, 0);
-    }
-    25%{
-        background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 2.jpg");
-        background-size: cover;
-        background-position: center;
-        background-blend-mode: multiply;
-        
-    }
-    50%{
-        background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 3.jpg");
-        background-size: cover;
-        background-position: center;
-        background-blend-mode: multiply;
-        
-    }
-    75%{
-        background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 4.jpg");
-        background-size: cover;
-        background-position: center;
-        background-blend-mode: multiply;
-        
-    }
-    100%{
-        background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 5.jpg");
-        background-size: cover;
-        background-position: center;
-        background-blend-mode: multiply;
-        
-    }
+@keyframes slider {
+  0% {
+    background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+  }
+  25% {
+    background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+  }
+  50% {
+    background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+  }
+  75% {
+    background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+  }
+  100% {
+    background: linear-gradient(rgba(250, 243, 210, 0.7), rgba(249, 217, 73, 0.7)), url("img/carousel\ 5.jpg");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+  }
 }
-
 
 
 .slider section .bg-holder{
-    height: 100%;
-    width: 100%;
-    margin: 50px 0 50px 0;
-    
+  height: 100%;
+  width: 100%;
+  margin: 50px 0 50px 0;
+  
 }
 
 .slider section .bg-holder img{
-    height: 100%;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  
 }
 
 
 .slider section:nth-child(1){
-    opacity: 1;
-    z-index: 1;
+  opacity: 1;
+  z-index: 1;
 }
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  background-color: #F9D949;
+  color: #3C486B;
+  font-family: 'Source Serif Pro', serif;
+}
+
+.navbar-title-and-logo {
+  display: flex;
+  align-items: center;
+}
+
+.title-main {
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 50px;
+  letter-spacing: 6px;
+}
+
+.title-secondary {
+  margin-left: 20px;
+  font-weight: light;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.navbar-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%; /* Make the logo circular */
+  overflow: hidden; /* Ensure the circular shape */
+}
+
+.navbar-logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the logo covers the entire area */
+}
+
+.navbar-links {
+  display: flex;
+  list-style-type: none;
+  margin-right: 20px;
+}
+
+.navbar-links li {
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: #3C486B;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  background-color: #FF5733;
+  color: white;
+}
+
+.dropdown-container {
+  position: absolute;
+  top: 100%; /* Adjust this value as needed */
+  left: 0;
+  z-index: 1000; /* Ensure dropdown is above other elements */
+  background-color: white; /* Adjust background color if needed */
+  border: 1px solid #ccc; /* Add border for better visibility */
+  width: 200px; /* Adjust width as needed */
+  padding: 10px; /* Add padding for better appearance */
+  display: none;
+  
+}
+
+.navbar-links li {
+  position: relative; /* Ensure relative positioning for dropdown */
+}
+
+
+/* Style for the dropdown menu */
+.dropdown-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Show the dropdown when active class is applied */
+.dropdown-container.active {
+  display: block;
+}
+
+.services-container {
+  position: absolute;
+  top: 100%; /* Adjust this value as needed */
+  left: 0;
+  z-index: 1000; /* Ensure dropdown is above other elements */
+  background-color: white; /* Adjust background color if needed */
+  border: 1px solid #ccc; /* Add border for better visibility */
+  width: 200px; /* Adjust width as needed */
+  padding: 10px; /* Add padding for better appearance */
+  display: none;
+  
+}
+
+.navbar-links li {
+  position: relative; /* Ensure relative positioning for dropdown */
+}
+
+
+/* Style for the dropdown menu */
+.services-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Show the dropdown when active class is applied */
+.services-container.active {
+  display: block;
+}
+
 
