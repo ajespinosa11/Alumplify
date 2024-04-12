@@ -1,32 +1,27 @@
-// const slider = document.querySelector('.slider');
-// const carousel = document.querySelector('.carousel');
+// JavaScript to toggle dropdown visibility
+document.getElementById('resources-toggle').addEventListener('click', function() {
+  var resourcesDropdown = document.getElementById('resources-dropdown');
+  var servicesDropdown = document.getElementById('services-dropdown');
 
-// var sectionIndex = 0;
+  // Toggle visibility of resources dropdown
+  resourcesDropdown.classList.toggle('active');
 
-// function reset(){
-//     for (var i = 0; i < slider.children.length; i++){
-//         slider.children[i].style.opacity = 0;
-//         slider.children[i].style.zIndex = 0;
-//     }
-// } //fade effect
+  // Hide services dropdown if it's active
+  if (servicesDropdown.classList.contains('active')) {
+      servicesDropdown.classList.remove('active');
+  }
+});
 
-// var intervalId = 0;
+// JavaScript to toggle dropdown visibility
+document.getElementById('services-toggle').addEventListener('click', function() {
+  var resourcesDropdown = document.getElementById('resources-dropdown');
+  var servicesDropdown = document.getElementById('services-dropdown');
 
-// function startShow(){
-//     intervalId = setInterval(function(){
-//         reset();
-//         sectionIndex = sectionIndex < 4 ? sectionIndex + 1 : 0;
-//         slider.children[sectionIndex].style.zIndex = 1;
-//         slider.children[sectionIndex].style.opacity = 1;
-//     }, 5000);
-// } //auto-slideshow
+  // Toggle visibility of services dropdown
+  servicesDropdown.classList.toggle('active');
 
-// startShow();
-
-// carousel.addEventListener('mouseover', function(){
-//     clearInterval(intervalId);
-// });
-
-// carousel.addEventListener('mouseout', function(){
-//     startShow();
-// });
+  // Hide resources dropdown if it's active
+  if (resourcesDropdown.classList.contains('active')) {
+      resourcesDropdown.classList.remove('active');
+  }
+});
